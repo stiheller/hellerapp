@@ -35,13 +35,13 @@ class OrdenController extends Controller
     {
 
 
-       /* if(isset($request->desde)){
+       if(isset($request->desde)){
             $desde = $request->desde;
             $hasta = $request->hasta;
         }else{
             $desde = Carbon::now()->subDays(30)->Format('Y-m-d');
             $hasta = Carbon::now()->Format('Y-m-d');
-        }*/
+        }
 
         //return($desde."-".$hasta);
         $desde = '2022-01-01';
