@@ -1,0 +1,3 @@
+pingrequire('./bootstrap');
+
+require('alpinejs');

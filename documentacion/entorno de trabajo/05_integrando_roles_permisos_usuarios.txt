@@ -1,0 +1,52 @@
+01-) vamos a https://spatie.be/docs/laravel-permission/v4/installation-laravel
+
+        en una terminal de VSC ejecutamos
+
+        a-) composer require spatie/laravel-permission
+
+        b-) php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+
+        c-) php artisan optimize:clear
+
+02-) en la carpeta database\seeders generamos dos archivos
+
+    a-) database\seeders\UserSeeder.php
+    b-) database\seeders\DatabaseSeeder.php
+
+03-) migramos
+
+    a-) en una terminal de VSC ejecutamos php artisan migrate:fresh --seed
+
+
+04-) editamos el modelo del usuario app\Models\User.php
+
+    url https://spatie.be/docs/laravel-permission/v4/basic-usage/basic-usage
+
+    a-) importamos use Spatie\Permission\Traits\HasRoles;
+    b-) dentro de la clase User agregamos  use HasRoles;
+
+05-) roles
+
+    a-) creo el archivo database\seeders\RoleSeeder.php
+    b-) integro en database\seeders\DatabaseSeeder.php
+    c-) ejecuto la migracion con php artisan migrate:fresh
+
+06-) creo crud de usuarios
+
+    a-) creo el controlador php artisan make:controller Admin\UserController -r
+    b-) creo la carpeta de la vista resources\views\admin\users y creo lo archivos del crud
+    c-) edito la ruta en el archivo config\adminlte.php
+
+Notas en documentcion de la pagina principal
+
+// get a list of all permissions directly assigned to the user
+$permissionNames = $user->getPermissionNames(); // collection of name strings
+$permissions = $user->permissions; // collection of permission objects
+
+// get all permissions for the user, either directly, or from roles, or from both
+$permissions = $user->getDirectPermissions();
+$permissions = $user->getPermissionsViaRoles();
+$permissions = $user->getAllPermissions();
+
+// get the names of the user's roles
+$roles = $user->getRoleNames(); // Returns a collection

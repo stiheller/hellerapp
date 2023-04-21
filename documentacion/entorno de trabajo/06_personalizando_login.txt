@@ -1,0 +1,75 @@
+url para documentacion https://laravel.com/docs/8.x/fortify
+
+01-) en una terminal de VSC
+
+    a-) php artisan make:migration add_username_to_users_table --table=users
+    b-) editamos el archivo creado
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('username')->unique();
+        });
+    c-) editamos el modelo app\Models\User.php
+
+        agregamos despues 'email' -> 'username'
+    d-) ejecutamos en una terminal de VSC
+
+            php artisan migrate:fresh
+
+02-) editamos el controlador para crear usuarios app\Actions\Fortify\CreateNewUser.php
+
+ public function create(array $input)
+    {
+        Validator::make($input, [
+            'name' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255','unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => $this->passwordRules(),
+            'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
+        ])->validate();
+
+        return User::create([
+            'name' => $input['name'],
+            'username' => $input['username'],
+            'email' => $input['email'],
+            'password' => Hash::make($input['password']),
+        ]);
+    }
+
+03-) editamos el archivo config\fortify.php
+
+
+    a-) cambiamos  'username' => 'email' por  'username' => 'username'
+
+
+
+04-) editamos el archivo app\Providers\FortifyServiceProvider.php
+
+    a-) importamos
+            el modelo User
+            use App\Models\User;
+            use Illuminate\Support\Facades\Hash;
+
+    vamos a https://laravel.com/docs/8.x/fortify#customizing-user-authentication
+
+    b-) Fortify::authenticateUsing(function (Request $request) {
+            $user = User::where('email', $request->username)
+                        ->orwhere('username', $request->username)
+                        ->first();
+
+            if ($user &&
+                Hash::check($request->password, $user->password)) {
+                return $user;
+            }
+        })
+
+05-) editamos el formulario resources\views\auth\login.blade.php
+
+    {{-- <div>
+        <x-jet-label for="email" value="{{ __('Email') }}" />
+        <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+    </div> --}}
+
+    <div>
+        <x-jet-label for="username" value="{{ __('Username') }}" />
+        <x-jet-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus />
+    </div>

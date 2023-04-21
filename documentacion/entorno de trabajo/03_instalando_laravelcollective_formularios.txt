@@ -1,0 +1,9 @@
+01-) vamos a https://laravelcollective.com/docs/6.x/html
+
+02-) instalacion
+
+    en una terminal de VSC ejecutamos
+
+    composer require laravelcollective/html
+
+

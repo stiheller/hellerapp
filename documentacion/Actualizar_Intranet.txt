@@ -1,0 +1,12 @@
+
+Copiar
+    app\Models\Personal
+    resources\views\personal
+    public\boostrap
+Archivos
+    .env
+    config\database.php
+    app\Http\Controllers\Personal\PersonalController.php
+    resources\views\homeintranet\index.blade.php
+    routes\web.php
+    public\js\onlynumber.js

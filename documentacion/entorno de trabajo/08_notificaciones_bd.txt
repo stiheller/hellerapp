@@ -1,0 +1,127 @@
+01-) url de referencia https://laravel.com/docs/8.x/notifications#database-notifications
+02-) creamos la migracion
+
+    en una terminal de VSC ejecutamos
+
+    a-) php artisan notifications:table
+    b-) php artisan migrate
+
+03-) creamos la notificacion
+
+    en una terminal de VSC ejecutamos php artisan make:notification notification
+
+04-) editamos en archivo  app\Notifications\Notification.php
+
+        a-) importamos
+            use App\Models\User;
+            use Carbon\Carbon;
+
+        b-) public function __construct(User $user)
+            {
+                $this->user = $user;
+            }
+
+        c-) public function via($notifiable)
+            {
+                return ['mail']; por   return ['database'];
+            }
+
+        d-) public function toArray($notifiable)
+            {
+               return [
+                    'id' => $this->mensaje->id,
+                    'de' =>$this->mensaje->de,
+                    'para' => $this->mensaje->para,
+                    'asunto' => $this->mensaje->asunto,
+                    'mensaje' => $this->mensaje->mensaje,
+                    'time' => Carbon::now()->diffForHumans(),
+                ];
+            }
+
+05-) agregando rutas
+
+        editamos el formulario routes\admin.php en la seccion usuarios agregamos las rutas
+
+        Route::get('user/sendmessage',[UserController::class, 'sendmessage'])->name('admin.users.sendmessage');
+        Route::post('user/savemessage',[UserController::class, 'savemessage'])->name('admin.users.savemessage');
+
+
+06-) Enviando la Notificacion
+        en el controlador app\Http\Controllers\Admin\UserController.php agregamos 2 funciones
+
+        //esta funcion llama al formulario para enviar mensajes
+
+        public function sendmessage()
+        {
+            $users = User::where('id', '!=',auth()->user()->id )
+                            ->orderBy('name', 'asc')
+                            ->get();
+            return view('admin.users.sendmessage', compact('users'));
+        }
+
+        //esta otra fuincion inserta el mensaje y agrega la notificacion
+
+        public function savemessage(Request $request)
+        {
+            //inserto el mensaje
+            $mensaje = new Message;
+            $mensaje->de = auth()->user()->id;
+            $mensaje->para = $request->para;
+            $mensaje->asunto = $request->asunto;
+            $mensaje->mensaje = $request->compose;
+            $mensaje->save();
+
+            //inserto la notificacion de un usuario a otro usuario
+            auth()->user()->notify(new UserMessage($mensaje));
+
+            //para multiples usuarios agregar un foreach con la lista de usuarios
+            return ('ok');
+        }
+
+continuar con en video 06 Dot Coding\Notificaciones con Laravel 7
+
+07-) creando el events
+
+        en una consola de comando VSC ejecutamos
+
+        php artisan make:event UserMessage
+        esto generara un nuevo archivo en app\Events\UserMessage.php
+
+        class UserMessage
+{
+    public $mensaje;
+    use Dispatchable, InteractsWithSockets, SerializesModels;
+
+    /**
+     * Create a new event instance.
+     *
+     * @return void
+     */
+    public function __construct($mensaje)
+    {
+        $this->mensaje = $mensaje
+    }
+
+    /**
+     * Get the channels the event should broadcast on.
+     *
+     * @return \Illuminate\Broadcasting\Channel|array
+     */
+    public function broadcastOn()
+    {
+        return new PrivateChannel('channel-name');
+    }
+}
+
+08-) creando el listener
+
+    en una consola de comando VSC ejecutamos
+    php artisan make:listener UserMessageListener esto crea un archivo en app\Listeners\UserMessageListener.php
+    editamos en listener
+
+    a-) editamos el archivo
+    b-) editamos app\Providers\EventServiceProvider.php
+        editamos el archivo
+
+
+

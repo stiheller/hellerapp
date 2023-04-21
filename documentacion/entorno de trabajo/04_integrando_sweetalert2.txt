@@ -1,0 +1,57 @@
+01-) ir a https://realrashid.github.io/sweet-alert/install
+
+02-) instalamos el componente
+        
+        en una terminal de VSC ejecutar
+        
+        composer require realrashid/sweet-alert
+
+03-) publicar el paquete 
+        
+        en una terminal de VSC ejecutar
+
+        php artisan sweetalert:publish
+
+04-)  en el controlador app\Http\Controllers\Admin\UserController.php importamos el facade
+
+       a-) use RealRashid\SweetAlert\Facades\Alert;
+
+       b-) en la funcion index agregamos 
+
+            if(session('success_message')){
+                Alert::success('OK!', session('success_message'));
+            }
+
+        c-) en la funcion store
+
+            return redirect()->route('admin.users.index')->withSuccessMessage('Usuario Creado con Exito');
+
+05-) en la vista resources\views\admin\users\index.blade.php agregamos 
+
+        dentro del  <div class="card-body"> 
+            
+            @include('sweetalert::alert')
+
+
+
+Nivel General para todos los controladores 
+
+01-) editamos el archivo app\Http\Controllers\Controller.php
+
+    a-) incluimos el archivo use RealRashid\SweetAlert\Facades\Alert;
+
+    b-) creamos una function 
+
+    public function __construct()
+    {
+        $this->middleware(function($request, $next){
+
+            if(session('success_message')){
+                Alert::success('OK!', session('success_message'));
+            }
+
+            return $next($request);
+
+        });
+    }
+

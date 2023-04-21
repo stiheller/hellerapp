@@ -1,0 +1,82 @@
+01-) edit el archivo app\Providers\RouteServiceProvider.php 
+
+    cambiar public const HOME = '/dashboard'; a public const HOME = '/dash';
+
+02-) generando rutas en la carpeta routes 
+
+        a-) generamos un nuvo archivo llamado admin.php
+
+        b-) en el archivo app\Providers\RouteServiceProvider.php declaramos a admin.php como archivo de rutas
+
+            en la funcion boot agregamos
+
+             Route::middleware('web','auth')
+                ->prefix('admin')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/admin.php'));
+
+03-) creo el controlador
+
+    en una terminal de VSC ejecutamos php artisan make:controller Admin\HomeController por resultado
+    nos creará app\Http\Controllers\Admin\HomeController.php
+
+    public function index(){
+        return view ('dash.index');
+    }
+
+04-) edito el archivo routes\admin.php
+
+    <?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\HomeController;
+
+
+Route::get('', [HomeController::class, 'index'] );
+
+05-) creo la vista en resources\view\dash y dentro un archivo llamado index.blade.php
+
+06-) instalando AdminLTE 
+
+    a-) vamos a https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Installation
+    b-) en una terminal de VSC ejecutamos composer require jeroennoten/laravel-adminlte
+    c-) en una terminal de VSC ejecutamos php artisan adminlte:install
+    d-) pegamos el siguiente codigo en resources\views\admin\index.blade.php
+
+        @extends('adminlte::page')
+
+        @section('title', 'Dashboard')
+
+        @section('content_header')
+            <h1>Dashboard</h1>
+        @stop
+
+        @section('content')
+            <p>Welcome to this beautiful admin panel.</p>
+        @stop
+
+        @section('css')
+            <link rel="stylesheet" href="/css/admin_custom.css">
+        @stop
+
+        @section('js')
+            <script> console.log('Hi!'); </script>
+        @stop
+
+07-) modifico el archivo routes\web.php
+
+//habilitar esta ruta para home
+/*Route::get('/', function () {
+    return view('welcome');
+});*/
+
+
+Route::get('/', function () {
+    return view('auth.login');
+}); 
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dash', function () {
+    return view('dash.index');
+})->name('dash');
+
+la configuracion de AdminLTE se realiza desde config\adminlte.php

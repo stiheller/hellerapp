@@ -1,0 +1,18 @@
+00-) ir a https://github.com/barryvdh/laravel-dompdf / tutorial https://www.youtube.com/watch?v=Gow5-8pJTUk
+01-) en una consola de VSC 
+        a-) ejecutar composer require barryvdh/laravel-dompdf
+        b-) ejecutar php artisan vendor:publish --provider="Barryvdh\DomPDF\ServiceProvider"
+
+02-) en el config/app.php agregar 
+
+    a-) seccion 'providers' al final agregar Barryvdh\DomPDF\ServiceProvider::class,
+    b-) seccion  'aliases' al final agregar 'PDF' => Barryvdh\DomPDF\Facade::class,
+
+
+03-) crear ruta en routes\admin.php
+
+    Route::get('facturas/{id}/imprimir',[FacturaController::class, 'imprimirFactura'])->name('administracion.facturas.imprimir');
+
+04-) crear la vista
+
+05-) programar el boton

@@ -1,0 +1,166 @@
+01-) Instalando herramientas
+
+	a-) Instalar servidor de internet Xampp,Wampp o laragon
+	b-) instalar comoposer
+	c-) Instalar Node.js
+	d-) Instalar Visual Studio Code
+		Snippets
+
+	e-) iniciar servidor web abrir una consola de comando dentro de la carpeta htdocs ejecutar el siguiente comando
+
+		composer global require laravel/installer ->comentario (laravel installer)
+
+    f-) con proxy
+
+        1-) setear proxy de composer en el instalador o desde cmd con privilegios administrador  Set the proxy by writing: SET HTTP_PROXY=http://172.16.0.2:3128
+
+        2-) setear proxy nodejs desde cmd con privilegios administrador npm config set proxy http://172.16.0.2:3128
+
+        3-) composer global require laravel/installer ->comentario (laravel installer)
+
+02-) Configurando Bade de Datos
+	a-) en phpmyadmin crear una base de datos llamada intranet tipo: utf8mb4_general_ci
+
+03-)Creando el proyecto
+
+	a-)laravel new intranet --jet
+		opcion 0
+		no
+
+    b-) dentro del proyecto
+			a-) npm install
+			b-) npm run dev
+
+	c-)abrimos carpeta blog con visual studio code
+				revisamos el archivo .env en el directorio raiz para ver el nombre de la BD que asigno
+				descomentamos  DB_HOST=127.0.0.1
+				y si existe eliminmos DB_HOST=mysql
+				deberia quedar asi
+				DB_HOST=127.0.0.1
+				DB_PORT=3306
+				DB_DATABASE=intranet
+				DB_USERNAME=root
+				DB_PASSWORD=
+
+	d-) ajustamos AppServiceProvider app\Providers\AppServiceProvider.php
+
+        1-) al inicio Importamos la libreria
+
+            use Illuminate\Support\Facades\Schema;
+
+
+        2-) en la funcion boot agregamos
+
+            Schema::defaultStringLength(191);
+
+
+
+	e-) en visual studio code abro terminal(ctrl + ñ)
+
+			a-) php artisan migrate (genera las base de datos iniciales)
+
+04-) Creando el virtualhost
+
+	a-) editamos el archivo hosts en la carpeta C:\Windows\System32\drivers\etc
+
+		127.0.0.1	intranet.test
+
+	b-) editamos el archivo httpd-vhosts.conf en la carpeta C:\xampp\apache\conf\extra
+
+		<VirtualHost *>
+			DocumentRoot "C:\xampp\htdocs"
+			ServerName localhost
+		</VirtualHost>
+		<VirtualHost *>
+				DocumentRoot "C:\xampp\htdocs\intranet\public"
+				ServerName intranet.test
+				<Directory "C:\xampp\htdocs\intranet\public">
+					Options All
+					AllowOverride All
+					Require all granted
+				</Directory>
+		</VirtualHost>
+
+05-) reiniciamos el servidor web
+
+06-) en el navegador escribir la direccion http://intranet.test/
+
+07-) cambiar ideoma mensajes
+
+	a-) descargamos https://github.com/Laraveles/spanish
+
+	b-) descargamos
+
+	c-) descomprimimos es que esta dentro del zip spanish-master\resources\lang y la copiamos en resources\lang
+
+	d-) editamos config\app.php y cambiamos 'locale' => 'en', por 'locale' => 'es',
+08-) Logs
+
+	laravel guarda un log de todas las acciones el archiv se encuentra en
+
+	storage\logs\laravel.log
+
+09-) cambiar a modo
+    desarrollo
+        editamos el archivo .env cambiando
+
+        APP_ENV=local por APP_ENV=development
+        APP_DEBUG=true por APP_DEBUG=true
+
+    produccion
+        APP_ENV=local por APP_ENV=production
+        APP_DEBUG=false
+
+
+
+
+agregar las siguientes extenciones a VSC
+Codigo
+    /* editor */
+    Bracket Highlighter
+    Rainbow Brackets
+    DotENV
+    EditorConfig for VS Code
+    HTML Boilerplate
+    IntelliSense for CSS class names in HTML
+    Auto Close Tag
+    Auto Rename Tag
+    Auto Complete Tag
+    Spanish Language Pack for Visual Studio Code
+
+    /* laravel */
+
+    Laravel Blade Snippets
+    Laravel Snippets
+    Laravel goto view
+    Laravel Extra Intellisense
+
+    /* Personalizacion */
+    Sublime Material Theme -> este
+    Material Icon Theme
+    One Monokai Theme
+    VSCode Great Icons
+    vscode-icons
+
+limpiar chace laravel
+
+php artisan cache:clear
+php artisan config:clear
+php artisan config:cache
+
+si da este error Failed to clear cache. Make sure you have the appropriate permissions.
+borrar
+/bootstrap/cache/packages.php
+/bootstrap/cache/services.php
+/bootstrap/cache/config.php
+
+y luego ejecutar php artisan
+
+Zona Horaria
+https://parzibyte.me/blog/2017/04/17/cambiar-zona-horaria-timezone-laravel-5-4-php/
+
+Configuracion Sesiones
+https://www.it-swarm-es.com/es/session/como-configurar-el-tiempo-de-espera-de-la-sesion-en-laravel-4.2/1049726955/
+
+
+

@@ -1,0 +1,20 @@
+01-) vamos a https://yajrabox.com/docs/laravel-datatables/master/installation
+02-) en una terminal de VSC 
+
+        a-) composer require yajra/laravel-datatables-oracle
+
+        b-) php artisan vendor:publish --tag=datatables
+
+03-) ir al sitio https://datatables.net/download/ tildar 
+
+        a-) Boostrap4
+        b-) datatables
+        c-) Buttons 
+                HTML5 
+                JSZIP
+                pdfmake
+        d-) click en dowload y descargar los archivos
+
+
+
+
