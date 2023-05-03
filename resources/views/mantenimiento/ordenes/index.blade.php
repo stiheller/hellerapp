@@ -100,15 +100,16 @@
               <!-- /.card-tools -->
             </div>
             <!-- /.card-header -->
-            <div class="card-body p-0">
+            <div class="card-body p-0 max-h-full">
               <div class="mailbox-controls">
 
-                <a href="{{ route('mnt.ordenes.index') }}"  class="btn btn btn-warning btn-sm" title="Refrescar busqueda"><i class="fas fa-sync-alt"></i></a>
+
                 <div class="float-right">
                     <form action="{{ route('mnt.ordenes.index') }}" method="GET">
                         <input type="date"  name="desde" id="desde" value="{{ $desde}}">
                         <input type="date"  name="hasta" id="hasta" value="{{ $hasta }}">
-                        <a href="{{ route('mnt.ordenes.index') }}"  class="btn btn-primary btn-sm" title="Buscar por Fechas"><i class="fas fa-search"></i></a>
+                        <button type="submit" class="btn btn-primary btn-sm" title="Buscar por Fechas"><i class="fas fa-search"></i></button>
+                        <a href="{{ route('mnt.ordenes.index') }}"  class="btn btn btn-warning btn-sm" title="Refrescar busqueda"><i class="fas fa-sync-alt"></i></a>
                     </form>
 
                   <!-- /.btn-group -->
@@ -122,21 +123,25 @@
                         <tr>
                             <td>
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                     </button>
                                     <ul class="dropdown-menu" style="">
-                                      <li><a class="dropdown-item" href="{{ route('mnt.ordenes.edit', $item->id) }}"><i class="fas fa-edit"></i>  Editar</a></li>
-                                      <li><a class="dropdown-item" href="#"><i class="far fa-sticky-note"></i> Ver Notas</a></li>
-                                      <li><a class="dropdown-item" href="{{ route('mnt.ordenes.imprimirOrdenbyId', $item->id) }}"><i class="fas fa-print"></i> Imprimir</a></li>
+                                      <li class="list-group-item"><a class="dropdown-item" href="{{ route('mnt.ordenes.edit', $item->id) }}"><i class="fas fa-edit"></i>  Editar</></li>
+                                      <li class="list-group-item"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalLg"><i class="far fa-sticky-note"></i> Agregar Nota</a></li>
+                                      @if ($item->notas > 0 )
+                                        <li class="list-group-item"><a class="dropdown-item" href="#"><i class="far fa-sticky-note"></i> Ver Notas</a></li>
+                                      @endif
+                                      @if ($item->estado_id == 99)
+                                            <li class="list-group-item"><a class="dropdown-item" href="#"><i class="fas fa-trash-alt"></i> Eliminar</a></li>
+                                      @endif
 
-                                      <li><a class="dropdown-item" href="#"><i class="fas fa-trash-alt"></i> Eliminar</a></li>
                                     </ul>
                                 </div>
                             </td>
                             <td class="mailbox-name"><label <span class="badge {{ $item->colorFondo }} float-right" title=" {{ $item->estado }} ">{{ $item->sigal }}</span></a></td>
-                            <td class="mailbox-subject">{{ $item->sector }}
-                            <td class="mailbox-subject">{{ $item->nombreCorto }}
-                            </td>
+                            <td class="mailbox-subject">{{ $item->sector }}</td>
+                            <td class="mailbox-subject">{{ $item->nombreCorto }}</td>
+                            <td class="mailbox-subject"><span class="badge badge-success float-right" title="Cantidad de Notas">{{ $item->notas }}</span></td>
                             <td class="mailbox-attachment"></td>
                             <td class="mailbox-date">{{ \Carbon\Carbon::parse($item->fechaIni)->format('d/m/Y')}}</td>
                             <td class="mailbox-date">{{ \Carbon\Carbon::parse($item->fechaVto)->format('d/m/Y')}}</td>
@@ -147,9 +152,35 @@
                   </tbody>
                 </table>
                 <!-- /.table -->
-              </div>
+                <!-- Modal nota -->
+                <div class="modal fade" id="exampleModalLg" tabindex="-1" aria-labelledby="exampleModalLgLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Agregar Nota</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+
+                                <textarea name="nota" id="nota" "cols="30" rows="10"></textarea>
+
+
+                                <input type="file" name="image" class="form-control" id="chooseFile"/>
+
+
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Grabar</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
               <!-- /.mail-box-messages -->
             </div>
+             <!-- Modal nota -->
             <!-- /.card-body -->
             <div class="card-footer p-0">
               <div class="mailbox-controls">
@@ -178,4 +209,30 @@
 
 
 @section('js')
+    <script src="{{ asset('/js/ckeditor.js') }}"></script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#nota' ), {
+                toolbar: {
+                    items: [
+                        'heading', '|',
+                        'fontfamily', 'fontsize', '|',
+                        'alignment', '|',
+                        'fontColor', 'fontBackgroundColor', '|',
+                        'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript', '|',
+                        'link', '|',
+                        'outdent', 'indent', '|',
+                        'bulletedList', 'numberedList', 'todoList', '|',
+                        'code', 'codeBlock', '|',
+                        'undo', 'redo'
+                    ],
+                    shouldNotGroupWhenFull: true
+                }
+            } )
+            .catch( error => {
+                console.error( error );
+
+
+        } );
+    </script>
 @stop

@@ -34,7 +34,6 @@ class OrdenController extends Controller
     public function index(Request $request)
     {
 
-
        if(isset($request->desde)){
             $desde = $request->desde;
             $hasta = $request->hasta;
@@ -43,9 +42,6 @@ class OrdenController extends Controller
             $hasta = Carbon::now()->Format('Y-m-d');
         }
 
-        //return($desde."-".$hasta);
-        $desde = '2022-01-01';
-        $hasta = '2023-12-31';
 
         /* indicador de ordenes estado */
         $query = "SELECT e.`name`, count(o.id) as cant
@@ -56,8 +52,8 @@ class OrdenController extends Controller
 
         $estados = OrdenEstado::All();
 
-        $query ="SELECT  o.id, o.nombreCorto, o.fechaIni, o.fechaVto, s.Nombre AS sector,
-            e.name AS estado, e.sigal, e.colorFondo, e.colorTexto, cant.cant  AS notas,
+       $query ="SELECT  o.id, o.nombreCorto, o.fechaIni, o.fechaVto, s.Nombre AS sector,
+            e.name AS estado, e.sigal,  e.id as estado_id, e.colorFondo, e.colorTexto, cant.cant  AS notas,
             p.`name` AS prioridad, emp.`name` AS empresa, u.`name` as usuario
             FROM mnt_ordenes o
             LEFT JOIN (SELECT orden_id, COUNT(*) as cant FROM mnt_ordenes_notas  GROUP BY orden_id) AS cant ON o.id = cant.orden_id
@@ -68,8 +64,6 @@ class OrdenController extends Controller
             INNER JOIN users u ON u.id = o.user_id
             WHERE o.fechaIni BETWEEN '".$desde."' AND '".$hasta."' ORDER BY e.id DESC";
         $listado = DB::select(DB::raw($query));
-
-
 
         return view('mantenimiento.ordenes.index', compact('indicadores','listado', 'estados', 'desde', 'hasta'));
 
@@ -198,9 +192,25 @@ class OrdenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $orden = Orden::findOrFail($id);
+        $orden->destroy();
+        /* borro las notas */
+        $query = "DELETE  FROM mnt_ordenes_notas WHERE orden_id = ".$id;
+        $notas = DB::select(DB::raw($query));
+         //inserto log
+         $log = new Log;
+         $log->user_id = auth()->user()->id;
+         $log->ip = $request->ip();
+         $log->table_id = $orden->id;
+         $log->log_accion_id = 60;
+         $log->save();
+         //mensje
+         Session::flash('message','Orden Eliminada con Exito');
+         //retorno
+         return redirect()->route('mnt.ordenes.index');
+
     }
     public function ordenAgregarNota(Request $request){
 
