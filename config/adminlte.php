@@ -373,6 +373,100 @@ return [
         ],
 
         [
+            'text'    => 'Inventario',
+            'icon'    => 'fas fa-laptop-code',
+            'icon_color' => 'green',
+            /* 'label'       => 5,
+            'label_color' => 'success', */
+            'active'    => ['inventario*'],
+            'can' => 'admin.users.index',
+            'submenu' => [
+                [
+                    'text'       => 'Inventario',
+                    'route'      => 'inventario.principal',/* 'admin.home', */
+                    'active' => ['inventario.principal'],
+                    'icon'       => 'fas fa-globe fa-fw',
+                    'icon_color' => 'white',
+                ],
+                ['header' => 'SETTINGS'],
+                [
+                    'text' => 'Sectores',
+                    'route'  => 'inventario.sectores.index',/* 'admin.sectores.index', */
+                    'active' => ['inventario/sectores*'],
+                    'icon' => 'fas fa-fw fa-city',
+                    'icon_color' => 'indigo',
+                ],
+                [
+                    'text' => 'Switchs',
+                    'route'  => 'admin.users.index',/* 'admin.conmutadores.index', */
+                    'active' => ['admin/conmutadores*'],
+                    'icon' => 'fas fa-fw fa-handshake',
+                    'icon_color' => 'orange',
+                ],
+                [
+                    'text' => 'Racks',
+                    'route'  => 'admin.users.index',/*  'admin.racks.index', */
+                    'active' => ['admin/racks*'],
+                    'icon' => 'fab fa-fw fa-buffer',
+                    'icon_color' => 'cyan',
+                ],
+                [
+                    'text'    => 'Equipamientos',
+                    'icon' => 'fas fa-fw fa-truck-monster',
+                    'icon_color' => 'green',
+                    'url'     => 'admin.users.index',/* 'admin.home', */
+                    'submenu' => [
+                        [
+                            'text' => "CPU's",
+                            'icon' => 'fas fa-fw fa-dice-d6',
+                            'icon_color' => 'teal',
+                            'active' => ['admin/cpus*'],
+                            'route'  => 'admin.users.index',/*  'admin.cpus.index', */
+                        ],
+                        [
+                            'text'    => 'Monitores',
+                            'icon' => 'fas fa-fw fa-desktop',
+                            'icon_color' => 'teal',
+                            'active' => ['admin/monitores*'],
+                            'route'     => 'admin.users.index',/*  'admin.monitores.index', */
+                        ],
+                        [
+                            'text' => 'Impresoras',
+                            'icon' => 'fas fa-fw fa-print',
+                            'icon_color' => 'teal',
+                            'active' => ['admin/impresoras*'],
+                            'route'  => 'admin.users.index',/*  'admin.impresoras.index', */
+                        ],
+                        [
+                            'text' => 'Scanners',
+                            'icon' => 'fas fa-fw fa-print',
+                            'icon_color' => 'teal',
+                            'active' => ['admin/scanners*'],
+                            'route'  => 'admin.users.index',/*  'admin.impresoras.index', */
+                        ],
+                    ],
+                ],
+                [
+                    'text'    => 'Puestos',
+                    'icon'    => 'fas fa-fw fa-keyboard',
+                    'icon_color' => 'purple',
+                    'active' => ['admin/puestos*'],
+                    'route'  => 'admin.users.index',/* 'admin.puestos.index', */
+                ],
+                ['header' => "####  IP's  ####"],
+                [
+                    'text'       => "Registro de IP's",
+                    'icon_color' => 'red',
+                    'icon' => 'fas fa-fw fa-eye',
+                    'route'        => 'admin.users.index',/*  'admin.ips.index', */
+                    'active' => ['admin/ips*'],
+                ],
+
+
+            ],
+        ],
+
+        [
             'text'    => 'Comunicación',
             'icon'    => 'fas fa-bullhorn fa-fw',
             'label'       => 1,
