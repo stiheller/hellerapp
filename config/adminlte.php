@@ -405,7 +405,7 @@ return [
                 ],
                 [
                     'text' => 'Racks',
-                    'route'  => 'admin.users.index',/*  'admin.racks.index', */
+                    'route'  => 'inventario.racks.index',/*  'admin.racks.index', */
                     'active' => ['admin/racks*'],
                     'icon' => 'fab fa-fw fa-buffer',
                     'icon_color' => 'cyan',

@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         /* $this->call(UserSeeder::class); */
 
         /* Para Inventario Descomentar */
-        $this->call(SectorSeeder::class);
+        /* $this->call(SectorSeeder::class); */
+        $this->call(RackSeeder::class);
     }
 }

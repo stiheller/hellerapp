@@ -4,6 +4,7 @@
 use App\Http\Controllers\Admin\CpuController;
 use App\Http\Controllers\Admin\EquipamientoController; */
 use App\Http\Controllers\Inventario\HomeController;
+use App\Http\Controllers\Inventario\RackController;
 use App\Http\Controllers\Inventario\SectorController;
 /* use App\Http\Controllers\Admin\ImagenConmutadorController;
 use App\Http\Controllers\Admin\ImagenCpuController;
@@ -30,7 +31,7 @@ Route::get('', [HomeController::class, 'principal'])->name('inventario.principal
 
 Route::resource('sectores', SectorController::class)->names('inventario.sectores');
 
-/* Route::resource('racks', RackController::class)->names('admin.racks'); */
+Route::resource('racks', RackController::class)->names('inventario.racks');
 //Imagenes de Rack:
 /* Route::get('racks/imagenes/{rack}', [RackController::class, 'imagenes'])->name('admin.racks.imagenes');
 Route::get('imagenRacks/create/{rack}', [ImagenRackController::class, 'create'])->name('admin.imagenRacks.create');
