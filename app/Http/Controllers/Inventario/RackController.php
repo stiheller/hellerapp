@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Inventario;
 
 use App\Http\Controllers\Controller;
+use App\Models\Inventario\Conmutador;
 use App\Models\Inventario\Rack;
 use Illuminate\Http\Request;
 
@@ -54,11 +55,11 @@ class RackController extends Controller
      */
     public function show(Rack $rack)
     {
-        return view('inventario.racks.show');
-        /* $conmutadores = Conmutador::where('rack_id','=',$rack->id)
+        /* return view('inventario.racks.show'); */
+        $conmutadores = Conmutador::where('rack_id','=',$rack->id)
                                     ->get();
 
-        return view('inventario.racks.show', compact('rack', 'conmutadores')); */
+        return view('inventario.racks.show', compact('rack', 'conmutadores'));
     }
 
     /**

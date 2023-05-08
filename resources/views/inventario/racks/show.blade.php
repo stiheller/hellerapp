@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Inventario Racks')
+@section('title', 'Inventario / Racks / Show')
 
 @section('content_header')
-    <a class="btn btn-info float-right" href="{{ route('admin.racks.index') }}">Volver al Índice</a>
+    <a class="btn btn-info float-right" href="{{ route('inventario.racks.index') }}">Volver al Índice</a>
     <h1>Puesto: {{ $rack->nombre }}</h1>
 @stop
 
@@ -86,7 +86,7 @@
                                             </td>
                                             <td>{{$conmutador->fecha_limpieza}}</td>
                                             <td width="10px">
-                                                <a class="btn btn-success btn-sm" href="{{route('admin.conmutadores.show', $conmutador)}}">
+                                                <a class="btn btn-success btn-sm" href="{{route('inventario.conmutadores.show', $conmutador)}}">
                                                     <i class="fas fa-eye"></i> Detalle
                                                 </a>
                                             </td>
@@ -105,7 +105,7 @@
                 </div>
                 <div class="tab-pane fade" id="imagenes-desc" role="tabpanel" aria-labelledby="imagenes-desc-tab">
                     <div class="row">
-                        @if ($rack->imagenes->count())
+                        {{-- @if ($rack->imagenes->count())
                             @foreach ($rack->imagenes as $imagen)
                             <div class="row">
                                 <div class="col-12 mt-2">
@@ -119,7 +119,7 @@
                             @endforeach    
                         @else
                             <p>No hay imágenes Asociadas al Rack.</p>
-                        @endif
+                        @endif --}}
                     </div>
                 </div>
                 {{-- <div class="tab-pane fade" id="conexion-desc" role="tabpanel" aria-labelledby="conexion-desc-tab">

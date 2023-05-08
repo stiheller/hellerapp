@@ -1,14 +1,14 @@
 @extends('adminlte::page')
 
-@section('title', 'Inventario Racks')
+@section('title', 'Inventario / Switchs')
 
 @section('content_header')
-    <a class="btn btn-secondary float-right" href="{{ route('inventario.racks.create') }}">Crear Rack</a>
-    <h1>Listado de Rack's:</h1>
+    <a class="btn btn-secondary float-right" href="{{ route('inventario.conmutadores.create') }}">Crear Switch</a>
+    <h1>Lista de Switchs</h1>
 @stop
 
 @section('content')
-    @livewire('inventario.racks-index')
+    @livewire('inventario.conmutadores-index')
 @stop
 
 @section('css')
@@ -18,19 +18,6 @@
 @section('js')
     <script src="sweetalert2.all.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    @if (session('eliminar') == 'ok')
-        <script>
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Se Eliminó Correctamente.!',
-                showConfirmButton: false,
-                timer: 2000
-            })
-        </script>
-    @endif
-
     @if (session('create') == 'ok')
         <script>
             Swal.fire({
@@ -49,6 +36,18 @@
                 position: 'top-end',
                 icon: 'success',
                 title: 'Se editó el Rack Correctamente.!',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        </script>
+    @endif
+
+    @if (session('eliminar') == 'ok')
+        <script>
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Se Eliminó Correctamente.!',
                 showConfirmButton: false,
                 timer: 2000
             })
@@ -83,4 +82,3 @@
         console.log('Hi!');
     </script>
 @stop
-

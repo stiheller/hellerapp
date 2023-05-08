@@ -3,6 +3,8 @@
 /* use App\Http\Controllers\Admin\ConmutadorController;
 use App\Http\Controllers\Admin\CpuController;
 use App\Http\Controllers\Admin\EquipamientoController; */
+
+use App\Http\Controllers\Inventario\ConmutadorController;
 use App\Http\Controllers\Inventario\HomeController;
 use App\Http\Controllers\Inventario\RackController;
 use App\Http\Controllers\Inventario\SectorController;
@@ -38,9 +40,9 @@ Route::get('imagenRacks/create/{rack}', [ImagenRackController::class, 'create'])
 Route::post('imagenRacks/store/{rack}', [ImagenRackController::class, 'store'])->name('admin.imagenRacks.store');
 Route::delete('imagenRacks/destroy/{imagenRack}', [ImagenRackController::class, 'destroy'])->name('admin.imagenRacks.destroy');
 
-Route::resource('ips', IpController::class)->names('admin.ips');
+Route::resource('ips', IpController::class)->names('admin.ips');*/
 
-Route::resource('conmutadores', ConmutadorController::class)->names('admin.conmutadores'); */
+Route::resource('conmutadores', ConmutadorController::class)->names('inventario.conmutadores');
 //Imagenes de CPU:
 /* Route::get('conmutadores/imagenes/{conmutador}', [ConmutadorController::class, 'imagenes'])->name('admin.conmutadores.imagenes');
 Route::get('imagenConmutadores/create/{id}', [ImagenConmutadorController::class, 'create'])->name('admin.imagenConmutadores.create');

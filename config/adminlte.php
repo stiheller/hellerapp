@@ -398,8 +398,8 @@ return [
                 ],
                 [
                     'text' => 'Switchs',
-                    'route'  => 'admin.users.index',/* 'admin.conmutadores.index', */
-                    'active' => ['admin/conmutadores*'],
+                    'route'  => 'inventario.conmutadores.index',/* 'admin.conmutadores.index', */
+                    'active' => ['inventario/conmutadores*'],
                     'icon' => 'fas fa-fw fa-handshake',
                     'icon_color' => 'orange',
                 ],
