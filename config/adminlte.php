@@ -414,7 +414,7 @@ return [
                     'text'    => 'Equipamientos',
                     'icon' => 'fas fa-fw fa-truck-monster',
                     'icon_color' => 'green',
-                    'active' => ['inventario/cpus*'], /*  ['inventario/cpus*', 'inventario/monitores*'], */
+                    'active' => ['inventario/cpus*','inventario/monitores*'], /*  ['inventario/cpus*', 'inventario/monitores*'], */
                     /* 'url'     => 'admin.users.index', *//* 'admin.home', */
                     'submenu' => [
                         [
@@ -428,8 +428,8 @@ return [
                             'text'    => 'Monitores',
                             'icon' => 'fas fa-fw fa-desktop',
                             'icon_color' => 'teal',
-                            'active' => ['admin/monitores*'],
-                            'route'     => 'admin.users.index',/*  'admin.monitores.index', */
+                            'active' => ['inventario/monitores*'],
+                            'route'     => 'inventario.monitores.index',/*  'admin.monitores.index', */
                         ],
                         [
                             'text' => 'Impresoras',

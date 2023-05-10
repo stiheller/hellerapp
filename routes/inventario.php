@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\EquipamientoController; */
 use App\Http\Controllers\Inventario\ConmutadorController;
 use App\Http\Controllers\Inventario\CpuController;
 use App\Http\Controllers\Inventario\HomeController;
+use App\Http\Controllers\Inventario\MonitorController;
 use App\Http\Controllers\Inventario\RackController;
 use App\Http\Controllers\Inventario\SectorController;
 /* use App\Http\Controllers\Admin\ImagenConmutadorController;
@@ -49,10 +50,10 @@ Route::resource('conmutadores', ConmutadorController::class)->names('inventario.
 Route::get('imagenConmutadores/create/{id}', [ImagenConmutadorController::class, 'create'])->name('admin.imagenConmutadores.create');
 Route::post('imagenConmutadores/store/{id}', [ImagenConmutadorController::class, 'store'])->name('admin.imagenConmutadores.store');
 Route::delete('imagenConmutadores/destroy/{imagenConmutador}', [ImagenConmutadorController::class, 'destroy'])->name('admin.imagenConmutadores.destroy');
+*/
 
-
-Route::resource('monitores', MonitorController::class)->names('admin.monitores');
-Route::get('monitores/imagenes/{monitor}', [MonitorController::class, 'imagenes'])->name('admin.monitores.imagenes');
+Route::resource('monitores', MonitorController::class)->names('inventario.monitores');
+/*Route::get('monitores/imagenes/{monitor}', [MonitorController::class, 'imagenes'])->name('admin.monitores.imagenes');
 
 Route::resource('imagenMonitores', ImagenMonitorController::class)->names('admin.imagenMonitores');
 Route::post('imagenMonitores/store2/{id}', [ImagenMonitorController::class, 'store2'])->name('admin.imagenMonitores.store2');

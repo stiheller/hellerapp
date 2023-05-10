@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         /* $this->call(RackSeeder::class); */
         /* $this->call(ConmutadorSeeder::class); */
         /* $this->call(EquipamientoSeeder::class); */
-        $this->call(CpuSeeder::class);
+        /* $this->call(CpuSeeder::class); */
+        $this->call(MonitorSeeder::class);
     }
 }
