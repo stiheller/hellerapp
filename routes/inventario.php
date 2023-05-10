@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CpuController;
 use App\Http\Controllers\Admin\EquipamientoController; */
 
 use App\Http\Controllers\Inventario\ConmutadorController;
+use App\Http\Controllers\Inventario\CpuController;
 use App\Http\Controllers\Inventario\HomeController;
 use App\Http\Controllers\Inventario\RackController;
 use App\Http\Controllers\Inventario\SectorController;
@@ -55,9 +56,9 @@ Route::get('monitores/imagenes/{monitor}', [MonitorController::class, 'imagenes'
 
 Route::resource('imagenMonitores', ImagenMonitorController::class)->names('admin.imagenMonitores');
 Route::post('imagenMonitores/store2/{id}', [ImagenMonitorController::class, 'store2'])->name('admin.imagenMonitores.store2');
-Route::get('imagenMonitores/create2/{id}', [ImagenMonitorController::class, 'create2'])->name('admin.imagenMonitores.create2');
+Route::get('imagenMonitores/create2/{id}', [ImagenMonitorController::class, 'create2'])->name('admin.imagenMonitores.create2');*/
 
-Route::resource('cpus', CpuController::class)->names('admin.cpus'); */
+Route::resource('cpus', CpuController::class)->names('inventario.cpus');
 //Imagenes de CPU:
 /* Route::get('cpus/imagenes/{cpu}', [CpuController::class, 'imagenes'])->name('admin.cpus.imagenes');
 Route::get('imagenCpus/create/{id}', [ImagenCpuController::class, 'create'])->name('admin.imagenCpus.create');

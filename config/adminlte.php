@@ -414,14 +414,15 @@ return [
                     'text'    => 'Equipamientos',
                     'icon' => 'fas fa-fw fa-truck-monster',
                     'icon_color' => 'green',
-                    'url'     => 'admin.users.index',/* 'admin.home', */
+                    'active' => ['inventario/cpus*'], /*  ['inventario/cpus*', 'inventario/monitores*'], */
+                    /* 'url'     => 'admin.users.index', *//* 'admin.home', */
                     'submenu' => [
                         [
                             'text' => "CPU's",
                             'icon' => 'fas fa-fw fa-dice-d6',
                             'icon_color' => 'teal',
-                            'active' => ['admin/cpus*'],
-                            'route'  => 'admin.users.index',/*  'admin.cpus.index', */
+                            'active' => ['inventario/cpus*'],
+                            'route'  => 'inventario.cpus.index',/*  'admin.cpus.index', */
                         ],
                         [
                             'text'    => 'Monitores',

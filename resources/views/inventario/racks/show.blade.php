@@ -48,6 +48,7 @@
                 <div class="tab-pane fade" id="switch-desc" role="tabpanel" aria-labelledby="switch-desc-tab">
                     {{-- @livewire('admin.conmutadores-show', compact('conmutadores')) --}}
                     @if ($conmutadores->count())
+                    
                         <div class="card-body table-striped table-responsive p-0" style="height: 500px;">
                             <table class="table table-head-fixed text-nowrap">
                                 <thead>

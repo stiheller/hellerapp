@@ -24,6 +24,8 @@ class DatabaseSeeder extends Seeder
         /* Para Inventario Descomentar */
         /* $this->call(SectorSeeder::class); */
         /* $this->call(RackSeeder::class); */
-        $this->call(ConmutadorSeeder::class);
+        /* $this->call(ConmutadorSeeder::class); */
+        /* $this->call(EquipamientoSeeder::class); */
+        $this->call(CpuSeeder::class);
     }
 }
