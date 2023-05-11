@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\EquipamientoController; */
 use App\Http\Controllers\Inventario\ConmutadorController;
 use App\Http\Controllers\Inventario\CpuController;
 use App\Http\Controllers\Inventario\HomeController;
+use App\Http\Controllers\Inventario\IpController;
 use App\Http\Controllers\Inventario\MonitorController;
 use App\Http\Controllers\Inventario\RackController;
 use App\Http\Controllers\Inventario\SectorController;
@@ -41,8 +42,8 @@ Route::resource('racks', RackController::class)->names('inventario.racks');
 Route::get('imagenRacks/create/{rack}', [ImagenRackController::class, 'create'])->name('admin.imagenRacks.create');
 Route::post('imagenRacks/store/{rack}', [ImagenRackController::class, 'store'])->name('admin.imagenRacks.store');
 Route::delete('imagenRacks/destroy/{imagenRack}', [ImagenRackController::class, 'destroy'])->name('admin.imagenRacks.destroy');
-
-Route::resource('ips', IpController::class)->names('admin.ips');*/
+*/
+Route::resource('ips', IpController::class)->names('inventario.ips');
 
 Route::resource('conmutadores', ConmutadorController::class)->names('inventario.conmutadores');
 //Imagenes de CPU:
@@ -92,10 +93,11 @@ Route::post('imagenPuestos/store/{puesto}', [ImagenPuestoController::class, 'sto
 Route::delete('imagenPuestos/destroy/{imagenPuesto}', [ImagenPuestoController::class, 'destroy'])->name('admin.imagenPuestos.destroy');
 
 
-Route::get('puestos/desconectar/{conexion}', [PuestoController::class, 'desconectar'])->name('admin.puestos.desconectar');
+Route::get('puestos/desconectar/{conexion}', [PuestoController::class, 'desconectar'])->name('admin.puestos.desconectar');*/
 
-Route::get('ips/liberar/{conexion}', [IpController::class, 'liberar'])->name('admin.ips.liberar');
+Route::get('ips/liberar/{conexion}', [IpController::class, 'liberar'])->name('inventario.ips.liberar');
 
+/*
 Route::get('inventario/{id}', [InventarioController::class, 'show'])->name('admin.inventario.show'); */
 
 

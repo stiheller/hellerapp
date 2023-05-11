@@ -459,7 +459,7 @@ return [
                     'text'       => "Registro de IP's",
                     'icon_color' => 'red',
                     'icon' => 'fas fa-fw fa-eye',
-                    'route'        => 'admin.users.index',/*  'admin.ips.index', */
+                    'route'        => 'inventario.ips.index',/*  'admin.ips.index', */
                     'active' => ['admin/ips*'],
                 ],
 
