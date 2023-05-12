@@ -30,6 +30,8 @@ class DatabaseSeeder extends Seeder
         /* $this->call(MonitorSeeder::class); */
         /* $this->call(IpSeeder::class); */
         /* $this->call(ConexionSeeder::class); */
-        $this->call(PuestoSeeder::class);
+        /* $this->call(PuestoSeeder::class); */
+        /* $this->call(ScannerSeeder::class); */
+        $this->call(ImpresoraSeeder::class);
     }
 }

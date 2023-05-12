@@ -414,7 +414,7 @@ return [
                     'text'    => 'Equipamientos',
                     'icon' => 'fas fa-fw fa-truck-monster',
                     'icon_color' => 'green',
-                    'active' => ['inventario/cpus*','inventario/monitores*'], /*  ['inventario/cpus*', 'inventario/monitores*'], */
+                    'active' => ['inventario/cpus*','inventario/monitores*', 'inventario/scanners*', 'inventario/impresoras*'], /*  ['inventario/cpus*', 'inventario/monitores*'], */
                     /* 'url'     => 'admin.users.index', *//* 'admin.home', */
                     'submenu' => [
                         [
@@ -435,15 +435,15 @@ return [
                             'text' => 'Impresoras',
                             'icon' => 'fas fa-fw fa-print',
                             'icon_color' => 'teal',
-                            'active' => ['admin/impresoras*'],
-                            'route'  => 'admin.users.index',/*  'admin.impresoras.index', */
+                            'active' => ['inventario/impresoras*'],
+                            'route'  => 'inventario.impresoras.index',/*  'admin.impresoras.index', */
                         ],
                         [
                             'text' => 'Scanners',
                             'icon' => 'fas fa-fw fa-print',
                             'icon_color' => 'teal',
-                            'active' => ['admin/scanners*'],
-                            'route'  => 'admin.users.index',/*  'admin.impresoras.index', */
+                            'active' => ['inventario/scanners*'],
+                            'route'  => 'inventario.scanners.index',/*  'admin.impresoras.index', */
                         ],
                     ],
                 ],

@@ -8,10 +8,12 @@ use App\Http\Controllers\Inventario\ConmutadorController;
 use App\Http\Controllers\Inventario\CpuController;
 use App\Http\Controllers\Inventario\EquipamientoController;
 use App\Http\Controllers\Inventario\HomeController;
+use App\Http\Controllers\Inventario\ImpresoraController;
 use App\Http\Controllers\Inventario\IpController;
 use App\Http\Controllers\Inventario\MonitorController;
 use App\Http\Controllers\Inventario\PuestoController;
 use App\Http\Controllers\Inventario\RackController;
+use App\Http\Controllers\Inventario\ScannerController;
 use App\Http\Controllers\Inventario\SectorController;
 /* use App\Http\Controllers\Admin\ImagenConmutadorController;
 use App\Http\Controllers\Admin\ImagenCpuController;
@@ -68,16 +70,16 @@ Route::resource('cpus', CpuController::class)->names('inventario.cpus');
 Route::get('imagenCpus/create/{id}', [ImagenCpuController::class, 'create'])->name('admin.imagenCpus.create');
 Route::post('imagenCpus/store/{id}', [ImagenCpuController::class, 'store'])->name('admin.imagenCpus.store');
 Route::delete('imagenCpus/destroy/{imagenCpu}', [ImagenCpuController::class, 'destroy'])->name('admin.imagenCpus.destroy');
-
-Route::resource('impresoras', ImpresoraController::class)->names('admin.impresoras'); */
+*/
+Route::resource('impresoras', ImpresoraController::class)->names('inventario.impresoras');
 //Imagenes de Impresora:
 /* Route::get('impresoras/imagenes/{impresora}', [ImpresoraController::class, 'imagenes'])->name('admin.impresoras.imagenes');
 Route::get('imagenImpresoras/create/{impresora}', [ImagenImpresoraController::class, 'create'])->name('admin.imagenImpresoras.create');
 Route::post('imagenImpresoras/store/{impresora}', [ImagenImpresoraController::class, 'store'])->name('admin.imagenImpresoras.store');
 Route::delete('imagenImpresoras/destroy/{imagenImpresora}', [ImagenImpresoraController::class, 'destroy'])->name('admin.imagenImpresoras.destroy');
 
-
-Route::resource('scanners', ScannerController::class)->names('admin.scanners'); */
+*/
+Route::resource('scanners', ScannerController::class)->names('inventario.scanners');
 //Imagenes de Scanner:
 /* Route::get('scanners/imagenes/{scanner}', [ScannerController::class, 'imagenes'])->name('admin.scanners.imagenes');
 Route::get('imagenScanners/create/{scanner}', [ImagenScannerController::class, 'create'])->name('admin.imagenScanners.create');
