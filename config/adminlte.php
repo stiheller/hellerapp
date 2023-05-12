@@ -451,8 +451,8 @@ return [
                     'text'    => 'Puestos',
                     'icon'    => 'fas fa-fw fa-keyboard',
                     'icon_color' => 'purple',
-                    'active' => ['admin/puestos*'],
-                    'route'  => 'admin.users.index',/* 'admin.puestos.index', */
+                    'active' => ['inventario/puestos*'],
+                    'route'  => 'inventario.puestos.index',/* 'admin.puestos.index', */
                 ],
                 ['header' => "####  IP's  ####"],
                 [

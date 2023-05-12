@@ -6,9 +6,11 @@ use App\Http\Controllers\Admin\EquipamientoController; */
 
 use App\Http\Controllers\Inventario\ConmutadorController;
 use App\Http\Controllers\Inventario\CpuController;
+use App\Http\Controllers\Inventario\EquipamientoController;
 use App\Http\Controllers\Inventario\HomeController;
 use App\Http\Controllers\Inventario\IpController;
 use App\Http\Controllers\Inventario\MonitorController;
+use App\Http\Controllers\Inventario\PuestoController;
 use App\Http\Controllers\Inventario\RackController;
 use App\Http\Controllers\Inventario\SectorController;
 /* use App\Http\Controllers\Admin\ImagenConmutadorController;
@@ -81,19 +83,19 @@ Route::resource('scanners', ScannerController::class)->names('admin.scanners'); 
 Route::get('imagenScanners/create/{scanner}', [ImagenScannerController::class, 'create'])->name('admin.imagenScanners.create');
 Route::post('imagenScanners/store/{scanner}', [ImagenScannerController::class, 'store'])->name('admin.imagenScanners.store');
 Route::delete('imagenScanners/destroy/{imagenScanner}', [ImagenScannerController::class, 'destroy'])->name('admin.imagenScanners.destroy');
+*/
 
+Route::resource('equipamientos', EquipamientoController::class)->names('inventario.equipamientos');
 
-Route::resource('equipamientos', EquipamientoController::class)->names('admin.equipamientos');
-
-Route::resource('puestos', PuestoController::class)->names('admin.puestos'); */
+Route::resource('puestos', PuestoController::class)->names('inventario.puestos'); 
 //Imagenes de Puesto:
 /* Route::get('puestos/imagenes/{puesto}', [PuestoController::class, 'imagenes'])->name('admin.puestos.imagenes');
 Route::get('imagenPuestos/create/{puesto}', [ImagenPuestoController::class, 'create'])->name('admin.imagenPuestos.create');
 Route::post('imagenPuestos/store/{puesto}', [ImagenPuestoController::class, 'store'])->name('admin.imagenPuestos.store');
 Route::delete('imagenPuestos/destroy/{imagenPuesto}', [ImagenPuestoController::class, 'destroy'])->name('admin.imagenPuestos.destroy');
+*/
 
-
-Route::get('puestos/desconectar/{conexion}', [PuestoController::class, 'desconectar'])->name('admin.puestos.desconectar');*/
+Route::get('puestos/desconectar/{conexion}', [PuestoController::class, 'desconectar'])->name('inventario.puestos.desconectar');
 
 Route::get('ips/liberar/{conexion}', [IpController::class, 'liberar'])->name('inventario.ips.liberar');
 

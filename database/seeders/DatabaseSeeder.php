@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
         /* $this->call(EquipamientoSeeder::class); */
         /* $this->call(CpuSeeder::class); */
         /* $this->call(MonitorSeeder::class); */
-        $this->call(IpSeeder::class);
+        /* $this->call(IpSeeder::class); */
+        /* $this->call(ConexionSeeder::class); */
+        $this->call(PuestoSeeder::class);
     }
 }
