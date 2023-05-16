@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Inventario - Puestos / Show')
+@section('title', 'Inventario - Show')
 
 @section('content_header')
-    <a class="btn btn-info float-right" href="{{ route('inventario.puestos.index') }}">Volver al Índice</a>
+    <a class="btn btn-info float-right" href="{{ route('inventario.principal') }}">Volver al Índice</a>
     <h1>Puesto: {{ $puesto->nombre }}</h1>
 @stop
 
@@ -27,7 +27,7 @@
                 </nav>
                 <div class="w-100 tab-content p-3" id="nav-tabContent">
                     <div class="tab-pane fade active show" id="puesto-desc" role="tabpanel"
-                        aria-labelledby="puesto-desc-tab">
+                        aria-labelledby="puesto-desc-tab"">
 
                         <div class="row">
                             <div class="callout callout-info col-8 col-md-9">
@@ -65,20 +65,19 @@
                             </div>
                         </div>
 
-
                         {{-- <h5><u> Descripción:</u></h5>
                         @if ($puesto->descripcion != null)
                             <p>{{ $puesto->descripcion }}</p>
                         @else
                             <p>Sin Detalle</p>
-                        @endif
-                        <h6><u>Estado:</u></h6>
+                        @endif --}}
+                        {{-- <h6><u>Estado:</u></h6>
                         @if ($puesto->estado == 1)
                             <p class="text-success">Activo</p>
                         @else
                             <p class="text-dark">No Activo</p>
-                        @endif
-                        <h6><u>Referencia (Ubicación):</u></h6>
+                        @endif --}}
+                        {{-- <h6><u>Referencia (Ubicación):</u></h6>
                         @if ($puesto->referencia_lugar != null)
                             <p>{{ $puesto->referencia_lugar }}</p>
                         @else
@@ -130,10 +129,10 @@
                                         <h6><u>Conectada a Rack:</u> <i class="fas fa-check" style="color:green"></i></h6>
                                         <h6><u>Boca de Patch:</u> {{ $conexion->boca_patch }}</h6>
                                         <h6><u>Boca de Switch:</u> {{ $conexion->boca_switch }}</h6>
-                                        <h6 class="text-danger"><u>Fecha Impactada:</u> {{ $conexion->fecha_impactada }}</h6>
+                                        <h6 class="text-danger"><u>Fecha Impactada:</u> {{ $conexion->fecha_impactada }}
+                                        </h6>
                                     @else
-                                        <h6><u>Conectada a Rack:</u> NO<i class="fas fa-bolt" style="color:red"></i></h6>
-                        
+                                        <h6><u>Conectada a Rack:</u> NO <i class="fas fa-bolt" style="color:red"></i></h6>
                                     @endif
 
                                     @if ($conexion->en_uso == 1)
@@ -144,7 +143,6 @@
                                     @endif
                                 </div>
                             </div>
-                            
                             @if ($conexion->conectada_rack == 1)
                                 <div class="card card-info">
                                     <div class="card-header">
@@ -152,7 +150,7 @@
                                     </div>
                                     <div class="card-body">
                                         <h6 class="text-dark"><u>Serial:</u> {{ $conexion->conmutador->serial }}</h6>
-                                        <h6 class="text-dark"><u>Número Switch:</u> {{ $conexion->conmutador->numero }}</h6>
+                                        <h6 class="text-dark"><u>Número:</u> {{ $conexion->conmutador->numero }}</h6>
                                         <h6 class="text-secondary"><u>Marca:</u> {{ $conexion->conmutador->marca }}</h6>
                                         <h6 class="text-secondary"><u>Descripción:</u>
                                             {{ $conexion->conmutador->descripcion }}</h6>
@@ -186,14 +184,13 @@
                                 @else
                                     <div class="card card-primary">
                                         <div class="card-header">
-                                            <h3 class="card-title">Switch NO Rackeado</h3>
+                                            <h3 class="card-title">El Switch se encuentra en el sector:
+                                                {{ $conexion->conmutador->sector->nombre }}</h3>
                                         </div>
                                         <div class="card-body">
-                                            <h6>El Switch se encuentra en el sector:
-                                                {{ $conexion->conmutador->sector->nombre }}</h6>
-                                            <h6 class="text-secondary"><u>Descripción - Sector:</u>
+                                            <h6 class="text-secondary"><u>Descripción:</u>
                                                 {{ $conexion->conmutador->sector->descripcion }}</h6>
-                                            <h6 class="text-secondary"><u>Lugar de Referencia Sector:</u>
+                                            <h6 class="text-secondary"><u>Lugar de Referencia:</u>
                                                 {{ $conexion->conmutador->sector->referencia_lugar }}</h6>
                                             @if ($conexion->conmutador->sector->planta == 1)
                                                 <h6><u>Planta - Alta</u></h6>
@@ -232,17 +229,28 @@
                                                 <h6><u>Descripción:</u> {{ $puesto->equipamiento->cpu->descripción }}</h6>
                                                 @switch($puesto->equipamiento->cpu->estado)
                                                     @case(1)
-                                                        <h6><u>Activo:</u> <i class="fas fa-check" style="color:green"></i></h6>    
+                                                        <h6><u>Activo</u> <i class="fas fa-check" style="color:green"></i></h6>    
                                                         @break
                                                     @case(2)
-                                                        <h6><u>En Reparación:</u> <i class="fas fa-bomb" style="color:brown"></i></h6>
+                                                        <h6><u>En Reparación</u> <i class="fas fa-bomb" style="color:brown"></i></h6>
                                                         @break
                                                     @case(3)
-                                                        <h6><u>Desaparecido:</u> <i class="fas fa-ghost" style="color:rgb(8, 7, 90)"></i></h6>
+                                                        <h6><u>Desaparecido</u> <i class="fas fa-ghost" style="color:rgb(8, 7, 90)"></i></h6>
                                                     @break
                                                     @default
                                                         <h6><u>Dado de Baja</u> <i class="fas fa-trash" style="color:red"></i></h6>
                                                 @endswitch
+                                                {{-- @if ($puesto->equipamiento->cpu->estado == 1)
+                                                    <h6><u>Activo:</u> <i class="fas fa-check" style="color:green"></i></h6>
+                                                @else
+                                                    @if ($puesto->equipamiento->cpu->estado == 0)
+                                                        <h6><u>Dado de Baja</u> <i class="fas fa-trash" style="color:red"></i>
+                                                        </h6>
+                                                    @elseif ($puesto->equipamiento->cpu->estado == 2)
+                                                        <h6><u>En Reparación:</u> <i class="fas fa-bomb"
+                                                                style="color:brown"></i></h6>
+                                                    @endif
+                                                @endif --}}
                                             </div>
                                         </div>
                                     @else
@@ -281,6 +289,18 @@
                                                         @default
                                                             <h6><u>Dado de Baja</u> <i class="fas fa-trash" style="color:red"></i></h6>
                                                     @endswitch
+                                                   {{--  @if ($monitor->estado == 1)
+                                                        <h6><u>Activo:</u> <i class="fas fa-check" style="color:green"></i>
+                                                        </h6>
+                                                    @else
+                                                        @if ($monitor->estado == 0)
+                                                            <h6><u>Dado de Baja</u> <i class="fas fa-trash"
+                                                                    style="color:red"></i></h6>
+                                                        @elseif ($monitor->estado == 2)
+                                                            <h6><u>En Reparación:</u> <i class="fas fa-bomb"
+                                                                    style="color:brown"></i></h6>
+                                                        @endif
+                                                    @endif --}}
                                                 </div>
                                             </div>
                                         @endforeach
@@ -320,6 +340,18 @@
                                                         @default
                                                             <h6><u>Dado de Baja</u> <i class="fas fa-trash" style="color:red"></i></h6>
                                                     @endswitch
+                                                   {{--  @if ($impresora->estado == 1)
+                                                        <h6><u>Activo:</u> <i class="fas fa-check" style="color:green"></i>
+                                                        </h6>
+                                                    @else
+                                                        @if ($impresora->estado == 0)
+                                                            <h6><u>Dado de Baja</u> <i class="fas fa-trash"
+                                                                    style="color:red"></i></h6>
+                                                        @elseif ($impresora->estado == 2)
+                                                            <h6><u>En Reparación:</u> <i class="fas fa-bomb"
+                                                                    style="color:brown"></i></h6>
+                                                        @endif
+                                                    @endif --}}
                                                 </div>
                                             </div>
                                         @endforeach
@@ -359,6 +391,18 @@
                                                         @default
                                                             <h6><u>Dado de Baja</u> <i class="fas fa-trash" style="color:red"></i></h6>
                                                     @endswitch
+                                                    {{-- @if ($scanner->estado == 1)
+                                                        <h6><u>Activo:</u> <i class="fas fa-check" style="color:green"></i>
+                                                        </h6>
+                                                    @else
+                                                        @if ($scanner->estado == 0)
+                                                            <h6><u>Dado de Baja</u> <i class="fas fa-trash"
+                                                                    style="color:red"></i></h6>
+                                                        @elseif ($scanner->estado == 2)
+                                                            <h6><u>En Reparación:</u> <i class="fas fa-bomb"
+                                                                    style="color:brown"></i></h6>
+                                                        @endif
+                                                    @endif --}}
                                                 </div>
                                             </div>
                                         @endforeach
@@ -383,6 +427,7 @@
                             @endif
                         @endif
                     </div>
+
                     <div class="tab-pane fade" id="imagenes-desc" role="tabpanel" aria-labelledby="imagenes-desc-tab">
                         <div class="row">
                             {{-- @if ($puesto->imagenes->count())
@@ -400,8 +445,7 @@
                             @else
                                 <p>No hay imágenes Asociadas al Puesto de Trabajo.</p>
                             @endif --}}
-
-                            <p>No hay imágenes Asociadas al Puesto de Trabajo. Aún.!</p>
+                            <p>No hay imágenes Asociadas al Puesto de Trabajo.Aún.!</p>
                         </div>
 
                         {{-- <div class="callout callout-info">
@@ -417,18 +461,6 @@
 @stop
 
 @section('css')
-    {{-- <style>
-        .image-wrapper{
-            position: relative;
-            padding-bottom: 56.25%;
-        }
-        .image-wrapper img{
-            position: absolute;
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-        }
-    </style> --}}
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 

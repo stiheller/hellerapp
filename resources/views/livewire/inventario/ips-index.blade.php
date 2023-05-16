@@ -85,12 +85,12 @@
                                 @endif
                             </td>
                             <td>
-                                {{-- @if ($ip->nombre_puesto != null)
+                                @if ($ip->nombre_puesto != null)
                                     {{ $ip->nombre_puesto }}
                                 @else
                                     <small class="text-secondary">S/A</small>
-                                @endif --}}
-                                <small class="text-secondary">No asignado aún.!</small>
+                                @endif
+                                {{-- <small class="text-secondary">No asignado aún.!</small> --}}
                             </td>
                           
                             <td width="95px">

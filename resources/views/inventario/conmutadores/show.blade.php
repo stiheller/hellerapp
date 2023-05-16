@@ -24,6 +24,12 @@
             <div class="tab-content p-3" id="nav-tabContent">
                 <div class="tab-pane fade active show" id="switch-desc" role="tabpanel"
                     aria-labelledby="switch-desc-tab">
+                    <h5 class="text-dark"><u>Serial:</u></h5>
+                    @if ($conmutador->serial != null)
+                        <p>{{ $conmutador->serial }}</p>
+                    @else
+                        <p>Sin Detalle</p>
+                    @endif
                     <h5><u> Descripción:</u></h5>
                     @if ($conmutador->descripcion != null)
                         <p>{{ $conmutador->descripcion }}</p>
@@ -40,7 +46,7 @@
                     <p class="text-danger">{{ $conmutador->fecha_limpieza }}</p>
                 </div>
                 <div class="tab-pane fade" id="conexiones-desc" role="tabpanel" aria-labelledby="conexiones-desc-tab">
-                    {{-- @if ($conexiones->count())
+                    @if ($conexiones->count())
                         <div class="card-body table-striped table-responsive p-0" style="height: 400px; width:full">
                             <table class="table table-head-fixed text-nowrap">
                                 <thead>
@@ -84,7 +90,7 @@
                         <div class="card-body">
                             <strong>No hay ningún registro</strong>
                         </div>
-                    @endif --}}
+                    @endif
 
                 </div>
                 <div class="tab-pane fade" id="imagenes-desc" role="tabpanel" aria-labelledby="imagenes-desc-tab">

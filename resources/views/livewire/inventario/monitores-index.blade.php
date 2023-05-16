@@ -111,12 +111,12 @@
                                 @endif
                             </td>
                             <td>
-                                {{-- @if ($monitor->nombre_puesto != null)
+                                @if ($monitor->nombre_puesto != null)
                                     {{ $monitor->nombre_puesto }}
                                 @else
                                     <p class="text-bold text-slate-900">Sin Puesto Asignado</p>
-                                @endif --}}
-                                <p class="text-bold text-slate-900">Sin Puesto Asignado aún.!!</p>
+                                @endif
+                                {{-- <p class="text-bold text-slate-900">Sin Puesto Asignado aún.!!</p> --}}
                             </td>
                             <td>
                                 <div class="btn-group ml-2">

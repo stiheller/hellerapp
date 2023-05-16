@@ -9,6 +9,7 @@ use App\Http\Controllers\Inventario\CpuController;
 use App\Http\Controllers\Inventario\EquipamientoController;
 use App\Http\Controllers\Inventario\HomeController;
 use App\Http\Controllers\Inventario\ImpresoraController;
+use App\Http\Controllers\Inventario\InventarioController;
 use App\Http\Controllers\Inventario\IpController;
 use App\Http\Controllers\Inventario\MonitorController;
 use App\Http\Controllers\Inventario\PuestoController;
@@ -21,14 +22,7 @@ use App\Http\Controllers\Admin\ImagenImpresoraController;
 use App\Http\Controllers\Admin\ImagenMonitorController;
 use App\Http\Controllers\Admin\ImagenPuestoController;
 use App\Http\Controllers\Admin\ImagenRackController;
-use App\Http\Controllers\Admin\ImagenScannerController;
-use App\Http\Controllers\Admin\ImpresoraController;
-use App\Http\Controllers\Admin\InventarioController;
-use App\Http\Controllers\Admin\IpController;
-use App\Http\Controllers\Admin\MonitorController;
-use App\Http\Controllers\Admin\PuestoController;
-use App\Http\Controllers\Admin\RackController;
-use App\Http\Controllers\Admin\ScannerController; */
+use App\Http\Controllers\Admin\ImagenScannerController; */
 use Illuminate\Support\Facades\Route;
 /* use App\Http\Controllers\Admin\SectorController;
 use App\Models\ImagenCpu; */
@@ -101,8 +95,8 @@ Route::get('puestos/desconectar/{conexion}', [PuestoController::class, 'desconec
 
 Route::get('ips/liberar/{conexion}', [IpController::class, 'liberar'])->name('inventario.ips.liberar');
 
-/*
-Route::get('inventario/{id}', [InventarioController::class, 'show'])->name('admin.inventario.show'); */
+
+Route::get('inventario/{id}', [InventarioController::class, 'show'])->name('inventario.inventario.show');
 
 
 //Create particulares de Switchs NO LOS USO.. 

@@ -1,14 +1,14 @@
 @extends('adminlte::page')
 
-@section('title', 'Inventario - ADMIN')
+@section('title', 'Inventario')
 
 @section('content_header')
     {{-- <h4>Inventario:</h4> --}}
 @stop
 
 @section('content')
-<h1>Acá tiene que estar la vista del Inventario</h1>
-    {{-- @livewire('admin.principal-index') --}}
+{{-- <h1>Acá tiene que estar la vista del Inventario</h1> --}}
+    @livewire('inventario.principal-index')
 @stop
 
 @section('css')

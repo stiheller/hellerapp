@@ -69,7 +69,7 @@
                         {{-- <th>Descrip.</th> --}}
                         <th>N°Patrimonial</th>
                         
-                        {{-- <th>Nombre Puesto</th> --}}
+                        <th>Nombre Puesto</th>
 
 
                         {{-- <th colspan="3" class="text-bold text-danger text-center">ACCIONES</th> --}}
@@ -110,13 +110,13 @@
 
                             </td>
                            
-                            {{-- <td>
+                            <td>
                                 @if ($cpu->nombre_puesto != null)
                                     {{ $cpu->nombre_puesto }}
                                 @else
                                     <p class="text-bold text-slate-900">Sin Puesto Asignado</p>
                                 @endif
-                            </td> --}}
+                            </td>
                             <td>
                                 <div class="btn-group">
                                     <div class="btn-group">

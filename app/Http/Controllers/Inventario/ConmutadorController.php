@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Inventario;
 
 use App\Http\Controllers\Controller;
+use App\Models\Inventario\Conexion;
 use App\Models\Inventario\Conmutador;
 use App\Models\Inventario\Rack;
 use App\Models\Inventario\Sector;
@@ -58,15 +59,15 @@ class ConmutadorController extends Controller
     {
         $conmutador = $conmutadore;
 
-        return view('inventario.conmutadores.show', compact('conmutador'));
-        /* $conexiones = Conexion::where('conmutador_id','=',$conmutador->id)
-                                ->leftjoin('ips','conexiones.ip_id','=','ips.id')
-                                ->join('puestos','conexiones.id','=','puestos.conexion_id')
-                                ->select('conexiones.*','ips.direccion_ip as direccion_ip',
-                                'puestos.nombre as nombre_puesto')
-                                ->get(); */
+        /* return view('inventario.conmutadores.show', compact('conmutador')); */
+        $conexiones = Conexion::where('conmutador_id','=',$conmutador->id)
+                                ->leftjoin('inv_ips','inv_conexiones.ip_id','=','inv_ips.id')
+                                ->join('inv_puestos','inv_conexiones.id','=','inv_puestos.conexion_id')
+                                ->select('inv_conexiones.*','inv_ips.direccion_ip as direccion_ip',
+                                'inv_puestos.nombre as nombre_puesto')
+                                ->get();
 
-        /* return view('inventario.conmutadores.show', compact('conmutador', 'conexiones')); */
+        return view('inventario.conmutadores.show', compact('conmutador', 'conexiones'));
     }
 
     /**

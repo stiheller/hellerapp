@@ -386,7 +386,7 @@ return [
                     'route'      => 'inventario.principal',/* 'admin.home', */
                     'active' => ['inventario.principal'],
                     'icon'       => 'fas fa-globe fa-fw',
-                    'icon_color' => 'white',
+                    'icon_color' => 'cyan',
                 ],
                 ['header' => 'SETTINGS'],
                 [

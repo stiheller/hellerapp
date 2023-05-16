@@ -46,10 +46,10 @@
         {!! Form::select('estado', $estados, null, ['class' => 'form-control']) !!}
     </div>
     
-    {{-- <div class="col-12 col-md-8 form-group">
+    <div class="col-12 col-md-8 form-group">
         {!! Form::label('equipamiento_id', 'Equipamiento:') !!}
         {!! Form::select('equipamiento_id', $equipamientos, null, ['class' => 'form-control', 'placeholder' => 'Sin Asignar']) !!}
-    </div> --}}
+    </div>
 </div>
 
 {{-- <div class="row mb-3">

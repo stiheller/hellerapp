@@ -28,16 +28,16 @@ class CpusIndex extends Component
     public function render()
     {
         //Cuando tenga Puesto.
-        /* $cpus = Cpu::leftjoin('puestos','cpus.equipamiento_id','=','puestos.equipamiento_id')
-                    ->select('cpus.*', 'puestos.nombre as nombre_puesto')
+        $cpus = Cpu::leftjoin('inv_puestos','inv_cpus.equipamiento_id','=','inv_puestos.equipamiento_id')
+                    ->select('inv_cpus.*', 'inv_puestos.nombre as nombre_puesto')
                     ->where('macaddress', 'LIKE', "%" . $this->search . "%")
-                    ->orWhere('puestos.nombre', 'LIKE', "%" . $this->search . "%")
+                    ->orWhere('inv_puestos.nombre', 'LIKE', "%" . $this->search . "%")
                     ->orderby($this->sort, $this->direction)
-                    ->paginate($this->cant); */
-
-        $cpus = Cpu::where('macaddress', 'LIKE', "%".$this->search."%")
-                    ->orderby($this->sort, $this->direction) 
                     ->paginate($this->cant);
+
+        /* $cpus = Cpu::where('macaddress', 'LIKE', "%".$this->search."%")
+                    ->orderby($this->sort, $this->direction) 
+                    ->paginate($this->cant); */
 
         return view('livewire.inventario.cpus-index', compact('cpus'));
     }

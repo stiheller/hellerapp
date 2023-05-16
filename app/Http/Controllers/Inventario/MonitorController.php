@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Inventario;
 
 use App\Http\Controllers\Controller;
 use App\Models\Inventario\Monitor;
+use App\Models\Inventario\Puesto;
 use Illuminate\Http\Request;
 
 class MonitorController extends Controller
@@ -33,11 +34,11 @@ class MonitorController extends Controller
         ];
 
         /* $equipamientos = Equipamiento::pluck('descripcion', 'id'); */
-        /* $equipamientos = Puesto::pluck('nombre', 'equipamiento_id');
+        $equipamientos = Puesto::pluck('nombre', 'equipamiento_id');
 
-        return view('inventario.monitores.create', compact('estados', 'equipamientos')); */
+        return view('inventario.monitores.create', compact('estados', 'equipamientos'));
 
-        return view('inventario.monitores.create', compact('estados'));
+        /* return view('inventario.monitores.create', compact('estados')); */
     }
 
     /**
@@ -88,10 +89,10 @@ class MonitorController extends Controller
         ];
 
         /* $equipamientos = Equipamiento::pluck('descripcion', 'id'); */
-        /* $equipamientos = Puesto::pluck('nombre', 'equipamiento_id');
-        return view('inventario.monitores.edit', compact('monitore', 'estados', 'equipamientos')); */
+        $equipamientos = Puesto::pluck('nombre', 'equipamiento_id');
+        return view('inventario.monitores.edit', compact('monitore', 'estados', 'equipamientos'));
     
-        return view('inventario.monitores.edit', compact('monitore', 'estados'));
+        /* return view('inventario.monitores.edit', compact('monitore', 'estados')); */
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Inventario;
 
 use App\Http\Controllers\Controller;
 use App\Models\Inventario\Cpu;
+use App\Models\Inventario\Puesto;
 use Illuminate\Http\Request;
 
 class CpuController extends Controller
@@ -34,10 +35,10 @@ class CpuController extends Controller
         ];
 
         
-        /* $equipamientos = Puesto::pluck('nombre', 'equipamiento_id');
-        return view('inventario.cpus.create', compact('estados', 'equipamientos')); */
+        $equipamientos = Puesto::pluck('nombre', 'equipamiento_id');
+        return view('inventario.cpus.create', compact('estados', 'equipamientos'));
         
-        return view('inventario.cpus.create', compact('estados'));
+        /* return view('inventario.cpus.create', compact('estados')); */
     }
 
     /**
@@ -87,10 +88,10 @@ class CpuController extends Controller
         ];
 
         
-        /* $equipamientos = Puesto::pluck('nombre', 'equipamiento_id');
-        return view('inventario.cpus.edit', compact('cpu', 'estados', 'equipamientos')); */
+        $equipamientos = Puesto::pluck('nombre', 'equipamiento_id');
+        return view('inventario.cpus.edit', compact('cpu', 'estados', 'equipamientos'));
 
-        return view('inventario.cpus.edit', compact('cpu', 'estados'));
+        /* return view('inventario.cpus.edit', compact('cpu', 'estados')); */
     }
 
     /**

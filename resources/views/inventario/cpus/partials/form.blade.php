@@ -79,8 +79,8 @@
         {!! Form::select('estado', $estados, null, ['class' => 'form-control']) !!}
     </div>
     
-    {{-- <div class="form-group col-12 col-md-8">
+    <div class="form-group col-12 col-md-8">
         {!! Form::label('equipamiento_id', 'Equipamiento:') !!}
         {!! Form::select('equipamiento_id', $equipamientos, null, ['class' => 'form-control', 'placeholder' => 'Sin Asignar']) !!}
-    </div> --}}
+    </div>
 </div>

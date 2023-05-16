@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Inventario;
 use App\Http\Controllers\Controller;
 use App\Models\Inventario\Conexion;
 use App\Models\Inventario\Equipamiento;
+use App\Models\Inventario\Impresora;
 use App\Models\Inventario\Ip;
 use App\Models\Inventario\Monitor;
 use App\Models\Inventario\Puesto;
+use App\Models\Inventario\Scanner;
 use App\Models\Inventario\Sector;
 use Illuminate\Http\Request;
 
@@ -182,10 +184,10 @@ class PuestoController extends Controller
     {
         $conexion = Conexion::findOrFail($puesto->conexion_id);
         $monitores = Monitor::where('equipamiento_id','=',$puesto->equipamiento_id)->get();
-        /* $scanners = Scanner::where('equipamiento_id','=',$puesto->equipamiento_id)->get();
-        $impresoras = Impresora::where('equipamiento_id','=',$puesto->equipamiento_id)->get(); */
-        /* return view('inventario.puestos.show', compact('puesto', 'conexion', 'monitores', 'scanners', 'impresoras')); */
-        return view('inventario.puestos.show', compact('puesto', 'conexion', 'monitores'));
+        $scanners = Scanner::where('equipamiento_id','=',$puesto->equipamiento_id)->get();
+        $impresoras = Impresora::where('equipamiento_id','=',$puesto->equipamiento_id)->get();
+        return view('inventario.puestos.show', compact('puesto', 'conexion', 'monitores', 'scanners', 'impresoras'));
+        /* return view('inventario.puestos.show', compact('puesto', 'conexion', 'monitores')); */
     }
 
     /**

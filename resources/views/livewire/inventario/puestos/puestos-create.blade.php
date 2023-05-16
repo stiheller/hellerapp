@@ -20,6 +20,7 @@
                             <th style="width: 60px;">
                                 ID
                             </th>
+                            <th>Serial</th>
                             <th>Número</th>
                             <th>Marca</th>
                             <th>Descripción</th>
@@ -32,7 +33,8 @@
                         @foreach ($conmutadores as $conmutador)
                             <tr>
                                 <td>{{ $conmutador->id }}</td>
-                                <td>{{ $conmutador->numero }}</td>
+                                <td class="text-bold">{{ $conmutador->serial }}</td>
+                                <td class="" >{{ $conmutador->numero }}</td>
                                 <td>{{ $conmutador->marca }}</td>
                                 <td>{{ $conmutador->descripcion }}</td>
                                 <td>

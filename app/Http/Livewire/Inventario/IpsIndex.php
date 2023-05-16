@@ -27,16 +27,16 @@ class IpsIndex extends Component
 
     public function render()
     {
-        /* $ips = Ip::leftjoin('conexiones','ips.id','=','conexiones.ip_id')
-                    ->leftjoin('puestos','conexiones.id','=','puestos.conexion_id')
-                    ->select('ips.*','conexiones.id as conexion_id','puestos.nombre as nombre_puesto')
+        $ips = Ip::leftjoin('inv_conexiones','inv_ips.id','=','inv_conexiones.ip_id')
+                    ->leftjoin('inv_puestos','inv_conexiones.id','=','inv_puestos.conexion_id')
+                    ->select('inv_ips.*','inv_conexiones.id as conexion_id','inv_puestos.nombre as nombre_puesto')
                     ->where('direccion_ip', 'LIKE', "%".$this->search."%")
-                    ->orWhere('puestos.nombre', 'LIKE', "%".$this->search."%")
+                    ->orWhere('inv_puestos.nombre', 'LIKE', "%".$this->search."%")
                     ->orderby($this->sort, $this->direction)
-                    ->paginate($this->cant); */
-        $ips = Ip::where('direccion_ip', 'LIKE', "%".$this->search."%")
+                    ->paginate($this->cant);
+        /* $ips = Ip::where('direccion_ip', 'LIKE', "%".$this->search."%")
                    ->orderby($this->sort, $this->direction)
-                   ->paginate($this->cant);
+                   ->paginate($this->cant); */
 
         return view('livewire.inventario.ips-index', compact('ips'));
 
