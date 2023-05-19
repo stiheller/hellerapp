@@ -373,6 +373,101 @@ return [
         ],
 
         [
+            'text'    => 'Inventario',
+            'icon'    => 'fas fa-laptop-code',
+            'icon_color' => 'green',
+            /* 'label'       => 5,
+            'label_color' => 'success', */
+            'active'    => ['inventario*'],
+            'can' => 'admin.users.index',
+            'submenu' => [
+                [
+                    'text'       => 'Inventario',
+                    'route'      => 'inventario.principal',/* 'admin.home', */
+                    'active' => ['inventario.principal'],
+                    'icon'       => 'fas fa-globe fa-fw',
+                    'icon_color' => 'cyan',
+                ],
+                ['header' => 'SETTINGS'],
+                [
+                    'text' => 'Sectores',
+                    'route'  => 'inventario.sectores.index',/* 'admin.sectores.index', */
+                    'active' => ['inventario/sectores*'],
+                    'icon' => 'fas fa-fw fa-city',
+                    'icon_color' => 'indigo',
+                ],
+                [
+                    'text' => 'Switchs',
+                    'route'  => 'inventario.conmutadores.index',/* 'admin.conmutadores.index', */
+                    'active' => ['inventario/conmutadores*'],
+                    'icon' => 'fas fa-fw fa-handshake',
+                    'icon_color' => 'orange',
+                ],
+                [
+                    'text' => 'Racks',
+                    'route'  => 'inventario.racks.index',/*  'admin.racks.index', */
+                    'active' => ['admin/racks*'],
+                    'icon' => 'fab fa-fw fa-buffer',
+                    'icon_color' => 'cyan',
+                ],
+                [
+                    'text'    => 'Equipamientos',
+                    'icon' => 'fas fa-fw fa-truck-monster',
+                    'icon_color' => 'green',
+                    'active' => ['inventario/cpus*','inventario/monitores*', 'inventario/scanners*', 'inventario/impresoras*'], /*  ['inventario/cpus*', 'inventario/monitores*'], */
+                    /* 'url'     => 'admin.users.index', *//* 'admin.home', */
+                    'submenu' => [
+                        [
+                            'text' => "CPU's",
+                            'icon' => 'fas fa-fw fa-dice-d6',
+                            'icon_color' => 'teal',
+                            'active' => ['inventario/cpus*'],
+                            'route'  => 'inventario.cpus.index',/*  'admin.cpus.index', */
+                        ],
+                        [
+                            'text'    => 'Monitores',
+                            'icon' => 'fas fa-fw fa-desktop',
+                            'icon_color' => 'teal',
+                            'active' => ['inventario/monitores*'],
+                            'route'     => 'inventario.monitores.index',/*  'admin.monitores.index', */
+                        ],
+                        [
+                            'text' => 'Impresoras',
+                            'icon' => 'fas fa-fw fa-print',
+                            'icon_color' => 'teal',
+                            'active' => ['inventario/impresoras*'],
+                            'route'  => 'inventario.impresoras.index',/*  'admin.impresoras.index', */
+                        ],
+                        [
+                            'text' => 'Scanners',
+                            'icon' => 'fas fa-fw fa-print',
+                            'icon_color' => 'teal',
+                            'active' => ['inventario/scanners*'],
+                            'route'  => 'inventario.scanners.index',/*  'admin.impresoras.index', */
+                        ],
+                    ],
+                ],
+                [
+                    'text'    => 'Puestos',
+                    'icon'    => 'fas fa-fw fa-keyboard',
+                    'icon_color' => 'purple',
+                    'active' => ['inventario/puestos*'],
+                    'route'  => 'inventario.puestos.index',/* 'admin.puestos.index', */
+                ],
+                ['header' => "####  IP's  ####"],
+                [
+                    'text'       => "Registro de IP's",
+                    'icon_color' => 'red',
+                    'icon' => 'fas fa-fw fa-eye',
+                    'route'        => 'inventario.ips.index',/*  'admin.ips.index', */
+                    'active' => ['admin/ips*'],
+                ],
+
+
+            ],
+        ],
+
+        [
             'text'    => 'Comunicación',
             'icon'    => 'fas fa-bullhorn fa-fw',
             'label'       => 1,

@@ -17,9 +17,21 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //roles
-        $this->call(RoleSeeder::class);
+        /* $this->call(RoleSeeder::class); */
         //usuarios
-        $this->call(UserSeeder::class);
+        /* $this->call(UserSeeder::class); */
 
+        /* Para Inventario Descomentar y ejecutar una sola vez*/
+        /* $this->call(SectorSeeder::class); 
+         $this->call(RackSeeder::class); 
+         $this->call(ConmutadorSeeder::class); 
+         $this->call(EquipamientoSeeder::class); 
+         $this->call(CpuSeeder::class); 
+         $this->call(MonitorSeeder::class); 
+         $this->call(IpSeeder::class); 
+         $this->call(ConexionSeeder::class); 
+         $this->call(PuestoSeeder::class); 
+         $this->call(ScannerSeeder::class); 
+         $this->call(ImpresoraSeeder::class); */
     }
 }
