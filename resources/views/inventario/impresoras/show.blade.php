@@ -113,7 +113,7 @@
                     <div id="collapseThree" class="collapse" data-parent="#accordion" style="">
                         <div class="card-body">
                             <div class="row">
-                                {{-- @if ($impresora->imagenes->count())
+                                @if ($impresora->imagenes->count())
                                     @foreach ($impresora->imagenes as $imagen)
                                         <div class="col-12 col-md-6 my-2">
                                             <div class="image-wrapper">
@@ -123,9 +123,7 @@
                                     @endforeach    
                                 @else
                                     <p>No hay imágenes Asociadas a la Impresora.</p>
-                                @endif --}}
-
-                                <p>No hay imágenes Asociadas a la Impresora. Aún.!</p>
+                                @endif
                             </div>
                         </div>
                     </div>

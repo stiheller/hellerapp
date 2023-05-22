@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Inventario;
 
 use App\Http\Controllers\Controller;
+use App\Models\Inventario\ImagenImpresora;
 use App\Models\Inventario\Impresora;
 use App\Models\Inventario\Puesto;
 use Illuminate\Http\Request;
@@ -122,8 +123,8 @@ class ImpresoraController extends Controller
     }
 
     //Función para mostrar las imágenes de la Impresora:
-   /*  public function imagenes(Impresora $impresora){
+    public function imagenes(Impresora $impresora){
         $imagenes = ImagenImpresora::where('impresora_id','=',$impresora->id)->get();
-        return view('admin.impresoras.imagenes', compact('impresora','imagenes'));
-    } */
+        return view('inventario.impresoras.imagenes', compact('impresora','imagenes'));
+    }
 }

@@ -147,7 +147,7 @@
                                     </a>
 
                                     <a class="btn btn-info btn-sm"
-                                        href="{{ route('inventario.impresoras.edit', $impresora) }}"> {{-- href="{{ route('inventario.impresoras.imagenes', $impresora) }}"> --}}
+                                        href="{{ route('inventario.impresoras.imagenes', $impresora) }}"> 
                                         <i class="fas fa-image"></i>
                                     </a>
 

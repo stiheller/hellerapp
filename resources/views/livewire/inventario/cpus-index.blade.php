@@ -175,7 +175,7 @@
                                         </a> --}}
 
                                         <a class="btn btn-info btn-sm"
-                                            href="{{ route('inventario.cpus.edit', $cpu) }}">
+                                            href="{{ route('inventario.cpus.imagenes', $cpu) }}">
                                             <i class="fas fa-image"></i>
                                         </a>
 

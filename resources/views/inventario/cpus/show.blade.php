@@ -118,7 +118,7 @@
                     <div id="collapseThree" class="collapse" data-parent="#accordion" style="">
                         <div class="card-body">
                             <div class="row">
-                                {{-- @if ($cpu->imagenes->count())
+                                @if ($cpu->imagenes->count())
                                     @foreach ($cpu->imagenes as $imagen)
                                         <div class="col-12 col-md-6 my-2">
                                             <div class="image-wrapper">
@@ -128,8 +128,7 @@
                                     @endforeach    
                                 @else
                                     <p>No hay imágenes Asociadas al CPU.</p>
-                                @endif --}}
-                                <p>No hay imágenes Asociadas al CPU aún.!.</p>
+                                @endif
                             </div>
                         </div>
                     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Inventario;
 
 use App\Http\Controllers\Controller;
 use App\Models\Inventario\Cpu;
+use App\Models\Inventario\ImagenCpu;
 use App\Models\Inventario\Puesto;
 use Illuminate\Http\Request;
 
@@ -134,9 +135,9 @@ class CpuController extends Controller
     }
 
     //Función para mostrar las imágenes del CPU:
-    /* public function imagenes(Cpu $cpu){
+    public function imagenes(Cpu $cpu){
         $imagenes = ImagenCpu::where('cpu_id','=',$cpu->id)->get();
         return view('inventario.cpus.imagenes', compact('cpu','imagenes'));
-    } */
+    }
 }
 

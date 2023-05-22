@@ -89,7 +89,7 @@
                     <div id="collapseThree" class="collapse" data-parent="#accordion" style="">
                         <div class="card-body">
                             <div class="row">
-                               {{--  @if ($monitor->imagenes->count())
+                                @if ($monitor->imagenes->count())
                                     @foreach ($monitor->imagenes as $imagen)
                                         <div class="col-12 col-md-6 my-2">
                                             <div class="image-wrapper">
@@ -99,8 +99,7 @@
                                     @endforeach    
                                 @else
                                     <p>No hay imágenes Asociadas al Monitor.</p>
-                                @endif --}}
-                                <p>No hay imágenes Asociadas al Monitor. Aún.!</p>
+                                @endif
                             </div>
                         </div>
                     </div>

@@ -8,6 +8,8 @@ use App\Http\Controllers\Inventario\ConmutadorController;
 use App\Http\Controllers\Inventario\CpuController;
 use App\Http\Controllers\Inventario\EquipamientoController;
 use App\Http\Controllers\Inventario\HomeController;
+use App\Http\Controllers\Inventario\ImagenCpuController;
+use App\Http\Controllers\Inventario\ImagenImpresoraController;
 use App\Http\Controllers\Inventario\ImagenMonitorController;
 use App\Http\Controllers\Inventario\ImpresoraController;
 use App\Http\Controllers\Inventario\InventarioController;
@@ -61,19 +63,19 @@ Route::delete('imagenMonitores/destroy/{imagenMonitor}', [ImagenMonitorControlle
 
 Route::resource('cpus', CpuController::class)->names('inventario.cpus');
 //Imagenes de CPU:
-/* Route::get('cpus/imagenes/{cpu}', [CpuController::class, 'imagenes'])->name('admin.cpus.imagenes');
-Route::get('imagenCpus/create/{id}', [ImagenCpuController::class, 'create'])->name('admin.imagenCpus.create');
-Route::post('imagenCpus/store/{id}', [ImagenCpuController::class, 'store'])->name('admin.imagenCpus.store');
-Route::delete('imagenCpus/destroy/{imagenCpu}', [ImagenCpuController::class, 'destroy'])->name('admin.imagenCpus.destroy');
-*/
+Route::get('cpus/imagenes/{cpu}', [CpuController::class, 'imagenes'])->name('inventario.cpus.imagenes');
+Route::get('imagenCpus/create/{id}', [ImagenCpuController::class, 'create'])->name('inventario.imagenCpus.create');
+Route::post('imagenCpus/store/{id}', [ImagenCpuController::class, 'store'])->name('inventario.imagenCpus.store');
+Route::delete('imagenCpus/destroy/{imagenCpu}', [ImagenCpuController::class, 'destroy'])->name('inventario.imagenCpus.destroy');
+
 Route::resource('impresoras', ImpresoraController::class)->names('inventario.impresoras');
 //Imagenes de Impresora:
-/* Route::get('impresoras/imagenes/{impresora}', [ImpresoraController::class, 'imagenes'])->name('admin.impresoras.imagenes');
-Route::get('imagenImpresoras/create/{impresora}', [ImagenImpresoraController::class, 'create'])->name('admin.imagenImpresoras.create');
-Route::post('imagenImpresoras/store/{impresora}', [ImagenImpresoraController::class, 'store'])->name('admin.imagenImpresoras.store');
-Route::delete('imagenImpresoras/destroy/{imagenImpresora}', [ImagenImpresoraController::class, 'destroy'])->name('admin.imagenImpresoras.destroy');
+Route::get('impresoras/imagenes/{impresora}', [ImpresoraController::class, 'imagenes'])->name('inventario.impresoras.imagenes');
+Route::get('imagenImpresoras/create/{impresora}', [ImagenImpresoraController::class, 'create'])->name('inventario.imagenImpresoras.create');
+Route::post('imagenImpresoras/store/{impresora}', [ImagenImpresoraController::class, 'store'])->name('inventario.imagenImpresoras.store');
+Route::delete('imagenImpresoras/destroy/{imagenImpresora}', [ImagenImpresoraController::class, 'destroy'])->name('inventario.imagenImpresoras.destroy');
 
-*/
+
 Route::resource('scanners', ScannerController::class)->names('inventario.scanners');
 //Imagenes de Scanner:
 /* Route::get('scanners/imagenes/{scanner}', [ScannerController::class, 'imagenes'])->name('admin.scanners.imagenes');
