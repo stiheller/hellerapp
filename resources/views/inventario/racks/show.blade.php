@@ -106,7 +106,7 @@
                 </div>
                 <div class="tab-pane fade" id="imagenes-desc" role="tabpanel" aria-labelledby="imagenes-desc-tab">
                     <div class="row">
-                        {{-- @if ($rack->imagenes->count())
+                        @if ($rack->imagenes->count())
                             @foreach ($rack->imagenes as $imagen)
                             <div class="row">
                                 <div class="col-12 mt-2">
@@ -120,94 +120,10 @@
                             @endforeach    
                         @else
                             <p>No hay imágenes Asociadas al Rack.</p>
-                        @endif --}}
-                    </div>
-                </div>
-                {{-- <div class="tab-pane fade" id="conexion-desc" role="tabpanel" aria-labelledby="conexion-desc-tab">
-                    <div class="card-group">
-                        <div class="card card-success" style="max-width: full;">
-                            <div class="card-header">
-                                <h3 class="card-title">Conexión ID: {{ $conexion->id }}</h3>
-                            </div>
-                            <div class="card-body">
-                                @if ($conexion->conectada_rack == 1)
-                                    <h6><u>Conectada a Rack:</u> <i class="fas fa-check" style="color:green"></i></h6>
-                                    <h6><u>Boca de Patch:</u> {{ $conexion->boca_patch }}</h6>
-                                    <h6><u>Boca de Switch:</u> {{ $conexion->boca_switch }}</h6>
-                                    <h6 class="text-danger"><u>Fecha Impactada:</u> {{ $conexion->fecha_impactada }}</h6>
-                                @else
-                                    <h6><u>Conectada a Rack:</u> NO<i class="fas fa-bolt" style="color:red"></i></h6>
-                    
-                                @endif
-
-                                @if ($conexion->en_uso == 1)
-                                    <h6><u>En Uso:</u> <i class="fas fa-check" style="color:green"></i></h6>
-                                    <h6><u>IP:</u> {{ $conexion->ip->direccion_ip }}</h6>
-                                @else
-                                    <h6><u>En Uso:</u> NO <i class="fas fa-bolt" style="color:red"></i></h6>
-                                @endif
-                            </div>
-                        </div>
-                        
-                        @if ($conexion->conectada_rack == 1)
-                            <div class="card card-info">
-                                <div class="card-header">
-                                    <h3 class="card-title">Switch ID: {{ $conexion->conmutador->id }}</h3>
-                                </div>
-                                <div class="card-body">
-                                    <h6 class="text-dark"><u>Número:</u> {{ $conexion->conmutador->numero }}</h6>
-                                    <h6 class="text-secondary"><u>Marca:</u> {{ $conexion->conmutador->marca }}</h6>
-                                    <h6 class="text-secondary"><u>Descripción:</u>
-                                        {{ $conexion->conmutador->descripcion }}</h6>
-                                    <h6 class="text-secondary"><u>Lugar de Referencia:</u>
-                                        {{ $conexion->conmutador->referencia_lugar }}</h6>
-                                    <h6 class="text-danger"><u>Fecha Limpieza:</u>
-                                        {{ $conexion->conmutador->fecha_limpieza }}</h6>
-                                </div>
-                            </div>
-                            @if ($conexion->conmutador->rack_id != null)
-                                <div class="card card-primary">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Rack ID: {{ $conexion->conmutador->rack->id }}</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6 class="text-dark"><u>Nombre:</u> {{ $conexion->conmutador->rack->nombre }}
-                                        </h6>
-                                        <h6 class="text-secondary"><u>Descripción:</u>
-                                            {{ $conexion->conmutador->rack->descripcion }}</h6>
-                                        <h6 class="text-secondary"><u>Lugar de Referencia:</u>
-                                            {{ $conexion->conmutador->rack->referencia_lugar }}</h6>
-                                        <h6 class="text-danger"><u>Fecha Limpieza:</u>
-                                            {{ $conexion->conmutador->rack->fecha_limpieza }}</h6>
-                                        @if ($conexion->conmutador->rack->planta == 1)
-                                            <h6><u>Planta - Alta</u></h6>
-                                        @else
-                                            <h6><u>Planta - Baja</u></h6>
-                                        @endif
-                                    </div>
-                                </div>
-                            @else
-                                <div class="card card-primary">
-                                    <div class="card-header">
-                                        <h3 class="card-title">El Switch se encuentra en el sector:
-                                            {{ $conexion->conmutador->sector->nombre }}</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6 class="text-secondary"><u>Descripción:</u>
-                                            {{ $conexion->conmutador->sector->descripcion }}</h6>
-                                        <h6 class="text-secondary"><u>Lugar de Referencia:</u>
-                                            {{ $conexion->conmutador->sector->referencia_lugar }}</h6>
-                                        @if ($conexion->conmutador->sector->planta == 1)
-                                            <h6><u>Planta - Alta</u></h6>
-                                        @else
-                                            <h6><u>Planta - Baja</u></h6>
-                                        @endif
-                                    </div>
-                                </div>
-                            @endif
                         @endif
                     </div>
-                </div> --}}
+                </div>
+                
                 
             </div>
         </div>

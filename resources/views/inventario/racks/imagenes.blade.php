@@ -1,11 +1,11 @@
 @extends('adminlte::page')
 
-@section('title', 'Rack Imágenes')
+@section('title', 'Inventario - Rack / Imágenes')
 
 @section('content_header')
-    <a class="btn btn-info float-right" href="{{ route('admin.racks.index') }}"><i class="fas fa-undo"></i> Volver al Índice</a>
+    <a class="btn btn-info float-right" href="{{ route('inventario.racks.index') }}"><i class="fas fa-undo"></i> Volver al Índice</a>
     <a class="float-right btn btn-success mr-4"
-        href="{{ route('admin.imagenRacks.create', $rack) }}">
+        href="{{ route('inventario.imagenRacks.create', $rack) }}">
         <i class="fas fa-plus"></i> Agregar Imágenes
     </a>
     <h3>Imagenes de Rack: {{$rack->slug}}</h3>
@@ -27,7 +27,7 @@
                             </div>
                             <div class="card-footer">
                                 <form class="formulario-eliminar"
-                                        action="{{ route('admin.imagenRacks.destroy', $imagen) }}" method="POST">
+                                        action="{{ route('inventario.imagenRacks.destroy', $imagen) }}" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger btn-sm">

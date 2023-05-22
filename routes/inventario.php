@@ -12,6 +12,7 @@ use App\Http\Controllers\Inventario\ImagenConmutadorController;
 use App\Http\Controllers\Inventario\ImagenCpuController;
 use App\Http\Controllers\Inventario\ImagenImpresoraController;
 use App\Http\Controllers\Inventario\ImagenMonitorController;
+use App\Http\Controllers\Inventario\ImagenRackController;
 use App\Http\Controllers\Inventario\ImagenScannerController;
 use App\Http\Controllers\Inventario\ImpresoraController;
 use App\Http\Controllers\Inventario\InventarioController;
@@ -41,11 +42,11 @@ Route::resource('sectores', SectorController::class)->names('inventario.sectores
 
 Route::resource('racks', RackController::class)->names('inventario.racks');
 //Imagenes de Rack:
-/* Route::get('racks/imagenes/{rack}', [RackController::class, 'imagenes'])->name('admin.racks.imagenes');
-Route::get('imagenRacks/create/{rack}', [ImagenRackController::class, 'create'])->name('admin.imagenRacks.create');
-Route::post('imagenRacks/store/{rack}', [ImagenRackController::class, 'store'])->name('admin.imagenRacks.store');
-Route::delete('imagenRacks/destroy/{imagenRack}', [ImagenRackController::class, 'destroy'])->name('admin.imagenRacks.destroy');
-*/
+Route::get('racks/imagenes/{rack}', [RackController::class, 'imagenes'])->name('inventario.racks.imagenes');
+Route::get('imagenRacks/create/{rack}', [ImagenRackController::class, 'create'])->name('inventario.imagenRacks.create');
+Route::post('imagenRacks/store/{rack}', [ImagenRackController::class, 'store'])->name('inventario.imagenRacks.store');
+Route::delete('imagenRacks/destroy/{imagenRack}', [ImagenRackController::class, 'destroy'])->name('inventario.imagenRacks.destroy');
+
 Route::resource('ips', IpController::class)->names('inventario.ips');
 
 Route::resource('conmutadores', ConmutadorController::class)->names('inventario.conmutadores');
