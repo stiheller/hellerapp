@@ -120,19 +120,6 @@
                                     <p class="text-secondary">S/D</p>
                                 @endif
                             </td>
-                            
-                            {{-- <td width="10px">
-                                <a class="btn btn-primary btn-sm"
-                                    href="{{ route('admin.scanners.edit', $scanner) }}">Editar</a>
-                            </td>
-                            <td width="10px">
-                                <form class="formulario-eliminar"
-                                    action="{{ route('admin.scanners.destroy', $scanner) }}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                                </form>
-                            </td> --}}
 
                             <td>
                                 <div class="btn-group">
@@ -163,7 +150,7 @@
                                     </a>
 
                                     <a class="btn btn-info btn-sm"
-                                        href="{{ route('inventario.scanners.edit', $scanner) }}">  {{-- href="{{ route('inventario.scanners.imagenes', $scanner) }}"> --}}
+                                        href="{{ route('inventario.scanners.imagenes', $scanner) }}">
                                         <i class="fas fa-image"></i>
                                     </a>
 

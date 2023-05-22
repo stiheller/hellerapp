@@ -7,6 +7,7 @@ use App\Models\Inventario\ImagenImpresora;
 use App\Models\Inventario\Impresora;
 use App\Models\Inventario\Puesto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ImpresoraController extends Controller
 {
@@ -118,6 +119,12 @@ class ImpresoraController extends Controller
      */
     public function destroy(Impresora $impresora)
     {
+        $imagenes = ImagenImpresora::where('impresora_id','=',$impresora->id)->get();
+        
+        foreach ($imagenes as $imagen) {
+            Storage::delete($imagen->url);
+        }
+
         $impresora->delete();
         return redirect()->route('inventario.impresoras.index')->with('eliminar', 'ok');
     }

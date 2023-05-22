@@ -8,9 +8,11 @@ use App\Http\Controllers\Inventario\ConmutadorController;
 use App\Http\Controllers\Inventario\CpuController;
 use App\Http\Controllers\Inventario\EquipamientoController;
 use App\Http\Controllers\Inventario\HomeController;
+use App\Http\Controllers\Inventario\ImagenConmutadorController;
 use App\Http\Controllers\Inventario\ImagenCpuController;
 use App\Http\Controllers\Inventario\ImagenImpresoraController;
 use App\Http\Controllers\Inventario\ImagenMonitorController;
+use App\Http\Controllers\Inventario\ImagenScannerController;
 use App\Http\Controllers\Inventario\ImpresoraController;
 use App\Http\Controllers\Inventario\InventarioController;
 use App\Http\Controllers\Inventario\IpController;
@@ -47,12 +49,12 @@ Route::delete('imagenRacks/destroy/{imagenRack}', [ImagenRackController::class, 
 Route::resource('ips', IpController::class)->names('inventario.ips');
 
 Route::resource('conmutadores', ConmutadorController::class)->names('inventario.conmutadores');
-//Imagenes de CPU:
-/* Route::get('conmutadores/imagenes/{conmutador}', [ConmutadorController::class, 'imagenes'])->name('admin.conmutadores.imagenes');
-Route::get('imagenConmutadores/create/{id}', [ImagenConmutadorController::class, 'create'])->name('admin.imagenConmutadores.create');
-Route::post('imagenConmutadores/store/{id}', [ImagenConmutadorController::class, 'store'])->name('admin.imagenConmutadores.store');
-Route::delete('imagenConmutadores/destroy/{imagenConmutador}', [ImagenConmutadorController::class, 'destroy'])->name('admin.imagenConmutadores.destroy');
-*/
+//Imagenes del Switch:
+Route::get('conmutadores/imagenes/{conmutador}', [ConmutadorController::class, 'imagenes'])->name('inventario.conmutadores.imagenes');
+Route::get('imagenConmutadores/create/{id}', [ImagenConmutadorController::class, 'create'])->name('inventario.imagenConmutadores.create');
+Route::post('imagenConmutadores/store/{id}', [ImagenConmutadorController::class, 'store'])->name('inventario.imagenConmutadores.store');
+Route::delete('imagenConmutadores/destroy/{imagenConmutador}', [ImagenConmutadorController::class, 'destroy'])->name('inventario.imagenConmutadores.destroy');
+
 
 Route::resource('monitores', MonitorController::class)->names('inventario.monitores');
 //Imagenes Monitores
@@ -78,11 +80,11 @@ Route::delete('imagenImpresoras/destroy/{imagenImpresora}', [ImagenImpresoraCont
 
 Route::resource('scanners', ScannerController::class)->names('inventario.scanners');
 //Imagenes de Scanner:
-/* Route::get('scanners/imagenes/{scanner}', [ScannerController::class, 'imagenes'])->name('admin.scanners.imagenes');
-Route::get('imagenScanners/create/{scanner}', [ImagenScannerController::class, 'create'])->name('admin.imagenScanners.create');
-Route::post('imagenScanners/store/{scanner}', [ImagenScannerController::class, 'store'])->name('admin.imagenScanners.store');
-Route::delete('imagenScanners/destroy/{imagenScanner}', [ImagenScannerController::class, 'destroy'])->name('admin.imagenScanners.destroy');
-*/
+Route::get('scanners/imagenes/{scanner}', [ScannerController::class, 'imagenes'])->name('inventario.scanners.imagenes');
+Route::get('imagenScanners/create/{scanner}', [ImagenScannerController::class, 'create'])->name('inventario.imagenScanners.create');
+Route::post('imagenScanners/store/{scanner}', [ImagenScannerController::class, 'store'])->name('inventario.imagenScanners.store');
+Route::delete('imagenScanners/destroy/{imagenScanner}', [ImagenScannerController::class, 'destroy'])->name('inventario.imagenScanners.destroy');
+
 
 Route::resource('equipamientos', EquipamientoController::class)->names('inventario.equipamientos');
 

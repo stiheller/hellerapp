@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Switchs - ADMIN')
+@section('title', 'Inventario - Switchs / Show')
 
 @section('content_header')
     <a class="btn btn-info float-right" href="{{ route('inventario.conmutadores.index') }}">Volver al Índice</a>
@@ -95,7 +95,7 @@
                 </div>
                 <div class="tab-pane fade" id="imagenes-desc" role="tabpanel" aria-labelledby="imagenes-desc-tab">
                     <div class="row">
-                       {{--  @if ($conmutador->imagenes->count())
+                        @if ($conmutador->imagenes->count())
                             @foreach ($conmutador->imagenes as $imagen)
                             <div class="row">
                                 <div class="col-12 mt-2">
@@ -109,8 +109,9 @@
                             @endforeach    
                         @else
                             <p>No hay imágenes Asociadas al Switch.</p>
-                        @endif --}}
+                        @endif
                     </div>
+
                 </div>               
             </div>
         </div>

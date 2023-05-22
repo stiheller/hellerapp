@@ -112,7 +112,7 @@
                     <div id="collapseThree" class="collapse" data-parent="#accordion" style="">
                         <div class="card-body">
                             <div class="row">
-                               {{--  @if ($scanner->imagenes->count())
+                                @if ($scanner->imagenes->count())
                                     @foreach ($scanner->imagenes as $imagen)
                                         <div class="col-12 col-md-6 my-2">
                                             <div class="image-wrapper">
@@ -122,8 +122,7 @@
                                     @endforeach    
                                 @else
                                     <p>No hay imágenes Asociadas al Scanner.</p>
-                                @endif --}}
-                                <p>No hay imágenes Asociadas al Scanner. Aún!</p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -135,6 +134,18 @@
 @stop
 
 @section('css')
+    <style>
+        .image-wrapper{
+            position: relative;
+            padding-bottom: 56.25%;
+        }
+        .image-wrapper img{
+            position: absolute;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 

@@ -148,7 +148,7 @@
                                     </a>
 
                                     <a class="btn btn-info btn-sm"
-                                        href="{{ route('inventario.conmutadores.edit', $conmutador) }}"> {{-- route('inventario.conmutadores.imagenes', $conmutador) --}}
+                                        href="{{ route('inventario.conmutadores.imagenes', $conmutador) }}">
                                         <i class="fas fa-image"></i>
                                     </a>
 

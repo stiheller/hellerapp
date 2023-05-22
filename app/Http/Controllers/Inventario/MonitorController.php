@@ -7,6 +7,7 @@ use App\Models\Inventario\ImagenMonitor;
 use App\Models\Inventario\Monitor;
 use App\Models\Inventario\Puesto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MonitorController extends Controller
 { 
@@ -125,10 +126,12 @@ class MonitorController extends Controller
      */
     public function destroy(Monitor $monitore)
     {
-        //Acá hay que recorrer las imágenes creo. Hay que ver el cascade.
-        /* if($monitore->image){
-            Storage::delete($monitore->image->url);
-        } */
+        //Recorro las imágenes para eliminarlas.
+        $imagenes = ImagenMonitor::where('monitor_id','=',$monitore->id)->get();
+        
+        foreach ($imagenes as $imagen) {
+            Storage::delete($imagen->url);
+        }
         $monitore->delete();
         return redirect()->route('inventario.monitores.index')->with('eliminar', 'ok');
     }

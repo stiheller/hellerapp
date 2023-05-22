@@ -29,7 +29,7 @@ class Conmutador extends Model
     }
 
     //Relación uno a muchos con imagenes_conmutador
-    /* public function imagenes(){
+    public function imagenes(){
         return $this->hasMany(ImagenConmutador::class);
-    } */
+    }
 }

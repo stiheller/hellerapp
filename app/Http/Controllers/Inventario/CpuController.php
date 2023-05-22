@@ -7,6 +7,7 @@ use App\Models\Inventario\Cpu;
 use App\Models\Inventario\ImagenCpu;
 use App\Models\Inventario\Puesto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CpuController extends Controller
 {
@@ -124,11 +125,11 @@ class CpuController extends Controller
      */
     public function destroy(Cpu $cpu)
     {
-        /* if($cpu->image){
-            Storage::delete($cpu->image->url);
-        } */
-
-        //Atención Falta eliminar las imágenes almacenadas.!!!
+        $imagenes = ImagenCpu::where('cpu_id','=',$cpu->id)->get();
+        
+        foreach ($imagenes as $imagen) {
+            Storage::delete($imagen->url);
+        }
 
         $cpu->delete();
         return redirect()->route('inventario.cpus.index')->with('eliminar', 'ok');

@@ -134,6 +134,18 @@
 @stop
 
 @section('css')
+    <style>
+        .image-wrapper{
+            position: relative;
+            padding-bottom: 56.25%;
+        }
+        .image-wrapper img{
+            position: absolute;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 

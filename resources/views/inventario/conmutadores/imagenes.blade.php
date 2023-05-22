@@ -3,9 +3,9 @@
 @section('title', 'Switch Imágenes')
 
 @section('content_header')
-    <a class="btn btn-info float-right" href="{{ route('admin.conmutadores.index') }}"><i class="fas fa-undo"></i> Volver al Índice</a>
+    <a class="btn btn-info float-right" href="{{ route('inventario.conmutadores.index') }}"><i class="fas fa-undo"></i> Volver al Índice</a>
     <a class="float-right btn btn-success mr-4"
-        href="{{ route('admin.imagenConmutadores.create', $conmutador->id) }}">
+        href="{{ route('inventario.imagenConmutadores.create', $conmutador->id) }}">
         <i class="fas fa-plus"></i> Agregar Imágenes
     </a>
     <h3>Imagenes del Switch:</h3>
@@ -27,7 +27,7 @@
                             </div>
                             <div class="card-footer">
                                 <form class="formulario-eliminar"
-                                        action="{{ route('admin.imagenConmutadores.destroy', $imagen) }}" method="POST">
+                                        action="{{ route('inventario.imagenConmutadores.destroy', $imagen) }}" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger btn-sm">

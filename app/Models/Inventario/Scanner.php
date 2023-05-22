@@ -24,8 +24,8 @@ class Scanner extends Model
     }
 
     //Relación con Imagenes
-    /* public function imagenes()
+    public function imagenes()
     {
         return $this->hasMany(ImagenScanner::class);
-    } */
+    }
 }

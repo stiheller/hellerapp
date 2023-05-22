@@ -3,9 +3,9 @@
 @section('title', 'Scanner Imágenes')
 
 @section('content_header')
-    <a class="btn btn-info float-right" href="{{ route('admin.scanners.index') }}"><i class="fas fa-undo"></i> Volver al Índice</a>
+    <a class="btn btn-info float-right" href="{{ route('inventario.scanners.index') }}"><i class="fas fa-undo"></i> Volver al Índice</a>
     <a class="float-right btn btn-success mr-4"
-        href="{{ route('admin.imagenScanners.create', $scanner) }}">
+        href="{{ route('inventario.imagenScanners.create', $scanner) }}">
         <i class="fas fa-plus"></i> Agregar Imágenes
     </a>
     <h3>Imagenes de Scanner: {{$scanner->slug}}</h3>
@@ -27,7 +27,7 @@
                             </div>
                             <div class="card-footer">
                                 <form class="formulario-eliminar"
-                                        action="{{ route('admin.imagenScanners.destroy', $imagen) }}" method="POST">
+                                        action="{{ route('inventario.imagenScanners.destroy', $imagen) }}" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger btn-sm">
