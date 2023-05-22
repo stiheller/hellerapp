@@ -133,7 +133,7 @@
                                         <i class="fas fa-image"></i>
                                     </a> --}}
                                     <a class="btn btn-info btn-sm"
-                                        href="{{ route('inventario.monitores.edit', $monitor) }}">
+                                        href="{{ route('inventario.monitores.imagenes', $monitor) }}">
                                         <i class="fas fa-image"></i>
                                     </a>
 

@@ -3,9 +3,9 @@
 @section('title', 'Monitor Imágenes')
 
 @section('content_header')
-    <a class="btn btn-info float-right" href="{{ route('admin.monitores.index') }}"><i class="fas fa-undo"></i> Volver al Índice</a>
+    <a class="btn btn-info float-right" href="{{ route('inventario.monitores.index') }}"><i class="fas fa-undo"></i> Volver al Índice</a>
     <a class="float-right btn btn-success mr-4"
-        href="{{ route('admin.imagenMonitores.create2', $monitor->id) }}">
+        href="{{ route('inventario.imagenMonitores.create', $monitor->id) }}">
         <i class="fas fa-plus"></i> Agregar Imágenes
     </a>
     <h3>Imagenes de Monitor:{{--  {{$monitor->id}} --}}</h3>
@@ -33,7 +33,7 @@
                             </div>
                             <div class="card-footer">
                                 <form class="formulario-eliminar"
-                                        action="{{ route('admin.imagenMonitores.destroy', $imagen) }}" method="POST">
+                                        action="{{ route('inventario.imagenMonitores.destroy', $imagen) }}" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger btn-sm">

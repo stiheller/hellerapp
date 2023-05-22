@@ -164,3 +164,25 @@ https://www.it-swarm-es.com/es/session/como-configurar-el-tiempo-de-espera-de-la
 
 
 
+#### Para Inventario ####
+- Recordar que hay que ejecutar las migraciones con los seeder una vez.
+Comando:
+php artisan migrate --seed
+
+Pero hay que tener en cuenta que hay que descomentar el archivo DatabaseSeeder.php para que las corra.
+El archivo se encuentra en:
+Database -> seeders -> DatabaseSeeder.php
+
+Para el trabajo de las imágenes, hay que generar el acceso directo desde public para el storage.
+Para que funcione, hay que ejecutar el siguiente comando:
+
+php artisan storage:link
+
+De esta manera se puede ver en la carpeta public del proyecto un acceso directo a la carpeta storage.
+Cuando ejecuta el comando debe aparecer en verde:
+ ----------------------------------------------------------------------------------------------------------------------------
+| The [C:\xampp\htdocs\hellerapp\public\storage] link has been connected to [C:\xampp\htdocs\hellerapp\storage\app/public].  |
+| The links have been created.                                                                                               |
+ ----------------------------------------------------------------------------------------------------------------------------
+
+ 

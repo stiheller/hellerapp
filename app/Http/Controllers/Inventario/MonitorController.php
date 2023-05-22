@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Inventario;
 
 use App\Http\Controllers\Controller;
+use App\Models\Inventario\ImagenMonitor;
 use App\Models\Inventario\Monitor;
 use App\Models\Inventario\Puesto;
 use Illuminate\Http\Request;
@@ -132,8 +133,8 @@ class MonitorController extends Controller
         return redirect()->route('inventario.monitores.index')->with('eliminar', 'ok');
     }
 
-    /* public function imagenes(Monitor $monitor){
+    public function imagenes(Monitor $monitor){
         $imagenes = ImagenMonitor::where('monitor_id','=',$monitor->id)->get();
         return view('inventario.monitores.imagenes', compact('monitor','imagenes'));
-    } */
+    }
 }
