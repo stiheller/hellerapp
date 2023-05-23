@@ -70,7 +70,7 @@
                         <th>IdS</th>
                         <th>IdC</th>
                         <th>IdE</th>
-                        <th>En.Uso</th>
+                        <th>En.RED</th>
                         <th>IP</th>
                         {{-- <th colspan="3" class="text-bold text-danger text-center">ACCIONES</th> --}}
                         <th class="text-bold text-primary text-center">ACCIONES</th>

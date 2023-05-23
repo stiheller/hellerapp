@@ -73,7 +73,7 @@
                         {{-- <th>Data</th>
                         <th>Descripción</th> --}}
                         <th class="text-bold text-info text-center">Info</th>
-                        <th>En.Uso</th>
+                        <th>En.RED</th>
                         {{-- <th>Conec</th> --}}
                     </tr>
                 </thead>
