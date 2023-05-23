@@ -18,10 +18,10 @@ class Cpu extends Model
         return $this->belongsTo(Equipamiento::class);
     }
 
-
-    /* public function imagenes(){
+    //Imagenes
+    public function imagenes(){
         return $this->hasMany(ImagenCpu::class);
-    } */
+    }
 
     //Relación uno a uno polimórfica:
     /* public function image(){

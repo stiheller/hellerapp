@@ -3,7 +3,7 @@
 @section('title', 'CPU Imágenes')
 
 @section('content_header')
-    <a class="btn btn-info float-right" href="{{ route('admin.cpus.index') }}"><i class="fas fa-undo"></i> Volver al Índice</a>
+    <a class="btn btn-info float-right" href="{{ route('inventario.cpus.index') }}"><i class="fas fa-undo"></i> Volver al Índice</a>
     <h3>Agregar Imagenes a Cpu con id: {{$id}}</h3>
 @stop
 
@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <form action="{{route('admin.imagenCpus.store', $id)}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('inventario.imagenCpus.store', $id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <input type="file" name="file" id="file" accept="image/*">

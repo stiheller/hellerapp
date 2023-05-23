@@ -127,7 +127,7 @@
                                     </a>
 
                                     <a class="btn btn-info btn-sm"
-                                        href="{{ route('inventario.racks.edit', $rack) }}"> {{-- route('inventario.racks.imagenes') --}}
+                                        href="{{ route('inventario.racks.imagenes', $rack) }}"> 
                                         <i class="fas fa-image"></i>
                                     </a>
 

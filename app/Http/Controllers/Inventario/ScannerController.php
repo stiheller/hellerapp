@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Inventario;
 
 use App\Http\Controllers\Controller;
+use App\Models\Inventario\ImagenScanner;
 use App\Models\Inventario\Puesto;
 use App\Models\Inventario\Scanner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ScannerController extends Controller
 {
@@ -31,6 +33,7 @@ class ScannerController extends Controller
             '0' => 'Baja',
             '2' => 'En Reparación',
             '3' => 'Desaparecido',
+            '4' => 'Disponible',
         ];
 
         /* $equipamientos = Equipamiento::pluck('descripcion', 'id'); */
@@ -77,6 +80,7 @@ class ScannerController extends Controller
     public function edit(Scanner $scanner)
     {
         $estados = [
+            '4' => 'Disponible',
             '3' => 'Desaparecido',
             '2' => 'En Reparación',
             '1' => 'Activo',
@@ -116,13 +120,19 @@ class ScannerController extends Controller
      */
     public function destroy(Scanner $scanner)
     {
+        $imagenes = ImagenScanner::where('scanner_id','=',$scanner->id)->get();
+        
+        foreach ($imagenes as $imagen) {
+            Storage::delete($imagen->url);
+        }
+
         $scanner->delete();
         return redirect()->route('inventario.scanners.index')->with('eliminar', 'ok');
     }
 
      //Función para mostrar las imágenes de la Impresora:
-     /* public function imagenes(Scanner $scanner){
+     public function imagenes(Scanner $scanner){
         $imagenes = ImagenScanner::where('scanner_id','=',$scanner->id)->get();
-        return view('admin.scanners.imagenes', compact('scanner','imagenes'));
-    } */
+        return view('inventario.scanners.imagenes', compact('scanner','imagenes'));
+    }
 }

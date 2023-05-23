@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Inventario;
 
 use App\Http\Controllers\Controller;
+use App\Models\Inventario\ImagenImpresora;
 use App\Models\Inventario\Impresora;
 use App\Models\Inventario\Puesto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ImpresoraController extends Controller
 {
@@ -31,6 +33,7 @@ class ImpresoraController extends Controller
             '0' => 'Baja',
             '2' => 'En Reparación',
             '3' => 'Desaparecido',
+            '4' => 'Disponible',
         ];
 
         /* $equipamientos = Equipamiento::pluck('descripcion', 'id'); */
@@ -77,6 +80,7 @@ class ImpresoraController extends Controller
     public function edit(Impresora $impresora)
     {
         $estados = [
+            '4' => 'Disponible',
             '3' => 'Desaparecido',
             '2' => 'En Reparación',
             '1' => 'Activo',
@@ -117,13 +121,19 @@ class ImpresoraController extends Controller
      */
     public function destroy(Impresora $impresora)
     {
+        $imagenes = ImagenImpresora::where('impresora_id','=',$impresora->id)->get();
+        
+        foreach ($imagenes as $imagen) {
+            Storage::delete($imagen->url);
+        }
+
         $impresora->delete();
         return redirect()->route('inventario.impresoras.index')->with('eliminar', 'ok');
     }
 
     //Función para mostrar las imágenes de la Impresora:
-   /*  public function imagenes(Impresora $impresora){
+    public function imagenes(Impresora $impresora){
         $imagenes = ImagenImpresora::where('impresora_id','=',$impresora->id)->get();
-        return view('admin.impresoras.imagenes', compact('impresora','imagenes'));
-    } */
+        return view('inventario.impresoras.imagenes', compact('impresora','imagenes'));
+    }
 }

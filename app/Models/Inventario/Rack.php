@@ -24,7 +24,7 @@ class Rack extends Model
     } */
 
     //Relación uno a muchos con imagenes_impresora
-    /* public function imagenes(){
+    public function imagenes(){
         return $this->hasMany(ImagenRack::class);
-    } */
+    }
 }

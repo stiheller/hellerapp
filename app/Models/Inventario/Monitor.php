@@ -18,7 +18,7 @@ class Monitor extends Model
         return $this->belongsTo(Equipamiento::class);
     }
 
-    /* public function imagenes(){
+    public function imagenes(){
         return $this->hasMany(ImagenMonitor::class);
-    } */
+    }
 }

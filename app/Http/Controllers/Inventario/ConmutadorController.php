@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Inventario;
 use App\Http\Controllers\Controller;
 use App\Models\Inventario\Conexion;
 use App\Models\Inventario\Conmutador;
+use App\Models\Inventario\ImagenConmutador;
 use App\Models\Inventario\Rack;
 use App\Models\Inventario\Sector;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use PhpParser\Node\Stmt\Foreach_;
 
 class ConmutadorController extends Controller
 {
@@ -112,13 +115,19 @@ class ConmutadorController extends Controller
      */
     public function destroy (Conmutador $conmutadore)
     {
+        $imagenes = ImagenConmutador::where('conmutador_id','=',$conmutadore->id)->get();
+        
+        foreach ($imagenes as $imagen) {
+            Storage::delete($imagen->url);
+        }
+
         $conmutadore->delete();
         return redirect()->route('inventario.conmutadores.index')->with('eliminar', 'ok');
     }
 
     //Función para mostrar las imágenes de la Impresora:
-    /* public function imagenes(Conmutador $conmutador){
+    public function imagenes(Conmutador $conmutador){
         $imagenes = ImagenConmutador::where('conmutador_id','=',$conmutador->id)->get();
         return view('inventario.conmutadores.imagenes', compact('conmutador','imagenes'));
-    } */
+    }
 }

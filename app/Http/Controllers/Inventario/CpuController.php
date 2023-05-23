@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Inventario;
 
 use App\Http\Controllers\Controller;
 use App\Models\Inventario\Cpu;
+use App\Models\Inventario\ImagenCpu;
 use App\Models\Inventario\Puesto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CpuController extends Controller
 {
@@ -32,6 +34,7 @@ class CpuController extends Controller
             '0' => 'Baja',
             '2' => 'En Reparación',
             '3' => 'Desaparecido',
+            '4' => 'Disponible'
         ];
 
         
@@ -81,6 +84,7 @@ class CpuController extends Controller
     public function edit(Cpu $cpu)
     {
         $estados = [
+            '4' => 'Disponible',
             '3' => 'Desaparecido',
             '2' => 'En Reparación',
             '1' => 'Activo',
@@ -123,20 +127,20 @@ class CpuController extends Controller
      */
     public function destroy(Cpu $cpu)
     {
-        /* if($cpu->image){
-            Storage::delete($cpu->image->url);
-        } */
-
-        //Atención Falta eliminar las imágenes almacenadas.!!!
+        $imagenes = ImagenCpu::where('cpu_id','=',$cpu->id)->get();
+        
+        foreach ($imagenes as $imagen) {
+            Storage::delete($imagen->url);
+        }
 
         $cpu->delete();
         return redirect()->route('inventario.cpus.index')->with('eliminar', 'ok');
     }
 
     //Función para mostrar las imágenes del CPU:
-    /* public function imagenes(Cpu $cpu){
+    public function imagenes(Cpu $cpu){
         $imagenes = ImagenCpu::where('cpu_id','=',$cpu->id)->get();
         return view('inventario.cpus.imagenes', compact('cpu','imagenes'));
-    } */
+    }
 }
 

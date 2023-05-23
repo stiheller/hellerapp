@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Inventario;
 use App\Http\Controllers\Controller;
 use App\Models\Inventario\Conexion;
 use App\Models\Inventario\Equipamiento;
+use App\Models\Inventario\ImagenPuesto;
 use App\Models\Inventario\Impresora;
 use App\Models\Inventario\Ip;
 use App\Models\Inventario\Monitor;
@@ -12,6 +13,7 @@ use App\Models\Inventario\Puesto;
 use App\Models\Inventario\Scanner;
 use App\Models\Inventario\Sector;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PuestoController extends Controller
 {
@@ -419,6 +421,12 @@ class PuestoController extends Controller
      */
     public function destroy(Puesto $puesto)
     {
+        $imagenes = ImagenPuesto::where('puesto_id','=',$puesto->id)->get();
+        
+        foreach ($imagenes as $imagen) {
+            Storage::delete($imagen->url);
+        }
+
         $puesto->delete();
         return redirect()->route('inventario.puestos.index')->with('eliminar', 'ok');
     }
@@ -437,9 +445,9 @@ class PuestoController extends Controller
         return redirect()->route('inventario.puestos.index')->with('desconectar', 'ok');
     }
 
-    //Función para mostrar las imágenes del Puesto:
-    /* public function imagenes(Puesto $puesto){
+    //Utilizado para mostrar las imágenes del Puesto:
+    public function imagenes(Puesto $puesto){
         $imagenes = ImagenPuesto::where('puesto_id','=',$puesto->id)->get();
-        return view('admin.puestos.imagenes', compact('puesto','imagenes'));
-    } */
+        return view('inventario.puestos.imagenes', compact('puesto','imagenes'));
+    }
 }

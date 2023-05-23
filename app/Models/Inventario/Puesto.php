@@ -34,7 +34,7 @@ class Puesto extends Model
     }
 
     //Relación con Imágenes
-    /* public function imagenes(){
+    public function imagenes(){
         return $this->hasMany(ImagenPuesto::class);
-    } */
+    }
 }

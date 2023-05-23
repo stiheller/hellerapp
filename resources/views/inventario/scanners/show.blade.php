@@ -39,7 +39,11 @@
                                             @if ($scanner->estado==2)
                                                 <button type="button" class="btn btn-warning btn-block"><i class="fa fa-bolt"></i> En Reparación</button>
                                             @else
-                                                <button type="button" class="btn btn-dark btn-block"><i class="fa fa-eye"></i> Desaparecido</button>
+                                                @if ($scanner->estado==3)
+                                                    <button type="button" class="btn btn-dark btn-block"><i class="fa fa-eye"></i> Desaparecido</button>
+                                                @else
+                                                    <button type="button" class="btn btn-primary btn-block"><i class="fa fa-check"></i> Disponible</button>
+                                                @endif
                                             @endif
                                         @endif
                                     @endif
@@ -112,18 +116,17 @@
                     <div id="collapseThree" class="collapse" data-parent="#accordion" style="">
                         <div class="card-body">
                             <div class="row">
-                               {{--  @if ($scanner->imagenes->count())
+                                @if ($scanner->imagenes->count())
                                     @foreach ($scanner->imagenes as $imagen)
                                         <div class="col-12 col-md-6 my-2">
                                             <div class="image-wrapper">
-                                                <img class="img-fluid rounded-sm" id="picture" src="{{Storage::url($imagen->url)}}" alt="Imagen del CPU">
+                                                <img class="img-fluid rounded-sm" id="picture" src="{{Storage::url($imagen->url)}}" alt="Imagen del Scanner">
                                             </div>
                                         </div>
                                     @endforeach    
                                 @else
                                     <p>No hay imágenes Asociadas al Scanner.</p>
-                                @endif --}}
-                                <p>No hay imágenes Asociadas al Scanner. Aún!</p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -135,6 +138,18 @@
 @stop
 
 @section('css')
+    <style>
+        .image-wrapper{
+            position: relative;
+            padding-bottom: 56.25%;
+        }
+        .image-wrapper img{
+            position: absolute;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 

@@ -8,6 +8,13 @@ use App\Http\Controllers\Inventario\ConmutadorController;
 use App\Http\Controllers\Inventario\CpuController;
 use App\Http\Controllers\Inventario\EquipamientoController;
 use App\Http\Controllers\Inventario\HomeController;
+use App\Http\Controllers\Inventario\ImagenConmutadorController;
+use App\Http\Controllers\Inventario\ImagenCpuController;
+use App\Http\Controllers\Inventario\ImagenImpresoraController;
+use App\Http\Controllers\Inventario\ImagenMonitorController;
+use App\Http\Controllers\Inventario\ImagenPuestoController;
+use App\Http\Controllers\Inventario\ImagenRackController;
+use App\Http\Controllers\Inventario\ImagenScannerController;
 use App\Http\Controllers\Inventario\ImpresoraController;
 use App\Http\Controllers\Inventario\InventarioController;
 use App\Http\Controllers\Inventario\IpController;
@@ -36,60 +43,60 @@ Route::resource('sectores', SectorController::class)->names('inventario.sectores
 
 Route::resource('racks', RackController::class)->names('inventario.racks');
 //Imagenes de Rack:
-/* Route::get('racks/imagenes/{rack}', [RackController::class, 'imagenes'])->name('admin.racks.imagenes');
-Route::get('imagenRacks/create/{rack}', [ImagenRackController::class, 'create'])->name('admin.imagenRacks.create');
-Route::post('imagenRacks/store/{rack}', [ImagenRackController::class, 'store'])->name('admin.imagenRacks.store');
-Route::delete('imagenRacks/destroy/{imagenRack}', [ImagenRackController::class, 'destroy'])->name('admin.imagenRacks.destroy');
-*/
+Route::get('racks/imagenes/{rack}', [RackController::class, 'imagenes'])->name('inventario.racks.imagenes');
+Route::get('imagenRacks/create/{rack}', [ImagenRackController::class, 'create'])->name('inventario.imagenRacks.create');
+Route::post('imagenRacks/store/{rack}', [ImagenRackController::class, 'store'])->name('inventario.imagenRacks.store');
+Route::delete('imagenRacks/destroy/{imagenRack}', [ImagenRackController::class, 'destroy'])->name('inventario.imagenRacks.destroy');
+
 Route::resource('ips', IpController::class)->names('inventario.ips');
 
 Route::resource('conmutadores', ConmutadorController::class)->names('inventario.conmutadores');
-//Imagenes de CPU:
-/* Route::get('conmutadores/imagenes/{conmutador}', [ConmutadorController::class, 'imagenes'])->name('admin.conmutadores.imagenes');
-Route::get('imagenConmutadores/create/{id}', [ImagenConmutadorController::class, 'create'])->name('admin.imagenConmutadores.create');
-Route::post('imagenConmutadores/store/{id}', [ImagenConmutadorController::class, 'store'])->name('admin.imagenConmutadores.store');
-Route::delete('imagenConmutadores/destroy/{imagenConmutador}', [ImagenConmutadorController::class, 'destroy'])->name('admin.imagenConmutadores.destroy');
-*/
+//Imagenes del Switch:
+Route::get('conmutadores/imagenes/{conmutador}', [ConmutadorController::class, 'imagenes'])->name('inventario.conmutadores.imagenes');
+Route::get('imagenConmutadores/create/{id}', [ImagenConmutadorController::class, 'create'])->name('inventario.imagenConmutadores.create');
+Route::post('imagenConmutadores/store/{id}', [ImagenConmutadorController::class, 'store'])->name('inventario.imagenConmutadores.store');
+Route::delete('imagenConmutadores/destroy/{imagenConmutador}', [ImagenConmutadorController::class, 'destroy'])->name('inventario.imagenConmutadores.destroy');
+
 
 Route::resource('monitores', MonitorController::class)->names('inventario.monitores');
-/*Route::get('monitores/imagenes/{monitor}', [MonitorController::class, 'imagenes'])->name('admin.monitores.imagenes');
-
-Route::resource('imagenMonitores', ImagenMonitorController::class)->names('admin.imagenMonitores');
-Route::post('imagenMonitores/store2/{id}', [ImagenMonitorController::class, 'store2'])->name('admin.imagenMonitores.store2');
-Route::get('imagenMonitores/create2/{id}', [ImagenMonitorController::class, 'create2'])->name('admin.imagenMonitores.create2');*/
+//Imagenes Monitores
+Route::get('monitores/imagenes/{monitor}', [MonitorController::class, 'imagenes'])->name('inventario.monitores.imagenes');
+Route::get('imagenMonitores/create/{id}', [ImagenMonitorController::class, 'create'])->name('inventario.imagenMonitores.create');
+Route::post('imagenMonitores/store/{id}', [ImagenMonitorController::class, 'store'])->name('inventario.imagenMonitores.store');
+Route::delete('imagenMonitores/destroy/{imagenMonitor}', [ImagenMonitorController::class, 'destroy'])->name('inventario.imagenMonitores.destroy');
 
 Route::resource('cpus', CpuController::class)->names('inventario.cpus');
 //Imagenes de CPU:
-/* Route::get('cpus/imagenes/{cpu}', [CpuController::class, 'imagenes'])->name('admin.cpus.imagenes');
-Route::get('imagenCpus/create/{id}', [ImagenCpuController::class, 'create'])->name('admin.imagenCpus.create');
-Route::post('imagenCpus/store/{id}', [ImagenCpuController::class, 'store'])->name('admin.imagenCpus.store');
-Route::delete('imagenCpus/destroy/{imagenCpu}', [ImagenCpuController::class, 'destroy'])->name('admin.imagenCpus.destroy');
-*/
+Route::get('cpus/imagenes/{cpu}', [CpuController::class, 'imagenes'])->name('inventario.cpus.imagenes');
+Route::get('imagenCpus/create/{id}', [ImagenCpuController::class, 'create'])->name('inventario.imagenCpus.create');
+Route::post('imagenCpus/store/{id}', [ImagenCpuController::class, 'store'])->name('inventario.imagenCpus.store');
+Route::delete('imagenCpus/destroy/{imagenCpu}', [ImagenCpuController::class, 'destroy'])->name('inventario.imagenCpus.destroy');
+
 Route::resource('impresoras', ImpresoraController::class)->names('inventario.impresoras');
 //Imagenes de Impresora:
-/* Route::get('impresoras/imagenes/{impresora}', [ImpresoraController::class, 'imagenes'])->name('admin.impresoras.imagenes');
-Route::get('imagenImpresoras/create/{impresora}', [ImagenImpresoraController::class, 'create'])->name('admin.imagenImpresoras.create');
-Route::post('imagenImpresoras/store/{impresora}', [ImagenImpresoraController::class, 'store'])->name('admin.imagenImpresoras.store');
-Route::delete('imagenImpresoras/destroy/{imagenImpresora}', [ImagenImpresoraController::class, 'destroy'])->name('admin.imagenImpresoras.destroy');
+Route::get('impresoras/imagenes/{impresora}', [ImpresoraController::class, 'imagenes'])->name('inventario.impresoras.imagenes');
+Route::get('imagenImpresoras/create/{impresora}', [ImagenImpresoraController::class, 'create'])->name('inventario.imagenImpresoras.create');
+Route::post('imagenImpresoras/store/{impresora}', [ImagenImpresoraController::class, 'store'])->name('inventario.imagenImpresoras.store');
+Route::delete('imagenImpresoras/destroy/{imagenImpresora}', [ImagenImpresoraController::class, 'destroy'])->name('inventario.imagenImpresoras.destroy');
 
-*/
+
 Route::resource('scanners', ScannerController::class)->names('inventario.scanners');
 //Imagenes de Scanner:
-/* Route::get('scanners/imagenes/{scanner}', [ScannerController::class, 'imagenes'])->name('admin.scanners.imagenes');
-Route::get('imagenScanners/create/{scanner}', [ImagenScannerController::class, 'create'])->name('admin.imagenScanners.create');
-Route::post('imagenScanners/store/{scanner}', [ImagenScannerController::class, 'store'])->name('admin.imagenScanners.store');
-Route::delete('imagenScanners/destroy/{imagenScanner}', [ImagenScannerController::class, 'destroy'])->name('admin.imagenScanners.destroy');
-*/
+Route::get('scanners/imagenes/{scanner}', [ScannerController::class, 'imagenes'])->name('inventario.scanners.imagenes');
+Route::get('imagenScanners/create/{scanner}', [ImagenScannerController::class, 'create'])->name('inventario.imagenScanners.create');
+Route::post('imagenScanners/store/{scanner}', [ImagenScannerController::class, 'store'])->name('inventario.imagenScanners.store');
+Route::delete('imagenScanners/destroy/{imagenScanner}', [ImagenScannerController::class, 'destroy'])->name('inventario.imagenScanners.destroy');
+
 
 Route::resource('equipamientos', EquipamientoController::class)->names('inventario.equipamientos');
 
 Route::resource('puestos', PuestoController::class)->names('inventario.puestos'); 
 //Imagenes de Puesto:
-/* Route::get('puestos/imagenes/{puesto}', [PuestoController::class, 'imagenes'])->name('admin.puestos.imagenes');
-Route::get('imagenPuestos/create/{puesto}', [ImagenPuestoController::class, 'create'])->name('admin.imagenPuestos.create');
-Route::post('imagenPuestos/store/{puesto}', [ImagenPuestoController::class, 'store'])->name('admin.imagenPuestos.store');
-Route::delete('imagenPuestos/destroy/{imagenPuesto}', [ImagenPuestoController::class, 'destroy'])->name('admin.imagenPuestos.destroy');
-*/
+Route::get('puestos/imagenes/{puesto}', [PuestoController::class, 'imagenes'])->name('inventario.puestos.imagenes');
+Route::get('imagenPuestos/create/{puesto}', [ImagenPuestoController::class, 'create'])->name('inventario.imagenPuestos.create');
+Route::post('imagenPuestos/store/{puesto}', [ImagenPuestoController::class, 'store'])->name('inventario.imagenPuestos.store');
+Route::delete('imagenPuestos/destroy/{imagenPuesto}', [ImagenPuestoController::class, 'destroy'])->name('inventario.imagenPuestos.destroy');
+
 
 Route::get('puestos/desconectar/{conexion}', [PuestoController::class, 'desconectar'])->name('inventario.puestos.desconectar');
 

@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Inventario;
 
 use App\Http\Controllers\Controller;
 use App\Models\Inventario\Conmutador;
+use App\Models\Inventario\ImagenRack;
 use App\Models\Inventario\Rack;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class RackController extends Controller
 {
@@ -101,14 +103,20 @@ class RackController extends Controller
      */
     public function destroy(Rack $rack)
     {
+        $imagenes = ImagenRack::where('rack_id','=',$rack->id)->get();
+        
+        foreach ($imagenes as $imagen) {
+            Storage::delete($imagen->url);
+        }
+
         $rack->delete();
 
         return redirect()->route('inventario.racks.index')->with('eliminar', 'ok');
     }
 
-    //Función para mostrar las imágenes del Rack:
-    /* public function imagenes(Rack $rack){
+    //utilizado para mostrar las imágenes del Rack:
+    public function imagenes(Rack $rack){
         $imagenes = ImagenRack::where('rack_id','=',$rack->id)->get();
         return view('inventario.racks.imagenes', compact('rack','imagenes'));
-    } */
+    }
 }

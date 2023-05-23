@@ -1,11 +1,11 @@
 @extends('adminlte::page')
 
-@section('title', 'Puesto Imágenes')
+@section('title', 'Puesto Imágenes / Index')
 
 @section('content_header')
-    <a class="btn btn-info float-right" href="{{ route('admin.puestos.index') }}"><i class="fas fa-undo"></i> Volver al Índice</a>
+    <a class="btn btn-info float-right" href="{{ route('inventario.puestos.index') }}"><i class="fas fa-undo"></i> Volver al Índice</a>
     <a class="float-right btn btn-success mr-4"
-        href="{{ route('admin.imagenPuestos.create', $puesto) }}">
+        href="{{ route('inventario.imagenPuestos.create', $puesto) }}">
         <i class="fas fa-plus"></i> Agregar Imágenes
     </a>
     <h3>Imagenes de Puesto: {{$puesto->slug}}</h3>
@@ -27,7 +27,7 @@
                             </div>
                             <div class="card-footer">
                                 <form class="formulario-eliminar"
-                                        action="{{ route('admin.imagenPuestos.destroy', $imagen) }}" method="POST">
+                                        action="{{ route('inventario.imagenPuestos.destroy', $imagen) }}" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger btn-sm">

@@ -217,7 +217,7 @@
                             </div>
                             <div class="callout callout-success">
                                 <div class="card-group">
-                                    @if ($puesto->equipamiento->cpu != null)
+                                    @if ($puesto->equipamiento->cpu)
                                         <div class="card card-success" style="max-width: full;">
                                             <div class="card-header">
                                                 <h3 class="card-title">CPU ID: {{ $puesto->equipamiento->cpu->id }}</h3>
@@ -229,17 +229,25 @@
                                                 <h6><u>RAM cantidad:</u> {{ $puesto->equipamiento->cpu->ram_cant_gb }}</h6>
                                                 <h6><u>Sistema Operativo:</u>
                                                     {{ $puesto->equipamiento->cpu->sistema_operativo }}</h6>
-                                                <h6><u>Descripción:</u> {{ $puesto->equipamiento->cpu->descripción }}</h6>
+                                                @if ($puesto->equipamiento->cpu->descripción)
+                                                    <h6><u>Descripción:</u> {{ $puesto->equipamiento->cpu->descripción }}</h6>    
+                                                @else
+                                                    <h6><u>Descripción:</u> - </h6>
+                                                @endif
+                                                
                                                 @switch($puesto->equipamiento->cpu->estado)
                                                     @case(1)
-                                                        <h6><u>Activo:</u> <i class="fas fa-check" style="color:green"></i></h6>    
+                                                        <h6><u>Activo</u> <i class="fas fa-check" style="color:green"></i></h6>    
                                                         @break
                                                     @case(2)
-                                                        <h6><u>En Reparación:</u> <i class="fas fa-bomb" style="color:brown"></i></h6>
+                                                        <h6><u>En Reparación</u> <i class="fas fa-bomb" style="color:brown"></i></h6>
                                                         @break
                                                     @case(3)
-                                                        <h6><u>Desaparecido:</u> <i class="fas fa-ghost" style="color:rgb(8, 7, 90)"></i></h6>
-                                                    @break
+                                                        <h6><u>Desaparecido</u> <i class="fas fa-ghost" style="color:rgb(8, 7, 90)"></i></h6>
+                                                        @break
+                                                    @case(4)
+                                                        <h6><u>Disponible</u> <i class="fas fa-check" style="color:rgb(28, 25, 187)"></i></h6>
+                                                        @break
                                                     @default
                                                         <h6><u>Dado de Baja</u> <i class="fas fa-trash" style="color:red"></i></h6>
                                                 @endswitch
@@ -277,7 +285,10 @@
                                                             @break
                                                         @case(3)
                                                             <h6><u>Desaparecido</u> <i class="fas fa-ghost" style="color:rgb(8, 7, 90)"></i></h6>
-                                                        @break
+                                                            @break
+                                                        @case(4)
+                                                            <h6><u>Disponible</u> <i class="fas fa-check" style="color:rgb(28, 25, 187)"></i></h6>
+                                                            @break
                                                         @default
                                                             <h6><u>Dado de Baja</u> <i class="fas fa-trash" style="color:red"></i></h6>
                                                     @endswitch
@@ -316,7 +327,10 @@
                                                             @break
                                                         @case(3)
                                                             <h6><u>Desaparecido</u> <i class="fas fa-ghost" style="color:rgb(8, 7, 90)"></i></h6>
-                                                        @break
+                                                            @break
+                                                        @case(4)
+                                                            <h6><u>Disponible</u> <i class="fas fa-check" style="color:rgb(28, 25, 187)"></i></h6>
+                                                            @break
                                                         @default
                                                             <h6><u>Dado de Baja</u> <i class="fas fa-trash" style="color:red"></i></h6>
                                                     @endswitch
@@ -355,7 +369,10 @@
                                                             @break
                                                         @case(3)
                                                             <h6><u>Desaparecido</u> <i class="fas fa-ghost" style="color:rgb(8, 7, 90)"></i></h6>
-                                                        @break
+                                                            @break
+                                                        @case(4)
+                                                            <h6><u>Disponible</u> <i class="fas fa-check" style="color:rgb(28, 25, 187)"></i></h6>
+                                                            @break
                                                         @default
                                                             <h6><u>Dado de Baja</u> <i class="fas fa-trash" style="color:red"></i></h6>
                                                     @endswitch
@@ -385,7 +402,7 @@
                     </div>
                     <div class="tab-pane fade" id="imagenes-desc" role="tabpanel" aria-labelledby="imagenes-desc-tab">
                         <div class="row">
-                            {{-- @if ($puesto->imagenes->count())
+                            @if ($puesto->imagenes->count())
                                 @foreach ($puesto->imagenes as $imagen)
                                 <div class="row">
                                     <div class="col-12 mt-2">
@@ -399,9 +416,9 @@
                                 @endforeach    
                             @else
                                 <p>No hay imágenes Asociadas al Puesto de Trabajo.</p>
-                            @endif --}}
+                            @endif
 
-                            <p>No hay imágenes Asociadas al Puesto de Trabajo. Aún.!</p>
+                            {{-- <p>No hay imágenes Asociadas al Puesto de Trabajo. Aún.!</p> --}}
                         </div>
 
                         {{-- <div class="callout callout-info">

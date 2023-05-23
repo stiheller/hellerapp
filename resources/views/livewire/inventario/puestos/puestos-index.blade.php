@@ -147,7 +147,7 @@
                                          <i class="fas fa-bolt mt-1"></i> Desconectar
                                      </a> --}}
                                  @else
-                                    <span class="badge bg-secondary">No conectado</span>
+                                    <span class="badge bg-secondary">Fuera de Dominio</span>
                                  @endif
                             </td>
                            
@@ -180,7 +180,7 @@
                                     </a>
 
                                     <a class="btn btn-info btn-sm"
-                                        href="{{ route('inventario.puestos.edit', $puesto) }}"> {{-- href="{{ route('inventario.puestos.imagenes', $puesto) }}"> --}}
+                                        href="{{ route('inventario.puestos.imagenes', $puesto) }}">
                                         <i class="fas fa-image"></i>
                                     </a>
 

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Inventario;
 
 use App\Http\Controllers\Controller;
+use App\Models\Inventario\ImagenMonitor;
 use App\Models\Inventario\Monitor;
 use App\Models\Inventario\Puesto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MonitorController extends Controller
 { 
@@ -31,6 +33,7 @@ class MonitorController extends Controller
             '0' => 'Baja',
             '2' => 'En Reparación',
             '3' => 'Desaparecido',
+            '4' => 'Disponible',
         ];
 
         /* $equipamientos = Equipamiento::pluck('descripcion', 'id'); */
@@ -82,6 +85,7 @@ class MonitorController extends Controller
     public function edit(Monitor $monitore)
     {
         $estados = [
+            '4' => 'Disponible',
             '3' => 'Desaparecido',
             '2' => 'En Reparación',
             '1' => 'Activo',
@@ -124,16 +128,18 @@ class MonitorController extends Controller
      */
     public function destroy(Monitor $monitore)
     {
-        //Acá hay que recorrer las imágenes creo. Hay que ver el cascade.
-        /* if($monitore->image){
-            Storage::delete($monitore->image->url);
-        } */
+        //Recorro las imágenes para eliminarlas.
+        $imagenes = ImagenMonitor::where('monitor_id','=',$monitore->id)->get();
+        
+        foreach ($imagenes as $imagen) {
+            Storage::delete($imagen->url);
+        }
         $monitore->delete();
         return redirect()->route('inventario.monitores.index')->with('eliminar', 'ok');
     }
 
-    /* public function imagenes(Monitor $monitor){
+    public function imagenes(Monitor $monitor){
         $imagenes = ImagenMonitor::where('monitor_id','=',$monitor->id)->get();
         return view('inventario.monitores.imagenes', compact('monitor','imagenes'));
-    } */
+    }
 }
