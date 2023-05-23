@@ -185,4 +185,9 @@ Cuando ejecuta el comando debe aparecer en verde:
 | The links have been created.                                                                                               |
  ----------------------------------------------------------------------------------------------------------------------------
 
- 
+Para manejo de imágenes:
+Ejecutar comando:
+ -----------------------------------------------------
+|  PS C:\xampp\htdocs\hellerapp> php artisan migrate  |
+ -----------------------------------------------------
+Tener en cuenta que los seeders ya fueron ejecutados, y las tablas de imágenes deben estar vacías.
