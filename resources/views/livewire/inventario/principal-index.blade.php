@@ -84,7 +84,7 @@
                                 @if ($puesto->direccion_ip)
                                     {{ $puesto->direccion_ip }}    
                                 @else
-                                    <p class="text-center">S/D</p>
+                                    <p class="text-center">Sin IP</p>
                                 @endif
                                 
                             </td>

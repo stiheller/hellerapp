@@ -14,14 +14,14 @@ class Equipamiento extends Model
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     //Relación uno a uno inversa con Puesto
-    /* public function puesto(){
+    public function puesto(){
         return $this->hasOne(Puesto::class);
-    } */
+    }
 
     //Relación uno a uno con CPU
-    /* public function cpu(){
+    public function cpu(){
         return $this->hasOne(Cpu::class);
-    } */
+    }
 
     //Relación uno a muchos con Monitor
     /* public function monitores(){

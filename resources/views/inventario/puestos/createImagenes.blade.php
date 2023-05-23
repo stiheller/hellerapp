@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Puesto Imágenes')
+@section('title', 'Puesto Imágenes / Create')
 
 @section('content_header')
-    <a class="btn btn-info float-right" href="{{ route('admin.puestos.index') }}"><i class="fas fa-undo"></i> Volver al Índice</a>
+    <a class="btn btn-info float-right" href="{{ route('inventario.puestos.index') }}"><i class="fas fa-undo"></i> Volver al Índice</a>
     <h3>Agregar Imagenes a Puesto: {{$puesto->slug}}</h3>
 @stop
 
@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <form action="{{route('admin.imagenPuestos.store', $puesto)}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('inventario.imagenPuestos.store', $puesto)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <input type="file" name="file" id="file" accept="image/*">

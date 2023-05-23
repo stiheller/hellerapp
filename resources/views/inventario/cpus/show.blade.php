@@ -49,7 +49,12 @@
                                             @if ($cpu->estado==2)
                                                 <button type="button" class="btn btn-warning btn-block"><i class="fa fa-bolt"></i> En Reparación</button>
                                             @else
-                                            <button type="button" class="btn btn-dark btn-block"><i class="fa fa-eye"></i> Desaparecido</button>
+                                                @if ($cpu->estado==3)
+                                                    <button type="button" class="btn btn-dark btn-block"><i class="fa fa-eye"></i> Desaparecido</button>        
+                                                @else
+                                                    <button type="button" class="btn btn-primary btn-block"><i class="fa fa-check"></i> Disponible</button>
+                                                @endif
+                                            
                                             @endif
                                         @endif
                                     @endif

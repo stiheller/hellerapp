@@ -171,7 +171,11 @@
                                         @if ($impresora->estado == 2)
                                             <small class="text-bold text-danger">En Reparación</small>
                                         @else
-                                            <small class="text-bold text-danger">Desaparecido</small>
+                                            @if ($impresora->estado == 3)
+                                                <small class="text-bold text-dark">Desaparecido</small>    
+                                            @else
+                                                <small class="text-bold text-primary">Disponible</small>
+                                            @endif
                                         @endif
                                     @endif
                                 @endif

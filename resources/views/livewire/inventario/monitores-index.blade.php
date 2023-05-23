@@ -157,25 +157,16 @@
                                         @if ($monitor->estado == 2)
                                             <small class="text-bold text-danger">En Reparación</small>
                                         @else
-                                            <small class="text-bold text-danger">Desaparecido</small>
+                                            @if ($monitor->estado == 3)
+                                                <small class="text-bold text-dark">Desaparecido</small>
+                                            @else
+                                                <small class="text-bold text-primary">Disponible</small>
+                                            @endif
                                         @endif
                                     @endif
                                 @endif
 
                             </td>
-                            {{-- <td>{{ $monitor->equipamiento_id }}</td>
-                            <td width="10px">
-                                <a class="btn btn-primary btn-sm"
-                                    href="{{ route('admin.monitores.edit', $monitor) }}">Editar</a>
-                            </td>
-                            <td width="10px">
-                                <form class="formulario-eliminar"
-                                    action="{{ route('admin.monitores.destroy', $monitor) }}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                                </form>
-                            </td> --}}
                         </tr>
                     @endforeach
                 </tbody>

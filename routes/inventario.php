@@ -12,6 +12,7 @@ use App\Http\Controllers\Inventario\ImagenConmutadorController;
 use App\Http\Controllers\Inventario\ImagenCpuController;
 use App\Http\Controllers\Inventario\ImagenImpresoraController;
 use App\Http\Controllers\Inventario\ImagenMonitorController;
+use App\Http\Controllers\Inventario\ImagenPuestoController;
 use App\Http\Controllers\Inventario\ImagenRackController;
 use App\Http\Controllers\Inventario\ImagenScannerController;
 use App\Http\Controllers\Inventario\ImpresoraController;
@@ -91,11 +92,11 @@ Route::resource('equipamientos', EquipamientoController::class)->names('inventar
 
 Route::resource('puestos', PuestoController::class)->names('inventario.puestos'); 
 //Imagenes de Puesto:
-/* Route::get('puestos/imagenes/{puesto}', [PuestoController::class, 'imagenes'])->name('admin.puestos.imagenes');
-Route::get('imagenPuestos/create/{puesto}', [ImagenPuestoController::class, 'create'])->name('admin.imagenPuestos.create');
-Route::post('imagenPuestos/store/{puesto}', [ImagenPuestoController::class, 'store'])->name('admin.imagenPuestos.store');
-Route::delete('imagenPuestos/destroy/{imagenPuesto}', [ImagenPuestoController::class, 'destroy'])->name('admin.imagenPuestos.destroy');
-*/
+Route::get('puestos/imagenes/{puesto}', [PuestoController::class, 'imagenes'])->name('inventario.puestos.imagenes');
+Route::get('imagenPuestos/create/{puesto}', [ImagenPuestoController::class, 'create'])->name('inventario.imagenPuestos.create');
+Route::post('imagenPuestos/store/{puesto}', [ImagenPuestoController::class, 'store'])->name('inventario.imagenPuestos.store');
+Route::delete('imagenPuestos/destroy/{imagenPuesto}', [ImagenPuestoController::class, 'destroy'])->name('inventario.imagenPuestos.destroy');
+
 
 Route::get('puestos/desconectar/{conexion}', [PuestoController::class, 'desconectar'])->name('inventario.puestos.desconectar');
 

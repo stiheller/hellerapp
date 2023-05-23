@@ -49,7 +49,11 @@
                                             @if ($monitor->estado==2)
                                                 <button type="button" class="btn btn-warning btn-block"><i class="fa fa-bolt"></i> En Reparación</button>
                                             @else
-                                                <button type="button" class="btn btn-dark btn-block"><i class="fa fa-eye"></i> Desaparecido</button>
+                                                @if ($monitor->estado==3)
+                                                    <button type="button" class="btn btn-dark btn-block"><i class="fa fa-eye"></i> Desaparecido</button>    
+                                                @else
+                                                    <button type="button" class="btn btn-primary btn-block"><i class="fa fa-check"></i> Disponible</button>   
+                                                @endif
                                             @endif
                                         @endif
                                     @endif
@@ -93,7 +97,7 @@
                                     @foreach ($monitor->imagenes as $imagen)
                                         <div class="col-12 col-md-6 my-2">
                                             <div class="image-wrapper">
-                                                <img class="img-fluid rounded-sm" id="picture" src="{{Storage::url($imagen->url)}}" alt="Imagen del CPU">
+                                                <img class="img-fluid rounded-sm" id="picture" src="{{Storage::url($imagen->url)}}" alt="Imagen del monitor">
                                             </div>
                                         </div>
                                     @endforeach    

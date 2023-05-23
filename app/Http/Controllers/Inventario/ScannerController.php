@@ -33,6 +33,7 @@ class ScannerController extends Controller
             '0' => 'Baja',
             '2' => 'En Reparación',
             '3' => 'Desaparecido',
+            '4' => 'Disponible',
         ];
 
         /* $equipamientos = Equipamiento::pluck('descripcion', 'id'); */
@@ -79,6 +80,7 @@ class ScannerController extends Controller
     public function edit(Scanner $scanner)
     {
         $estados = [
+            '4' => 'Disponible',
             '3' => 'Desaparecido',
             '2' => 'En Reparación',
             '1' => 'Activo',

@@ -64,27 +64,6 @@
                                 <h5 class="text-danger">{{ $puesto->fecha_limpieza }}</h5>
                             </div>
                         </div>
-
-                        {{-- <h5><u> Descripción:</u></h5>
-                        @if ($puesto->descripcion != null)
-                            <p>{{ $puesto->descripcion }}</p>
-                        @else
-                            <p>Sin Detalle</p>
-                        @endif --}}
-                        {{-- <h6><u>Estado:</u></h6>
-                        @if ($puesto->estado == 1)
-                            <p class="text-success">Activo</p>
-                        @else
-                            <p class="text-dark">No Activo</p>
-                        @endif --}}
-                        {{-- <h6><u>Referencia (Ubicación):</u></h6>
-                        @if ($puesto->referencia_lugar != null)
-                            <p>{{ $puesto->referencia_lugar }}</p>
-                        @else
-                            <p class="text-danger"><em>Sin Detalle</em></p>
-                        @endif
-                        <h6><u>Fecha última limpieza:</u></h6>
-                        <p class="text-danger">{{ $puesto->fecha_limpieza }}</p> --}}
                     </div>
                     <div class="tab-pane fade" id="sector-desc" role="tabpanel" aria-labelledby="sector-desc-tab">
                         @if ($puesto->sector_id != null)
@@ -226,7 +205,13 @@
                                                 <h6><u>RAM cantidad:</u> {{ $puesto->equipamiento->cpu->ram_cant_gb }}</h6>
                                                 <h6><u>Sistema Operativo:</u>
                                                     {{ $puesto->equipamiento->cpu->sistema_operativo }}</h6>
-                                                <h6><u>Descripción:</u> {{ $puesto->equipamiento->cpu->descripción }}</h6>
+                                                
+                                                @if ($puesto->equipamiento->cpu->descripción)
+                                                    <h6><u>Descripción:</u> {{ $puesto->equipamiento->cpu->descripción }}</h6>    
+                                                @else
+                                                    <h6><u>Descripción:</u> -</h6>
+                                                @endif
+                                                
                                                 @switch($puesto->equipamiento->cpu->estado)
                                                     @case(1)
                                                         <h6><u>Activo</u> <i class="fas fa-check" style="color:green"></i></h6>    
@@ -236,21 +221,13 @@
                                                         @break
                                                     @case(3)
                                                         <h6><u>Desaparecido</u> <i class="fas fa-ghost" style="color:rgb(8, 7, 90)"></i></h6>
-                                                    @break
+                                                        @break
+                                                    @case(4)
+                                                        <h6><u>Disponible</u> <i class="fas fa-check" style="color:rgb(16, 14, 158)"></i></h6>
+                                                        @break
                                                     @default
                                                         <h6><u>Dado de Baja</u> <i class="fas fa-trash" style="color:red"></i></h6>
                                                 @endswitch
-                                                {{-- @if ($puesto->equipamiento->cpu->estado == 1)
-                                                    <h6><u>Activo:</u> <i class="fas fa-check" style="color:green"></i></h6>
-                                                @else
-                                                    @if ($puesto->equipamiento->cpu->estado == 0)
-                                                        <h6><u>Dado de Baja</u> <i class="fas fa-trash" style="color:red"></i>
-                                                        </h6>
-                                                    @elseif ($puesto->equipamiento->cpu->estado == 2)
-                                                        <h6><u>En Reparación:</u> <i class="fas fa-bomb"
-                                                                style="color:brown"></i></h6>
-                                                    @endif
-                                                @endif --}}
                                             </div>
                                         </div>
                                     @else
@@ -285,7 +262,10 @@
                                                             @break
                                                         @case(3)
                                                             <h6><u>Desaparecido</u> <i class="fas fa-ghost" style="color:rgb(8, 7, 90)"></i></h6>
-                                                        @break
+                                                            @break
+                                                        @case(4)
+                                                            <h6><u>Disponible</u> <i class="fas fa-check" style="color:rgb(16, 14, 158)"></i></h6>
+                                                            @break
                                                         @default
                                                             <h6><u>Dado de Baja</u> <i class="fas fa-trash" style="color:red"></i></h6>
                                                     @endswitch
@@ -336,7 +316,10 @@
                                                             @break
                                                         @case(3)
                                                             <h6><u>Desaparecido</u> <i class="fas fa-ghost" style="color:rgb(8, 7, 90)"></i></h6>
-                                                        @break
+                                                            @break
+                                                        @case(4)
+                                                            <h6><u>Disponible</u> <i class="fas fa-check" style="color:rgb(16, 14, 158)"></i></h6>
+                                                            @break
                                                         @default
                                                             <h6><u>Dado de Baja</u> <i class="fas fa-trash" style="color:red"></i></h6>
                                                     @endswitch
@@ -387,7 +370,10 @@
                                                             @break
                                                         @case(3)
                                                             <h6><u>Desaparecido</u> <i class="fas fa-ghost" style="color:rgb(8, 7, 90)"></i></h6>
-                                                        @break
+                                                            @break
+                                                        @case(4)
+                                                            <h6><u>Disponible</u> <i class="fas fa-check" style="color:rgb(16, 14, 158)"></i></h6>
+                                                            @break
                                                         @default
                                                             <h6><u>Dado de Baja</u> <i class="fas fa-trash" style="color:red"></i></h6>
                                                     @endswitch
@@ -430,7 +416,7 @@
 
                     <div class="tab-pane fade" id="imagenes-desc" role="tabpanel" aria-labelledby="imagenes-desc-tab">
                         <div class="row">
-                            {{-- @if ($puesto->imagenes->count())
+                            @if ($puesto->imagenes->count())
                                 @foreach ($puesto->imagenes as $imagen)
                                 <div class="row">
                                     <div class="col-12 mt-2">
@@ -444,8 +430,8 @@
                                 @endforeach    
                             @else
                                 <p>No hay imágenes Asociadas al Puesto de Trabajo.</p>
-                            @endif --}}
-                            <p>No hay imágenes Asociadas al Puesto de Trabajo.Aún.!</p>
+                            @endif
+                            {{-- <p>No hay imágenes Asociadas al Puesto de Trabajo.Aún.!</p> --}}
                         </div>
 
                         {{-- <div class="callout callout-info">
