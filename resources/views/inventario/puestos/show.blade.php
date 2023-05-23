@@ -248,6 +248,9 @@
                                                     @case(4)
                                                         <h6><u>Disponible</u> <i class="fas fa-check" style="color:rgb(28, 25, 187)"></i></h6>
                                                         @break
+                                                    @case(5)
+                                                        <h6><u>Mejorable</u> <i class="fas fa-bomb" style="color:rgb(179, 99, 8)"></i></h6>
+                                                        @break
                                                     @default
                                                         <h6><u>Dado de Baja</u> <i class="fas fa-trash" style="color:red"></i></h6>
                                                 @endswitch

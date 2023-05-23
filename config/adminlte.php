@@ -384,7 +384,7 @@ return [
                 [
                     'text'       => 'Inventario',
                     'route'      => 'inventario.principal',/* 'admin.home', */
-                    'active' => ['inventario.principal'],
+                    'active' => ['inventario.principal', 'inventario/inventario/*'],
                     'icon'       => 'fas fa-globe fa-fw',
                     'icon_color' => 'cyan',
                 ],

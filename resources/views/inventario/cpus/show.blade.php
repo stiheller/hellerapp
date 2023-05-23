@@ -39,25 +39,26 @@
                                 
                                 <div class="col-3 col-md-2">
                                     <h5>Estado:</h5>
-                                    @if ($cpu->estado==1)
-                                        <button type="button" class="btn btn-success btn-block"><i class="fa fa-check"></i> Activo</button>
-                                    {{-- <span class="badge bg-success">Activo</span> --}}
-                                    @else
-                                        @if ($cpu->estado==0)
+
+                                    @switch($cpu->estado)
+                                        @case(1)
+                                            <button type="button" class="btn btn-success btn-block"><i class="fa fa-check"></i> Activo</button>  
+                                            @break
+                                        @case(2)
+                                            <button type="button" class="btn btn-warning btn-block"><i class="fa fa-bolt"></i> En Reparación</button>
+                                            @break
+                                        @case(3)
+                                            <button type="button" class="btn btn-dark btn-block"><i class="fa fa-eye"></i> Desaparecido</button>        
+                                            @break
+                                        @case(4)
+                                            <button type="button" class="btn btn-primary btn-block"><i class="fa fa-check"></i> Disponible</button>
+                                            @break
+                                        @case(5)
+                                            <button type="button" class="btn btn-warning btn-block"><i class="fa fa-check"></i> Mejorable</button>
+                                            @break
+                                        @default
                                             <button type="button" class="btn btn-danger btn-block"><i class="fa fa-trash"></i> Baja</button>
-                                        @else
-                                            @if ($cpu->estado==2)
-                                                <button type="button" class="btn btn-warning btn-block"><i class="fa fa-bolt"></i> En Reparación</button>
-                                            @else
-                                                @if ($cpu->estado==3)
-                                                    <button type="button" class="btn btn-dark btn-block"><i class="fa fa-eye"></i> Desaparecido</button>        
-                                                @else
-                                                    <button type="button" class="btn btn-primary btn-block"><i class="fa fa-check"></i> Disponible</button>
-                                                @endif
-                                            
-                                            @endif
-                                        @endif
-                                    @endif
+                                    @endswitch
                                 </div>
                                 
 

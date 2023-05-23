@@ -9,7 +9,7 @@
     
     <div class="form-group col-12 col-md-6">
         {!! Form::label('procesador', 'Procesador:') !!}
-        {!! Form::text('procesador', null, ['class' => 'form-control', 'placeholder' => 'Procesador (Intel I5 10ma)']) !!}
+        {!! Form::text('procesador', null, ['class' => 'form-control', 'placeholder' => 'Intel I5 10ma']) !!}
         @error('procesador')
             <span class="text-danger">{{ $message }}</span>
         @enderror
@@ -36,7 +36,7 @@
     
     <div class="form-group col-12 col-md-4">
         {!! Form::label('sistema_operativo', 'Sistema Operativo:') !!}
-        {!! Form::text('sistema_operativo', null, ['class' => 'form-control', 'placeholder' => 'W10 ...']) !!}
+        {!! Form::text('sistema_operativo', null, ['class' => 'form-control', 'placeholder' => 'Windows 10']) !!}
         @error('sistema_operativo')
             <span class="text-danger">{{ $message }}</span>
         @enderror

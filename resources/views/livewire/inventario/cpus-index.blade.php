@@ -190,7 +190,28 @@
                                 </div>
                             </td>
                             <td class="text-center">
-                                @if ($cpu->estado == 1)
+
+                                @switch($cpu->estado)
+                                    @case(1)
+                                        <small class="text-bold text-success">Activo</small>  
+                                        @break
+                                    @case(2)
+                                        <small class="text-bold text-danger">En Reparación</small>
+                                        @break
+                                    @case(3)
+                                        <small class="text-bold text-dark">Desaparecido</small>  
+                                        @break
+                                    @case(4)
+                                        <small class="text-bold text-primary">Disponible</small>
+                                        @break
+                                    @case(5)
+                                        <small class="text-bold text-warning">Mejorable</small>
+                                        @break
+                                    @default
+                                        <small class="text-bold text-danger">Baja</small>
+                                @endswitch
+
+                                {{-- @if ($cpu->estado == 1)
                                     <small class="text-bold text-success">Activo</small>
                                 @else
                                     @if ($cpu->estado == 0)
@@ -207,7 +228,7 @@
                                             
                                         @endif
                                     @endif
-                                @endif
+                                @endif --}}
 
                             </td>
                         </tr>

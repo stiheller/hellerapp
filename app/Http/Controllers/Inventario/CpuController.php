@@ -34,7 +34,8 @@ class CpuController extends Controller
             '0' => 'Baja',
             '2' => 'En Reparación',
             '3' => 'Desaparecido',
-            '4' => 'Disponible'
+            '4' => 'Disponible',
+            '5' => 'Mejorable',
         ];
 
         
@@ -57,6 +58,7 @@ class CpuController extends Controller
             'procesador' => 'required',
             'ram_modelo' => 'required',
             'ram_cant_gb' => 'required',
+            'sistema_operativo' => 'required',
         ]);
 
         $cpu = Cpu::create($request->all());
@@ -84,6 +86,7 @@ class CpuController extends Controller
     public function edit(Cpu $cpu)
     {
         $estados = [
+            '5' => 'Mejorable',
             '4' => 'Disponible',
             '3' => 'Desaparecido',
             '2' => 'En Reparación',
@@ -112,6 +115,7 @@ class CpuController extends Controller
             'procesador' => 'required',
             'ram_modelo' => 'required',
             'ram_cant_gb' => 'required',
+            'sistema_operativo' => 'required',
         ]);
 
         $cpu->update($request->all());
