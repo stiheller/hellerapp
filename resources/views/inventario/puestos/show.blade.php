@@ -229,8 +229,8 @@
                                                 <h6><u>RAM cantidad:</u> {{ $puesto->equipamiento->cpu->ram_cant_gb }}</h6>
                                                 <h6><u>Sistema Operativo:</u>
                                                     {{ $puesto->equipamiento->cpu->sistema_operativo }}</h6>
-                                                @if ($puesto->equipamiento->cpu->descripción)
-                                                    <h6><u>Descripción:</u> {{ $puesto->equipamiento->cpu->descripción }}</h6>    
+                                                @if ($puesto->equipamiento->cpu->descripcion)
+                                                    <h6><u>Descripción:</u> {{ $puesto->equipamiento->cpu->descripcion }}</h6>    
                                                 @else
                                                     <h6><u>Descripción:</u> - </h6>
                                                 @endif
