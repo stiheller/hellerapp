@@ -92,7 +92,19 @@
                         <th>N°Patrimonial</th>
                         <th>Nombre_Puesto</th>
                         <th class="text-bold text-primary text-center">ACCIONES</th>
-                        <th>Estado</th>
+                        <th wire:click="order('estado')">
+                            Estado
+                            @if ($sort == 'estado')
+                                @if ($direction == 'asc')
+                                    <i class="fas fa-sort-alpha-up-alt mt-1 float-right"></i>
+                                @else
+                                    <i class="fas fa-sort-alpha-down-alt mt-1 float-right"></i>
+                                @endif
+                            @else
+                                <i class="fas fa-sort mt-1 float-right"></i>
+                            @endif
+                        </th>
+                        {{-- <th>Estado</th> --}}
                     </tr>
                 </thead>
                 <tbody>
