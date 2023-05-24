@@ -49,4 +49,18 @@ class MonitoresIndex extends Component
 
         return view('livewire.inventario.monitores-index', compact('monitores'));
     }
+    //Ordena según parámetro.
+    public function order($orden)
+    {
+        if ($this->sort == $orden) {
+            if ($this->direction == 'desc') {
+                $this->direction = 'asc';
+            } else {
+                $this->direction = 'desc';
+            }
+        } else {
+            $this->sort = $orden;
+        }
+        $this->sort = $orden;
+    }
 }

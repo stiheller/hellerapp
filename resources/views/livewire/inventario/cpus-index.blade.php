@@ -65,7 +65,19 @@
                                 <i class="fas fa-sort mt-1 float-right"></i>
                             @endif
                         </th>
-                        <th>S. O.</th>
+                        <th wire:click="order('sistema_operativo')">
+                            S. O.
+                            @if ($sort == 'sistema_operativo')
+                                @if ($direction == 'asc')
+                                    <i class="fas fa-sort-alpha-up-alt mt-1 float-right"></i>
+                                @else
+                                    <i class="fas fa-sort-alpha-down-alt mt-1 float-right"></i>
+                                @endif
+                            @else
+                                <i class="fas fa-sort mt-1 float-right"></i>
+                            @endif
+                        </th>
+                        {{-- <th>S. O.</th> --}}
                         {{-- <th>Descrip.</th> --}}
                         <th>N°Patrimonial</th>
                         
@@ -74,7 +86,18 @@
 
                         {{-- <th colspan="3" class="text-bold text-danger text-center">ACCIONES</th> --}}
                         <th class="text-bold text-primary text-center">ACCIONES</th>
-                        <th>Estado</th>
+                        <th wire:click="order('estado')">
+                            Estado
+                            @if ($sort == 'estado')
+                                @if ($direction == 'asc')
+                                    <i class="fas fa-sort-alpha-up-alt mt-1 float-right"></i>
+                                @else
+                                    <i class="fas fa-sort-alpha-down-alt mt-1 float-right"></i>
+                                @endif
+                            @else
+                                <i class="fas fa-sort mt-1 float-right"></i>
+                            @endif
+                        </th>
                     </tr>
                 </thead>
                 <tbody>

@@ -27,9 +27,9 @@
             <table class="table table-striped">
                 <thead class="table table-bordered">
                     <tr>
-                        <th style="width: 60px" wire:click="order('ips.direccion_ip')">
+                        <th style="width: 60px" wire:click="order('inv_ips.direccion_ip')">
                             IP
-                            @if ($sort == 'ips.direccion_ip')
+                            @if ($sort == 'inv_ips.direccion_ip')
                                 @if ($direction == 'asc')
                                     <i class="fas fa-sort-alpha-up-alt mt-1 float-right"></i>
                                 @else
@@ -52,9 +52,9 @@
                                 <i class="fas fa-sort mt-1 float-right"></i>
                             @endif
                         </th>
-                        <th wire:click="order('sectores.nombre')">
+                        <th wire:click="order('inv_sectores.nombre')">
                             Sector
-                            @if ($sort == 'sectores.nombre')
+                            @if ($sort == 'inv_sectores.nombre')
                                 @if ($direction == 'asc')
                                     <i class="fas fa-sort-alpha-up-alt mt-1 float-right"></i>
                                 @else
@@ -64,7 +64,7 @@
                                 <i class="fas fa-sort mt-1 float-right"></i>
                             @endif
                         </th>
-                        <th>Referencia Lugar</th>
+                        {{-- <th>Referencia Lugar</th> --}}
                         <th>Planta</th>
                         
                         <th>B.Patch</th>
@@ -97,13 +97,13 @@
                                 @endif
                                 
                             </td>
-                            <td>
+                           {{--  <td>
                                 @if ($puesto->referencia_lugar != null)
                                     {{ $puesto->referencia_lugar }}
                                 @else
                                     S/Ref
                                 @endif
-                            </td>
+                            </td> --}}
                             <td>
                                 @if ($puesto->nombre_sector != null)
                                     @if ($puesto->planta_sector == 1)                                        
@@ -202,6 +202,23 @@
                                                 </li>
                                             @endif
                                             
+                                        </ul>
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle"
+                                            data-toggle="dropdown">
+                                            <i class="fas fa-bars"></i>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                @if ($puesto->referencia_lugar != null)
+                                                    <p class="mx-3">{{ $puesto->referencia_lugar }}</p>    
+                                                @else
+                                                    <p class="mx-3">Sin Referencia</p>
+                                                @endif
+                                                
+                                            </li>
                                         </ul>
                                     </div>
 
