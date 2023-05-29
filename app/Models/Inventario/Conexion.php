@@ -19,9 +19,9 @@ class Conexion extends Model
     }
 
     //Relación uno a uno inversa con Puesto
-    /* public function puesto(){
+    public function puesto(){
         return $this->hasOne(Puesto::class);
-    } */
+    }
 
     //Relación uno a uno con Ip
     public function ip(){

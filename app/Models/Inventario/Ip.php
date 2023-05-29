@@ -14,7 +14,7 @@ class Ip extends Model
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     //Relación uno a uno inversa con Conexión
-    /* public function conexion(){
+    public function conexion(){
         return $this->hasOne(Conexion::class);
-    } */
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Inventario;
 
 use App\Http\Controllers\Controller;
+use App\Models\Inventario\Conexion;
 use App\Models\Inventario\Ip;
 use Illuminate\Http\Request;
 use Livewire\WithPagination;
@@ -94,7 +95,7 @@ class IpController extends Controller
 
     public function liberar($conexion)
     {
-        /* $con = Conexion::findOrFail($conexion);
+        $con = Conexion::findOrFail($conexion);
 
         $ipAux = Ip::findOrFail($con->ip_id);
 
@@ -106,7 +107,7 @@ class IpController extends Controller
         $ipAux->update([
             'estado' => 0,
         ]);
- */
+
         return redirect()->route('inventario.ips.index')->with('liberar', 'ok');
     }
 
