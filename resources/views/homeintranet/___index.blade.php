@@ -77,7 +77,7 @@
 <!--begin::Card-->
     <!-- seguimiento -->
     <input type="hidden" value="{{csrf_token()}}" name="_token" id="token">
-     <!-- ./seguimiento -->
+    <!-- end Seguimiento -->
     <div class="ribbon">
         <a href="#">DESARROLLO</a>
     </div>
@@ -136,8 +136,8 @@
                             <a href="http://10.1.104.10/pacientes/pacientes.php" target="_blank" class="dropdown-item">Pacientes</a>
                             <a href="http://10.1.104.10/internacion/internacion.php"  target="_blank" class="dropdown-item">Internación</a>
                             <a href="http://10.1.104.10/laboratorio/lab_monitor.php" target="_blank" class="dropdown-item">Laboratorio</a>
-                            <a href="http://172.16.1.252/sistemas/mesa_ayuda/nuevotkt.php" target="_blank" class="dropdown-item">Mesa de Ayuda</a>
-                            <a href="http://172.16.1.252/" target="_blank" class="dropdown-item">Intranet 2</a>
+                            <a href="http://10.1.104.34/sistemas/mesa_ayuda/nuevotkt.php" target="_blank" class="dropdown-item">Mesa de Ayuda</a>
+                            <a href="http://10.1.104.34/" target="_blank" class="dropdown-item">Intranet 2</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
@@ -162,13 +162,13 @@
                             <a href="https://forms.gle/5CNYT3X3cHgj9nqo9" target="_blank" class="dropdown-item seguimientoclick" data-id="15">Formulario Solicitud</a>
                         </div>
                     </div>
-                    <!--<div class="nav-item dropdown">
+                    <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Formularios Personal</a>
                         <div class="dropdown-menu m-0">
                             <a href="{{ route('f80') }}" target="_blank" class="dropdown-item">Articulo 50 ex 80</a>
                             <a href="#" target="_blank" class="dropdown-item">Permiso de Salida</a>
                         </div>
-                    </div>-->
+                    </div>
                     <a href="#" class="nav-item nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal"></a>
                     <a href="http://intranet/tutorialesandes/tutorialesandes.php" target="_blank" class="nav-item nav-link seguimientoclick" data-id="16">TUTORIALES ANDES</a>
                     <!--<a href="#" target="_blank" class="nav-item nav-link">IP: {{ $ip }}</a>-->
@@ -257,7 +257,7 @@
 
                         <div class="alert alert-danger" role="alert">
                             @foreach ($alertas as $item)
-                            <p><strong>Atención !!!</strong> El día <strong>{{  \Carbon\Carbon::parse($item->dia)->format('d/m/Y')}} </strong> a las <strong> {{ $item->hora}} </strong> se realizará <strong> {{ $item->alerta}}</strong></p>
+                            <p><strong>Atención !!!</strong> El día <strong>{{  \Carbon\Carbon::parse($item->dia)->format('d/m/Y')}} </strong> a las <strong> {{ $item->hora}} </strong> se realizará la actividad {{ $item->alerta}}</p>
                             @endforeach
                         </div>
                     </div>
@@ -413,23 +413,6 @@
                         <div class="text-center py-3">
                             <h4 class="text-primary">ONE LOGIN</h4>
                             <p class="text-lowercase m-0"><strong>One Login</strong></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- nutricion -->
-                <div class="col-lg-2 wow slideInUp" data-wow-delay="0.9s">
-                    <div class="team-item bg-light rounded overflow-hidden">
-                        <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="homeintranet/img/nutricion-guardia-cocina.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded seguimientoclick" data-id="28" href="https://docs.google.com/spreadsheets/d/1JlheC19rO1Vn7MYeWTNnl8neLHK2dtNI/edit?usp=sharing&ouid=103520412529601884761&rtpof=true&sd=true" target="_blank"><i class="fa fa-arrow-right"></i></a>
-
-                            </div>
-                        </div>
-                        <div class="text-center py-3">
-                            <h4 class="text-primary">PEDIDO COMINDA</h4>
-                            <p class="text-lowercase m-0"><strong>Pac. Internado</strong></p>
                         </div>
                     </div>
                 </div>
