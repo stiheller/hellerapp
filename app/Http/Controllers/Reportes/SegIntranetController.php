@@ -33,7 +33,7 @@ class SegIntranetController extends Controller
         $query ="SELECT b.id, b.accion,COUNT(h.accion_id) as cant
         FROM homeintraet_seguimiento h
         RIGHT JOIN homeintraet_btn_seguimiento b ON h.accion_id = b.id
-        WHERE h.created_at BETWEEN '2022-01-01' AND '2022-12-31'
+        WHERE h.created_at BETWEEN '".$desde." 00:00:00' AND '".$hasta." 23:59:00'
         GROUP BY b.id, b.accion  ORDER BY COUNT(h.accion_id) DESC";
         $acciones = DB::select(DB::raw($query));
         foreach($acciones  as $item){
@@ -43,7 +43,7 @@ class SegIntranetController extends Controller
         $query ="SELECT b.seccion,COUNT(h.accion_id) as cant
                 FROM homeintraet_seguimiento h
                 RIGHT JOIN homeintraet_btn_seguimiento b ON h.accion_id = b.id
-                WHERE h.created_at BETWEEN '2022-01-01' AND '2022-12-31'
+                WHERE h.created_at BETWEEN '".$desde." 00:00:00' AND '".$hasta." 23:59:00'
                 GROUP BY  b.seccion ORDER BY COUNT(h.accion_id) DESC";
         $grupos = DB::select(DB::raw($query));
         foreach($grupos  as $item){
