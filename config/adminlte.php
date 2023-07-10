@@ -305,37 +305,6 @@ return [
             ],
         ],
         [
-            'text'    => 'Personal',
-            'icon'    => 'fas fa-user fa-fw',
-            'label'       => 4,
-            'label_color' => 'success',
-            'active'    => ['personal/*'],
-            'submenu' => [
-                [
-                    'text' => 'Formularios',
-                    'url'  => '#',
-                    'icon' => 'fas fa-file-invoice fa-fw'
-                ],
-                [
-                    'text' => 'Mis Fichadas',
-                    'url'  => '#',
-                    'icon' => 'fas fa-calendar fa-fw'
-                ],
-                [
-                    'text' => 'Mis Articulos',
-                    'url'  => '#',
-                    'icon' => 'fas fa-calendar fa-fw'
-                ],
-                [
-                    'text' => 'Mis Datos',
-                    'url'  => '#',
-                    'icon' => 'fas fa-user fa-fw',
-                ]
-            ],
-
-        ],
-
-        [
             'text'    => 'STI',
             'icon'    => 'fas fa-laptop-code',
             'label'       => 5,
@@ -361,14 +330,6 @@ return [
                     'icon' => 'fas fa-users-cog fa-fw',
                     'can' => 'admin.permission.index'
                 ],
-                [
-                    'text' => 'Sectores',
-                    'route'  => 'admin.sector.index',
-                    'icon' => 'fa fa-sitemap fa-fw',
-                    'can' => 'admin.sector.index'
-                ]
-
-
             ],
         ],
 
@@ -466,23 +427,6 @@ return [
 
             ],
         ],
-
-        [
-            'text'    => 'Comunicación',
-            'icon'    => 'fas fa-bullhorn fa-fw',
-            'label'       => 1,
-            'label_color' => 'success',
-            'active'    => ['comunicacion/*'],
-            'can' => 'comunicacion.calendario.index',
-            'submenu' => [
-                [
-                    'text' => 'Espacios Institucionales',
-                    'route'  => 'comunicacion.calendario.index',
-                    'icon' => 'fas fa-calendar fa-fw',
-                ]
-            ],
-
-        ],
         [
             'text'    => 'Reportes',
             'icon'    => 'fas fa-chart-bar fa-fw',
@@ -506,115 +450,6 @@ return [
             ],
 
         ],
-
-
-        [
-            'text'    => 'Home Intranet',
-            'icon'    => 'fas fa-home fa-fw',
-            'label'       => 2,
-            'label_color' => 'success',
-            'active'    => ['IntranetHome/*'],
-            'can' => 'homeintranet.noticias.index',
-            'submenu' => [
-
-                [
-                    'text' => 'Novedades',
-                    'route'  => 'homeintranet.noticias.index',
-                    'icon' => 'fas fa-newspaper fa-fw',
-                    'can' => 'homeintranet.noticias.index'
-                ],
-            ],
-
-        ],
-
-
-        [
-            'text'    => 'Administración',
-            'icon'    => 'fas fa-wallet fa-fw',
-            'label'       => 5,
-            'label_color' => 'success',
-            'active'    => ['bancos/*'],
-            'can'  => 'administracion.facturas.index',
-            'submenu' => [
-                [
-                    'text' => 'Bancos',
-                    'route'  => 'administracion.bancos.index',
-                    'icon' => 'fas fa-university fa-fw',
-                    'can'  => 'administracion.bancos.index'
-
-                ],
-
-                [
-                    'text' => 'Proveedores',
-                    'route'  => 'administracion.proveedores.index',
-                    'icon' => 'fas fa-truck fa-fw',
-                    'can'  => 'administracion.proveedores.index'
-                ],
-                [
-                    'text' => 'Pedidos',
-                    'route'  => 'administracion.compras.index',
-                    'icon' => 'fas fa-shopping-cart fa-fw',
-                    'can'  => 'administracion.compras.index'
-
-                ],
-                [
-                    'text' => 'Facturas',
-                    'route'  => 'administracion.facturas.index',
-                    'icon' => 'fas fa-file-invoice fa-fw',
-                    'can'  => 'administracion.facturas.index'
-
-                ],
-                [
-                    'text' => 'Rubros',
-                    'route'  => 'administracion.rubro.index',
-                    'icon' => 'fas fa-keyboard fa-fw',
-                    'can'  => 'administracion.rubro.index'
-
-                ]
-
-            ],
-
-        ],
-        [
-            'text'    => 'Inspec Servicios',
-            'icon'    => 'fa fa-wrench fa-fw',
-            'label'       => 2,
-            'label_color' => 'success',
-            'active'    => ['mnt/*'],
-
-            'submenu' => [
-
-                [
-                    'text' => 'Empresas',
-                    'route'  => 'mnt.empresa.index',
-                    'icon' => 'fa fa-building fa-fw',
-                    'can'  => 'mnt.empresa.index'
-
-                ],
-                [
-                    'text' => 'Ordenes',
-                    'route'  => 'mnt.ordenes.index',
-                    'icon' => 'fa fa-tasks fa-fw',
-                ],
-            ],
-
-        ]
-        /*['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],*/
     ],
 
     /*
