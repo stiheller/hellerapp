@@ -180,8 +180,8 @@
             </div>
         </nav>
 
-        <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
-            <div class="row py-5">
+        <div class="container-fluid bg-primary py-2 bg-header" style="margin-bottom: 90px;">
+            <div class="row py-2">
                 <div class="col-12 pt-lg-5 mt-lg-5 text-center">
                     <h1 class="display-4 text-white animated zoomIn m-0"><i class="fa fa-home fa-fw"></i>Intranet</h1>
                 </div>
@@ -211,12 +211,42 @@
         </div>
     </div>
     <!-- Full Screen Search End -->
+            <!-- Full Screen Search End -->
+        <!-- alertas -->
+        @if (count($alertas) > 0)
+            <div class="container-fluid facts pt-lg-0">
+                <div class="container py-5 pt-lg-0">
+                    <div class="row gx-0">
+                        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                            <h5 class="fw-bold text-primary text-uppercase">Notificaciones Importantes</h5>
+                            <!--<h1 class="mb-0">Professional Stuffs Ready to Help Your Business</h1>-->
+                        </div>
 
+                        <div class="alert alert-danger" role="alert">
+                            @foreach ($alertas as $item)
+                            <p><strong>Atención !!!</strong> El día <strong>{{  \Carbon\Carbon::parse($item->dia)->format('d/m/Y')}} </strong> a las <strong> {{ $item->hora}} </strong>  {{ $item->alerta}}</strong></p>
+                                @if (!$loop->last)
+                                    <hr>
+                                @endif
+                            @endforeach
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+        <!-- ./alertas -->
+        <br>
         <!-- Facts Start -->
 
         <div class="container-fluid facts pt-lg-0">
             <div class="container py-5 pt-lg-0">
+                <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                            <h5 class="fw-bold text-primary text-uppercase">CLAVES WIFI</h5>
+                            <!--<h1 class="mb-0">Professional Stuffs Ready to Help Your Business</h1>-->
+                </div>
                 <div class="row gx-0">
+                    
                     <div class="col-lg-6 wow zoomIn" data-wow-delay="0.1s">
                         <div class="bg-primary shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
                             <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
@@ -244,27 +274,326 @@
             </div>
         </div>
         <!-- Facts Start -->
-        <
-        <!-- alertas -->
-        @if (count($alertas) > 0)
-            <div class="container-fluid facts pt-lg-5">
-                <div class="container py-5 pt-lg-0">
-                    <div class="row gx-0">
-                        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-                            <h5 class="fw-bold text-primary text-uppercase">Notificaciones Importantes</h5>
-                            <!--<h1 class="mb-0">Professional Stuffs Ready to Help Your Business</h1>-->
-                        </div>
+        
 
-                        <div class="alert alert-danger" role="alert">
-                            @foreach ($alertas as $item)
-                            <p><strong>Atención !!!</strong> El día <strong>{{  \Carbon\Carbon::parse($item->dia)->format('d/m/Y')}} </strong> a las <strong> {{ $item->hora}} </strong> se realizará <strong> {{ $item->alerta}}</strong></p>
-                            @endforeach
+      <!-- Team Start -->
+      <div class="container-fluid wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                <h5 class="fw-bold text-primary text-uppercase">Accesos Directos</h5>
+                <!--<h1 class="mb-0">Professional Stuffs Ready to Help Your Business</h1>-->
+            </div>
+            <div class="row g-5">
+                <!-- rayos -->
+                <div class="col-lg-2 wow slideInUp" data-wow-delay="0.3s">
+                    <div class="team-item bg-light rounded overflow-hidden">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="homeintranet/img/rayos.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded seguimientoclick" data-id="1" href="http://visorheller/" target="_blank"><i class="fa fa-arrow-right"></i></a>
+
+                            </div>
+                        </div>
+                        <div class="text-center py-3">
+                            <h4 class="text-primary">Visor Rayos</h4>
+                            <p class="text-lowercase m-0"><strong> Usuario: admin -- Clave: adm1n</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- andes -->
+                <div class="col-lg-2 wow slideInUp" data-wow-delay="0.6s">
+                    <div class="team-item bg-light rounded overflow-hidden">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="homeintranet/img/andes.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded seguimientoclick" data-id="2" href="https://app.andes.gob.ar/login" target="_blank"><i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center py-3">
+                            <h4 class="text-primary">ANDES</h4>
+                            <p class="text-lowercase m-0">Aplicacion Neuquinas de Salud</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- sips -->
+                <div class="col-lg-2 wow slideInUp" data-wow-delay="0.9s">
+                    <div class="team-item bg-light rounded overflow-hidden">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="homeintranet/img/sips.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded  seguimientoclick" data-id="3" href="https://www.saludnqn.gob.ar/SSO/Login.aspx?url=http%3a%2f%2fwww.saludnqn.gob.ar%2fSips&amp;RedirectToSecure=1" target="_blank"><i class="fa fa-arrow-right"></i></a>
+
+                            </div>
+                        </div>
+                        <div class="text-center py-3">
+                            <h4 class="text-primary">SIPS</h4>
+                            <p class="text-lowercase m-0">sistema Integral provincial de salud</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- SIL -->
+                <div class="col-lg-2 wow slideInUp" data-wow-delay="0.9s">
+                    <div class="team-item bg-light rounded overflow-hidden">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="homeintranet/img/sil.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded seguimientoclick" data-id="4" href="http://10.1.104.231:9090/laboratorio" target="_blank"><i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center py-3">
+                            <h4 class="text-primary">SIL</h4>
+                            <p class="text-lowercase m-0">sistema integral de laboratorio</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- GDE -->
+                <div class="col-lg-2 wow slideInUp" data-wow-delay="0.3s">
+                    <div class="team-item bg-light rounded overflow-hidden">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="homeintranet/img/gde.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded seguimientoclick" data-id="5" href="https://cas.gde.neuquen.gob.ar/acceso/login/?generateToken=true&generateIDP=true&" target="_blank"><i class="fa fa-arrow-right"></i></a>
+
+                            </div>
+                        </div>
+                        <div class="text-center py-3">
+                            <h4 class="text-primary">GDE</h4>
+                            <p class="text-lowercase m-0"><strong> Gestión Documental Electrónica</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Feriados Nacionales -->
+                <div class="col-lg-2 wow slideInUp" data-wow-delay="0.9s">
+                    <div class="team-item bg-light rounded overflow-hidden">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="homeintranet/img/feriados.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded seguimientoclick" data-id="26" href="https://www.argentina.gob.ar/interior/feriados-nacionales-{{ $year }}" target="_blank"><i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center py-3">
+                            <h4 class="text-primary">Feriados</h4>
+                            <p class="text-lowercase m-0">Feriados Nacionales</p>
                         </div>
                     </div>
                 </div>
             </div>
-        @endif
-        <!-- ./alertas -->
+            <br>
+            <div class="row g-5">
+                <!--internos -->
+               <div class="col-lg-2 wow slideInUp" data-wow-delay="0.6s">
+                    <div class="team-item bg-light rounded overflow-hidden">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="homeintranet/img/internos.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded seguimientoclick" data-id="6" href="http://intranet/telefonos/internos.php" target="_blank"><i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center py-3">
+                            <h4 class="text-primary">INTERNOS</h4>
+                            <p class="text-lowercase m-0"><strong>Internos de la institución</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- centrex -->
+                 <div class="col-lg-2 wow slideInUp" data-wow-delay="0.9s">
+                    <div class="team-item bg-light rounded overflow-hidden">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="homeintranet/img/centrex.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded seguimientoclick" data-id="7" href="http://intranet/telefonos/centrex.php" target="_blank"><i class="fa fa-arrow-right"></i></a>
+
+                            </div>
+                        </div>
+                        <div class="text-center py-3">
+                            <h4 class="text-primary">CENTREX</h4>
+                            <p class="text-lowercase m-0"><strong>Centrex asignados</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- onelogin -->
+                <div class="col-lg-2 wow slideInUp" data-wow-delay="0.9s">
+                    <div class="team-item bg-light rounded overflow-hidden">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="homeintranet/img/onelogin.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded seguimientoclick" data-id="27" href="https://cas.neuquen.gov.ar/cas/login" target="_blank"><i class="fa fa-arrow-right"></i></a>
+
+                            </div>
+                        </div>
+                        <div class="text-center py-3">
+                            <h4 class="text-primary">ONE LOGIN</h4>
+                            <p class="text-lowercase m-0"><strong>One Login</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- nutricion -->
+                <div class="col-lg-2 wow slideInUp" data-wow-delay="0.9s">
+                    <div class="team-item bg-light rounded overflow-hidden">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="homeintranet/img/nutricion-guardia-cocina.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded seguimientoclick" data-id="28" href="https://docs.google.com/spreadsheets/d/1JlheC19rO1Vn7MYeWTNnl8neLHK2dtNI/edit?usp=sharing&ouid=103520412529601884761&rtpof=true&sd=true" target="_blank"><i class="fa fa-arrow-right"></i></a>
+
+                            </div>
+                        </div>
+                        <div class="text-center py-3">
+                            <h4 class="text-primary">PEDIDO COMINDA</h4>
+                            <p class="text-lowercase m-0"><strong>Pac. Internado</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+    <!-- Team End -->
+
+        <!-- carousel Start -->
+            <div class="container-fluid wow fadeInUp" data-wow-delay="0.1s">
+                <div class="container py-5">
+                    <div class="section-title text-center position-relative pb-3 mb-4 mx-auto" style="max-width: 600px;">
+                        <h5 class="fw-bold text-primary text-uppercase">Novedades</h5>
+                        <!--<h1 class="mb-0">What Our Clients Say About Our Digital Services</h1>-->
+                    </div>
+                    <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.6s">
+                        @foreach ($novedades as $item)
+                            <div class="testimonial-item bg-light my-4">
+                                <div class="d-flex align-items-center border-bottom">
+                                    <img class="img-fluid rounded" src="{{ asset('/img/novedades/'.$item->img) }}" style="width: 100%; height: 100%;" >
+                                    <div class="ps-4">
+                                        <!--<h4 class="text-primary mb-1">Client Name</h4>
+                                        <small class="text-uppercase">Profession</small>-->
+                                    </div>
+                                </div>
+                                <!--<div class="pt-4 pb-5 px-5">
+                                    Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
+                                </div>-->
+                            </div>
+                        @endforeach
+
+                    </div>
+                </div>
+            </div>
+        <!-- carousel End -->
+
+
+    <!-- Blog Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+            <!-- Noticias Start-->
+                <div class="container py-5">
+                    <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                        <h5 class="fw-bold text-primary text-uppercase">Noticias</h5>
+                        <!--<h1 class="mb-0">Professional Stuffs Ready to Help Your Business</h1>-->
+                    </div>
+                    <div class="row">
+                        <!-- Blog list Start -->
+                        <div class="col-lg">
+                                <div class="row g-5">
+                                    @foreach ($noticias as $noticia)
+                                        <div class="col-md-4 wow slideInUp" data-wow-delay="0.1s">
+                                            <div class="blog-item bg-light rounded overflow-hidden h-100">
+                                                <div class="blog-img position-relative overflow-hidden">
+                                                    <img class="img-fluid" src="{{ asset('/img/noticias/'.$noticia->urlImagen) }}"  alt="">
+                                                    <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4 seguimientoclick" data-id="9" href="{{ $noticia->urlPagWeb}}" target='_blank'>Más</a>
+                                                </div>
+                                                <div class="p-4">
+                                                    <div class="d-flex mb-3">
+                                                        {{--<small class="me-3"><i class="far fa-user text-primary me-2"></i>John Doe</small>--}}
+                                                        <small><i class="far fa-calendar-alt text-primary me-2"></i>{{ \Carbon\Carbon::parse($noticia->fecha)->format('d/m/Y') }}</small>
+                                                    </div>
+                                                    <h4 class="mb-3">{{ $noticia->titulo}}</h4>
+                                                    <p>{{ strip_tags($noticia->copete) }}</p>
+                                                    <!--<a class="text-uppercase" href="http://www.hhheller.org" target='_blank'>www.hhheller.org <i class="bi bi-arrow-right"></i></a> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                            </div>
+                        </div>
+                        <!-- End Blog list Start -->
+
+
+                    </div>
+                    <!-- End Row -->
+                    <div class="row">
+
+                    </div>
+                    <!-- End Row -->
+                </div>
+            <!-- Noticias End -->
+            <!-- Service Start -->
+                <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="container py-5">
+                        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                            <h5 class="fw-bold text-primary text-uppercase">En Linea</h5>
+                            <h1 class="mb-0">Registro a Distintas Actividades</h1>
+                        </div>
+                        <div class="row g-5">
+                            <div class="col-lg-4 col-md-6 wow zoomIn h-100" data-wow-delay="0.3s">
+                                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                                    <div class="service-icon">
+                                        <i class="fa fa-calendar fa-2x text-white"></i>
+                                    </div>
+                                    <h4 class="mb-3">Espacios Institucionales</h4>
+                                    <p class="m-0">Antes de realizar una reserva por favor leer la Circular
+                                        Solicitud de espacios institucionales, por favor con 24 hs de antelacion para evitar superposicion de lugares y equipamientos.</p>
+                                    <a class="btn btn-lg btn-primary rounded" href="http://10.1.104.10/calendarioPortal/calendario_espInstitucionalAll.php" target="_blank">
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 wow zoomIn h-100" data-wow-delay="0.6s">
+                                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                                    <div class="service-icon">
+                                        <i class="fa fa-users fa-2x text-white"></i>
+                                    </div>
+                                    <h4 class="mb-3">Violencia de Genero</h4>
+                                    <p class="m-0">Desde el Comité de para la prevención y abordaje de violencia de género del Hospital Dr. Horacio Heller se extiende la invitación para completar un cuestionario (anónimo),
+                                        en el marco del desarrollo de un programa institucional de abordaje de la violencia en el ámbito de las relaciones laborales.
+                                       </p>
+                                    <a class="btn btn-lg btn-primary rounded seguimientoclick" data-id="11" href="https://forms.gle/susrA5Bg26HFxYLx6" target="_blank">
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 wow zoomIn h-100" data-wow-delay="0.9s">
+                                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                                    <div class="service-icon">
+                                        <a href="{{ asset('homeintranet/lenguajeSenasA4.pdf') }}" target="_blank"><i class="fa fa-sign-language fa-2x text-white"></i></a>
+                                    </div>
+                                    <h4 class="mb-3">Lenguaje de Señas</h4>
+                                    <!--<p class="m-0">Formulario de Inscripción</p>-->
+                                    <a class="btn btn-lg btn-primary rounded  seguimientoclick" data-id="12" href="{{ asset('homeintranet/lenguajeSenasA4.pdf') }}"  target="_blank"><i class="bi bi-arrow-right"></i></a>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="row g-5">
+
+                            <div class="col-lg-4 col-md-6 wow zoomIn h-100" data-wow-delay="0.3s">
+                                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                                    <div class="service-icon">
+                                        <i class="fa fa-clone fa-2x text-white"></i>
+                                    </div>
+                                    <h4 class="mb-3">Mis Licencias</h4>
+                                    <p class="m-0">Instructivo de uso del App Mis Licencias</p>
+                                    <a class="btn btn-lg btn-primary rounded seguimientoclick" data-id="14" href="https://youtube.com/shorts/13u1isfeASY" target="_blank">
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            <!-- Service End -->
+        </div>
+    </div>
+    <!-- Blog End -->
+       
+        
       <!-- Team Start -->
       <div class="container-fluid wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">

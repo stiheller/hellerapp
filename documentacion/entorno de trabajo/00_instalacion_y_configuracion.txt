@@ -208,4 +208,12 @@ Quedaría:
 
 <img class="img-fluid rounded-sm" id="picture" src="/hellerapp/public{{Storage::url($imagen->url)}}" alt="Imagen del Cpu">
 
+ ---------------------------------------------------------------
+|              PROBLEMAS DE FUNCIONAMIENTO LIVEWIRE             |
+ ---------------------------------------------------------------
+ Hay que tocar el archivo "livewire.php" que se encuentra en la carpeta:
+ config -> livewire.php
+
+ 'asset_url' => 'http://10.1.104.12/hellerapp/public',
+
 -----------------------------------------------------------------------------------------------------------------------------------
