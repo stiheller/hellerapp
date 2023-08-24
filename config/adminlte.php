@@ -340,7 +340,7 @@ return [
             /* 'label'       => 5,
             'label_color' => 'success', */
             'active'    => ['inventario*'],
-            'can' => 'admin.users.index',
+            'can' => 'inventario.principal',
             'submenu' => [
                 [
                     'text'       => 'Inventario',
@@ -348,14 +348,18 @@ return [
                     'active' => ['inventario.principal', 'inventario/inventario/*'],
                     'icon'       => 'fas fa-globe fa-fw',
                     'icon_color' => 'cyan',
+                    'can' => 'inventario.principal',
                 ],
-                ['header' => 'SETTINGS'],
+                /* [   'header' => 'SETTINGS',
+                    'can' => 'inventario.admin',
+                ], */
                 [
                     'text' => 'Sectores',
                     'route'  => 'inventario.sectores.index',/* 'admin.sectores.index', */
                     'active' => ['inventario/sectores*'],
                     'icon' => 'fas fa-fw fa-city',
                     'icon_color' => 'indigo',
+                    'can' => 'inventario.admin',
                 ],
                 [
                     'text' => 'Switchs',
@@ -363,6 +367,7 @@ return [
                     'active' => ['inventario/conmutadores*'],
                     'icon' => 'fas fa-fw fa-handshake',
                     'icon_color' => 'orange',
+                    'can' => 'inventario.admin',
                 ],
                 [
                     'text' => 'Racks',
@@ -370,6 +375,7 @@ return [
                     'active' => ['admin/racks*'],
                     'icon' => 'fab fa-fw fa-buffer',
                     'icon_color' => 'cyan',
+                    'can' => 'inventario.admin',
                 ],
                 [
                     'text'    => 'Equipamientos',
@@ -377,6 +383,7 @@ return [
                     'icon_color' => 'green',
                     'active' => ['inventario/cpus*','inventario/monitores*', 'inventario/scanners*', 'inventario/impresoras*'], /*  ['inventario/cpus*', 'inventario/monitores*'], */
                     /* 'url'     => 'admin.users.index', *//* 'admin.home', */
+                    'can' => 'inventario.admin',
                     'submenu' => [
                         [
                             'text' => "CPU's",
@@ -384,6 +391,7 @@ return [
                             'icon_color' => 'teal',
                             'active' => ['inventario/cpus*'],
                             'route'  => 'inventario.cpus.index',/*  'admin.cpus.index', */
+                            'can' => 'inventario.admin',
                         ],
                         [
                             'text'    => 'Monitores',
@@ -391,6 +399,7 @@ return [
                             'icon_color' => 'teal',
                             'active' => ['inventario/monitores*'],
                             'route'     => 'inventario.monitores.index',/*  'admin.monitores.index', */
+                            'can' => 'inventario.admin',
                         ],
                         [
                             'text' => 'Impresoras',
@@ -398,6 +407,7 @@ return [
                             'icon_color' => 'teal',
                             'active' => ['inventario/impresoras*'],
                             'route'  => 'inventario.impresoras.index',/*  'admin.impresoras.index', */
+                            'can' => 'inventario.admin',
                         ],
                         [
                             'text' => 'Scanners',
@@ -405,6 +415,7 @@ return [
                             'icon_color' => 'teal',
                             'active' => ['inventario/scanners*'],
                             'route'  => 'inventario.scanners.index',/*  'admin.impresoras.index', */
+                            'can' => 'inventario.admin',
                         ],
                     ],
                 ],
@@ -414,14 +425,18 @@ return [
                     'icon_color' => 'purple',
                     'active' => ['inventario/puestos*'],
                     'route'  => 'inventario.puestos.index',/* 'admin.puestos.index', */
+                    'can' => 'inventario.admin',
                 ],
-                ['header' => "####  IP's  ####"],
+                /* [   'header' => "####  IP's  ####",
+                    'can' => 'inventario.admin',
+                ], */
                 [
                     'text'       => "Registro de IP's",
                     'icon_color' => 'red',
                     'icon' => 'fas fa-fw fa-eye',
                     'route'        => 'inventario.ips.index',/*  'admin.ips.index', */
                     'active' => ['admin/ips*'],
+                    'can' => 'inventario.admin',
                 ],
 
 

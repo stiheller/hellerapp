@@ -191,3 +191,21 @@ Ejecutar comando:
 |  PS C:\xampp\htdocs\hellerapp> php artisan migrate  |
  -----------------------------------------------------
 Tener en cuenta que los seeders ya fueron ejecutados, y las tablas de imágenes deben estar vacías.
+
+ -------------------------------------------------------
+|      PROBLEMAS CON LA VISUALIZACIÓN DE IMÁGENES       |
+--------------------------------------------------------
+
+Tener en cuenta que la posición relativa de las imágenes en proyectos locales y aquellos que ya están publicados en Servidores
+No es la misma. Entonces, en todas las Vistas donde se cargue la URL desde scr= "..." Tener en cuenta este cambio.
+Ejemplo en CPU:
+
+Archivo: imagenes.blade.php
+<img class="img-fluid rounded-sm" id="picture" src="{{Storage::url($imagen->url)}}" alt="Imagen del Cpu">
+
+Hay que agregar adelante en la URL: /hellerapp/public
+Quedaría:
+
+<img class="img-fluid rounded-sm" id="picture" src="/hellerapp/public{{Storage::url($imagen->url)}}" alt="Imagen del Cpu">
+
+-----------------------------------------------------------------------------------------------------------------------------------

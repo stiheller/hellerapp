@@ -65,11 +65,23 @@
                                 <i class="fas fa-sort mt-1 float-right"></i>
                             @endif
                         </th>
+                        <th wire:click="order('fecha_limpieza')">
+                            F.Limpieza
+                            @if ($sort == 'fecha_limpieza')
+                                @if ($direction == 'asc')
+                                    <i class="fas fa-sort-alpha-up-alt mt-1 float-right"></i>
+                                @else
+                                    <i class="fas fa-sort-alpha-down-alt mt-1 float-right"></i>
+                                @endif
+                            @else
+                                <i class="fas fa-sort mt-1 float-right"></i>
+                            @endif
+                        </th>
                         
                         
-                        <th>IdS</th>
+                        {{-- <th>IdS</th>
                         <th>IdC</th>
-                        <th>IdE</th>
+                        <th>IdE</th> --}}
                         <th>En.RED</th>
                         <th>IP</th>
                         {{-- <th colspan="3" class="text-bold text-danger text-center">ACCIONES</th> --}}
@@ -100,7 +112,14 @@
                                     <small class="text-secondary">S/D</small>
                                 @endif
                             </td>
-                            
+                            <td class="text-center">
+                                <mark class="text-danger text-bold">{{$puesto->fecha_limpieza}}</mark>
+                                {{-- @if ($puesto->fecha_limpieza != null)
+                                    {{ $puesto->sector_id }}
+                                @else
+                                    <small class="text-secondary">{{$puesto->fecha_limpieza}}</small>
+                                @endif --}}
+                            </td>
                             {{-- <td>
                                 <div class="btn-group ml-3">
                                     <button type="button" class="btn btn-sm btn-secondary dropdown-toggle"
@@ -119,7 +138,7 @@
                                     </ul>
                                 </div>
                             </td> --}}
-                            <td>
+                            {{-- <td>
                                 @if ($puesto->sector_id != null)
                                     {{ $puesto->sector_id }}
                                 @else
@@ -139,8 +158,8 @@
                                 @else
                                     <small class="text-secondary">S/A</small>
                                 @endif
-                            </td>
-                            <td>
+                            </td> --}}
+                            <td class="text-center">
                                  @if ($puesto->en_uso == 1)
                                     <span class="badge bg-success">Si</span>
                                  @else
