@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Inventario / Switchs')
+@section('title', 'Inventario - Switchs')
 
 @section('content_header')
     <a class="btn btn-secondary float-right" href="{{ route('inventario.conmutadores.create') }}">Crear Switch</a>

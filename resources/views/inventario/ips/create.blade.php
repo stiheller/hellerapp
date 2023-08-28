@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', "Inventario Ip's / Create")
+@section('title', "Inv-Ip/Create")
 
 @section('content_header')
     <a class="btn btn-info float-right" href="{{ route('inventario.ips.index') }}">Volver al Índice</a>

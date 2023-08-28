@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Inventario - ADMIN')
+@section('title', 'Inv-Sectores/Show')
 
 @section('content_header')
     <h1>Mostrar detalle Sector:</h1>

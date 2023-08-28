@@ -16,6 +16,8 @@ class PuestosIndex extends Component
     public $sort = 'id';
     public $direction = 'desc';
     public $cant = 5;
+    public $filtro = 2;
+    public $open_busqueda = true;
 
     public function updatingSearch(){
         $this->resetPage();
@@ -25,33 +27,32 @@ class PuestosIndex extends Component
         $this->resetPage();
     }
 
+    public function updatingFiltro(){
+        $this->resetPage();
+    }
+
     public function render()
     {
-        $puestos = Puesto::leftjoin('inv_conexiones','inv_puestos.conexion_id','=','inv_conexiones.id')
-                    /* ->leftjoin('sectores','puestos.sector_id','=','sectores.id')
-                    ->leftjoin('ips','conexiones.ip_id','=','ips.id')
-                    ->leftjoin('conmutadores','conexiones.conmutador_id','=','conmutadores.id')
-                    ->leftjoin('racks','conmutadores.rack_id','=','racks.id') */
-                    /* ->leftjoin('sectores','conmutadores.sector_id','=','sectores.id') */
-                    ->select('inv_puestos.*','inv_conexiones.boca_patch as boca_patch',
-                    'inv_conexiones.boca_switch as boca_switch','inv_conexiones.conectada_rack as conectada_rack',
-                    'inv_conexiones.en_uso as en_uso','inv_conexiones.ip_id as ip_id'
-                    /* 'sectores.nombre as nombre_sector','sectores.planta as planta_sector',
-                    'ips.direccion_ip as direccion_ip','ips.estado as estado_ip',
-                    'conmutadores.numero as numero_conmutador','conmutadores.marca as marca_conmutador',
-                    'racks.nombre as nombre_rack' */)
-                    ->where('inv_puestos.id', 'LIKE', "%". $this->search . "%")
-                    ->orwhere('inv_puestos.nombre', 'LIKE', "%" . $this->search . "%")
-                    ->orWhere('inv_puestos.descripcion', 'LIKE', "%" . $this->search . "%")
-                    ->orderby($this->sort, $this->direction)
-                    ->paginate($this->cant);
-
-
-        /* $puestos = Puesto::where('id', 'LIKE', "%" . $this->search . "%")
-            ->orWhere('nombre', 'LIKE', "%" . $this->search . "%")
-            ->orWhere('descripcion', 'LIKE', "%" . $this->search . "%")
-            ->orderby($this->sort, $this->direction)
-            ->paginate($this->cant); */
+        if ($this->filtro == 2) {
+            $puestos = Puesto::leftjoin('inv_conexiones','inv_puestos.conexion_id','=','inv_conexiones.id')
+                                    ->select('inv_puestos.*','inv_conexiones.boca_patch as boca_patch',
+                                    'inv_conexiones.boca_switch as boca_switch','inv_conexiones.conectada_rack as conectada_rack',
+                                    'inv_conexiones.en_uso as en_uso','inv_conexiones.ip_id as ip_id')
+                                    ->where('inv_puestos.nombre', 'LIKE', "%" . $this->search . "%")
+                                    ->orWhere('inv_puestos.descripcion', 'LIKE', "%" . $this->search . "%")
+                                    ->orderby($this->sort, $this->direction)
+                                    ->paginate($this->cant);
+            $this->open_busqueda = true;
+        } else {
+            $puestos = Puesto::leftjoin('inv_conexiones','inv_puestos.conexion_id','=','inv_conexiones.id')
+                                    ->select('inv_puestos.*','inv_conexiones.boca_patch as boca_patch',
+                                    'inv_conexiones.boca_switch as boca_switch','inv_conexiones.conectada_rack as conectada_rack',
+                                    'inv_conexiones.en_uso as en_uso','inv_conexiones.ip_id as ip_id')
+                                    ->where('inv_puestos.estado', $this->filtro)
+                                    ->orderby($this->sort, $this->direction)
+                                    ->paginate($this->cant);
+            $this->open_busqueda = false;
+        }
 
         return view('livewire.inventario.puestos.puestos-index', compact('puestos'));
     }

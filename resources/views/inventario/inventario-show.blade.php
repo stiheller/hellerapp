@@ -226,7 +226,10 @@
                                                         <h6><u>Disponible</u> <i class="fas fa-check" style="color:rgb(16, 14, 158)"></i></h6>
                                                         @break
                                                     @case(5)
-                                                        <h6><u>Mejorable</u> <i class="fas fa-bomb" style="color:rgb(179, 99, 8)"></i></h6>
+                                                        <h6><u>Act-Mejorable</u> <i class="fas fa-bomb" style="color:rgb(179, 99, 8)"></i></h6>
+                                                        @break
+                                                    @case(6)
+                                                        <h6><u>Act-ParaBaja</u> <i class="fas fa-bomb" style="color:rgb(179, 8, 22)"></i></h6>
                                                         @break
                                                     @default
                                                         <h6><u>Dado de Baja</u> <i class="fas fa-trash" style="color:red"></i></h6>

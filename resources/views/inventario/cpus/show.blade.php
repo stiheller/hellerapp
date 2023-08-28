@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Inventario CPU / Show')
+@section('title', 'Inv-CPU/Show')
 
 @section('content_header')
     <a class="btn btn-info float-right" href="{{ route('inventario.cpus.index') }}">Volver al Índice</a>
@@ -54,7 +54,10 @@
                                             <button type="button" class="btn btn-primary btn-block"><i class="fa fa-check"></i> Disponible</button>
                                             @break
                                         @case(5)
-                                            <button type="button" class="btn btn-warning btn-block"><i class="fa fa-check"></i> Mejorable</button>
+                                            <button type="button" class="btn btn-warning btn-block"><i class="fa fa-check"></i> Act-Mejorable</button>
+                                            @break
+                                        @case(6)
+                                            <button type="button" class="btn btn-danger btn-block"><i class="fa fa-check"></i> Act-ParaBaja</button>
                                             @break
                                         @default
                                             <button type="button" class="btn btn-danger btn-block"><i class="fa fa-trash"></i> Baja</button>

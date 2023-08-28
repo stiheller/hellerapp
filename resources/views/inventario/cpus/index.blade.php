@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Inventario / CPU')
+@section('title', 'Inventario - CPU')
 
 @section('content_header')
     <a class="btn btn-secondary float-right" href="{{ route('inventario.cpus.create') }}">Crear CPU</a>
@@ -16,6 +16,7 @@
 @stop
 
 @section('js')
+    <script src="//unpkg.com/alpinejs"></script>
     <script src="sweetalert2.all.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -24,7 +25,7 @@
         Swal.fire({
             position: 'top-end',
             icon: 'success',
-            title: 'Se Editó Correctamente El CPU.!',
+            title: 'Se Creó Correctamente El CPU.!',
             showConfirmButton: false,
             timer: 2000
         })

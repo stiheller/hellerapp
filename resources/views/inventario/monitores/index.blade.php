@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Inventario Monitores')
+@section('title', 'Inventario - Monitores')
 
 @section('content_header')
     <a class="btn btn-secondary float-right" href="{{ route('inventario.monitores.create') }}">Crear Monitor</a>
@@ -16,6 +16,7 @@
 @stop
 
 @section('js')
+    <script src="//unpkg.com/alpinejs"></script>
     <script src="sweetalert2.all.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
@@ -24,7 +25,7 @@
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
-                title: 'Se Eliminó Correctamente.!',
+                title: 'Se Creó Correctamente.!',
                 showConfirmButton: false,
                 timer: 2000
             })

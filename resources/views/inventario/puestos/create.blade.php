@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Inventario - Puestos / Create')
+@section('title', 'Inv-Puestos/Crear')
 
 @section('content_header')
     <a class="btn btn-info float-right" href="{{ route('inventario.puestos.index') }}">Volver al Índice</a>
@@ -20,16 +20,6 @@
             {!! Form::close() !!}
         </div>
     </div>
-    {{-- <div class="card">
-        <div class="card-body">
-            {!! Form::open(['route' => 'inventario.puestos.store']) !!}
-
-            @include('inventario.puestos.partials.form')
-
-            {!! Form::submit('Crear Puesto', ['class' => 'btn btn-primary']) !!}
-            {!! Form::close() !!}
-        </div>
-    </div> --}}
 @stop
 
 @section('css')

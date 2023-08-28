@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Inventario - Sectores - Edit')
+@section('title', 'Inv-Sectores/Editar')
 
 @section('content_header')
     <a class="btn btn-secondary float-right" href="{{ route('inventario.sectores.index') }}">Volver al Índice</a>

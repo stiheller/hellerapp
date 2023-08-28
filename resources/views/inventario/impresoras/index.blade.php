@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Inventario -Impresoras / Index')
+@section('title', 'Inventario - Impresoras')
 
 @section('content_header')
     <a class="btn btn-secondary float-right" href="{{ route('inventario.impresoras.create') }}">Crear Impresora</a>
@@ -16,6 +16,7 @@
 @stop
 
 @section('js')
+    <script src="//unpkg.com/alpinejs"></script>
     <script src="sweetalert2.all.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @if (session('create') == 'ok')

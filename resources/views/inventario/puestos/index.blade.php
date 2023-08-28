@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Inventario - Puestos / Index')
+@section('title', 'Inventario - Puestos')
 
 @section('content_header')
     <a class="btn btn-secondary float-right" href="{{ route('inventario.puestos.create') }}">Crear Puesto</a>
@@ -8,8 +8,7 @@
 @stop
 
 @section('content')
-{{-- <p>Acá está el problema</p> --}}
-    @livewire('inventario.puestos.puestos-index')
+        @livewire('inventario.puestos.puestos-index')
 @stop
 
 @section('css')
@@ -17,6 +16,7 @@
 @stop
 
 @section('js')
+    <script src="//unpkg.com/alpinejs"></script>
     <script src="sweetalert2.all.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
@@ -136,7 +136,7 @@
                 }
             })
         });
-    </script>
+    </script> 
     <script>
         console.log('Hi!');
     </script>

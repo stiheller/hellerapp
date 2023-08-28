@@ -35,7 +35,8 @@ class CpuController extends Controller
             '2' => 'En Reparación',
             '3' => 'Desaparecido',
             '4' => 'Disponible',
-            '5' => 'Mejorable',
+            '5' => 'Act-Mejorable',
+            '6' => 'Act-ParaBaja'
         ];
 
         
@@ -86,7 +87,8 @@ class CpuController extends Controller
     public function edit(Cpu $cpu)
     {
         $estados = [
-            '5' => 'Mejorable',
+            '6' => 'Act-ParaBaja',
+            '5' => 'Act-Mejorable',
             '4' => 'Disponible',
             '3' => 'Desaparecido',
             '2' => 'En Reparación',

@@ -16,6 +16,8 @@ class MonitoresIndex extends Component
     public $sort = 'id';
     public $direction = 'desc';
     public $cant = 5;
+    public $filtro = 9;
+    public $open_busqueda = true;
 
     public function updatingSearch()
     {
@@ -26,26 +28,32 @@ class MonitoresIndex extends Component
         $this->resetPage();
     }
 
+    public function updatingFiltro(){
+        $this->resetPage();
+    }
+
     public function render()
     {
-        $monitores = Monitor::leftjoin('inv_puestos','inv_monitores.equipamiento_id','=','inv_puestos.equipamiento_id')
-            ->select('inv_monitores.*','inv_puestos.nombre as nombre_puesto')
-            ->where('inv_monitores.id', 'LIKE', '%' . $this->search . '%')
-            ->orWhere('marca', 'LIKE', '%' . $this->search . '%')
-            ->orWhere('tamanio', 'LIKE', '%' . $this->search . '%')
-            ->orWhere('modelo', 'LIKE', '%' . $this->search . '%')
-            ->orWhere('serial', 'LIKE', '%' . $this->search . '%')
-            ->orWhere('inv_puestos.nombre','LIKE','%' . $this->search . '%')
-            ->orderby($this->sort, $this->direction)
-            ->paginate($this->cant);
-
-        /* $monitores = Monitor::where('id', 'LIKE', '%' . $this->search . '%')
-            ->orWhere('marca', 'LIKE', '%' . $this->search . '%')
-            ->orWhere('tamanio', 'LIKE', '%' . $this->search . '%')
-            ->orWhere('modelo', 'LIKE', '%' . $this->search . '%')
-            ->orWhere('serial', 'LIKE', '%' . $this->search . '%')
-            ->orderby($this->sort, $this->direction)
-            ->paginate($this->cant); */
+        if ($this->filtro == 9) {
+            $monitores = Monitor::leftjoin('inv_puestos','inv_monitores.equipamiento_id','=','inv_puestos.equipamiento_id')
+                        ->select('inv_monitores.*','inv_puestos.nombre as nombre_puesto')
+                        ->where('inv_monitores.id', 'LIKE', '%' . $this->search . '%')
+                        ->orWhere('marca', 'LIKE', '%' . $this->search . '%')
+                        ->orWhere('tamanio', 'LIKE', '%' . $this->search . '%')
+                        ->orWhere('modelo', 'LIKE', '%' . $this->search . '%')
+                        ->orWhere('serial', 'LIKE', '%' . $this->search . '%')
+                        ->orWhere('inv_puestos.nombre','LIKE','%' . $this->search . '%')
+                        ->orderby($this->sort, $this->direction)
+                        ->paginate($this->cant);
+            $this->open_busqueda = true;
+        } else {
+            $monitores = Monitor::leftjoin('inv_puestos','inv_monitores.equipamiento_id','=','inv_puestos.equipamiento_id')
+                        ->select('inv_monitores.*','inv_puestos.nombre as nombre_puesto')
+                        ->where('inv_monitores.estado', $this->filtro)
+                        ->orderby($this->sort, $this->direction)
+                        ->paginate($this->cant);
+            $this->open_busqueda = false;
+        }
 
         return view('livewire.inventario.monitores-index', compact('monitores'));
     }

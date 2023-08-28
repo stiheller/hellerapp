@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Inventario - Puestos / Show')
+@section('title', 'Inv-Puesto/Show')
 
 @section('content_header')
     <a class="btn btn-info float-right" href="{{ route('inventario.puestos.index') }}">Volver al Índice</a>
@@ -64,28 +64,6 @@
                                 <h5 class="text-danger">{{ $puesto->fecha_limpieza }}</h5>
                             </div>
                         </div>
-
-
-                        {{-- <h5><u> Descripción:</u></h5>
-                        @if ($puesto->descripcion != null)
-                            <p>{{ $puesto->descripcion }}</p>
-                        @else
-                            <p>Sin Detalle</p>
-                        @endif
-                        <h6><u>Estado:</u></h6>
-                        @if ($puesto->estado == 1)
-                            <p class="text-success">Activo</p>
-                        @else
-                            <p class="text-dark">No Activo</p>
-                        @endif
-                        <h6><u>Referencia (Ubicación):</u></h6>
-                        @if ($puesto->referencia_lugar != null)
-                            <p>{{ $puesto->referencia_lugar }}</p>
-                        @else
-                            <p class="text-danger"><em>Sin Detalle</em></p>
-                        @endif
-                        <h6><u>Fecha última limpieza:</u></h6>
-                        <p class="text-danger">{{ $puesto->fecha_limpieza }}</p> --}}
                     </div>
                     <div class="tab-pane fade" id="sector-desc" role="tabpanel" aria-labelledby="sector-desc-tab">
                         @if ($puesto->sector_id != null)
@@ -249,7 +227,10 @@
                                                         <h6><u>Disponible</u> <i class="fas fa-check" style="color:rgb(28, 25, 187)"></i></h6>
                                                         @break
                                                     @case(5)
-                                                        <h6><u>Mejorable</u> <i class="fas fa-bomb" style="color:rgb(179, 99, 8)"></i></h6>
+                                                        <h6><u>Act-Mejorable</u> <i class="fas fa-bomb" style="color:rgb(179, 99, 8)"></i></h6>
+                                                        @break
+                                                    @case(6)
+                                                        <h6><u>Act-ParaBaja</u> <i class="fas fa-bomb" style="color:rgb(179, 8, 22)"></i></h6>
                                                         @break
                                                     @default
                                                         <h6><u>Dado de Baja</u> <i class="fas fa-trash" style="color:red"></i></h6>
@@ -420,15 +401,7 @@
                             @else
                                 <p>No hay imágenes Asociadas al Puesto de Trabajo.</p>
                             @endif
-
-                            {{-- <p>No hay imágenes Asociadas al Puesto de Trabajo. Aún.!</p> --}}
                         </div>
-
-                        {{-- <div class="callout callout-info">
-                            <h5>Descripción:</h5>
-                            <p>{{$puesto->equipamiento->descripcion}}</p>
-                            <p>Fecha Actualización: {{$puesto->equipamiento->fecha_actualizacion}}</p>
-                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -437,7 +410,7 @@
 @stop
 
 @section('css')
-    {{-- <style>
+    <style>
         .image-wrapper{
             position: relative;
             padding-bottom: 56.25%;
@@ -448,7 +421,7 @@
             width: 100%;
             height: 100%;
         }
-    </style> --}}
+    </style>
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 

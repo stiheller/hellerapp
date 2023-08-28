@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Inventario - Impresoras / Edit')
+@section('title', 'Inv-Impresoras/Editar')
 
 @section('content_header')
     <a class="btn btn-info float-right" href="{{ route('inventario.impresoras.index') }}">Volver al Índice</a>

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Inventario Racks')
+@section('title', 'Inv-Racks/Editar')
 
 @section('content_header')
     <a class="btn btn-info float-right" href="{{ route('inventario.racks.index') }}"><i class="fas fa-undo"></i> Volver al Índice</a>

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Inventario - ADMIN')
+@section('title', 'Inventario - Sectores')
 
 @section('content_header')
     <a class="btn btn-secondary float-right" href="{{route('inventario.sectores.create')}}">Crear Sector</a>

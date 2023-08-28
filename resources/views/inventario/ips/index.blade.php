@@ -1,10 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', "Inventario IP's")
+@section('title', "Inventario - IP")
 
 @section('content_header')
     <a class="btn btn-secondary float-right" href="{{route('inventario.ips.create')}}">Crear Ip</a>
-    <h1>Listado de Ip's:</h1>
+    <h1>Listado de Ip:</h1>
 @stop
 
 @section('content')
@@ -16,6 +16,7 @@
 @stop
 
 @section('js')
+    <script src="//unpkg.com/alpinejs"></script>
     <script src="sweetalert2.all.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

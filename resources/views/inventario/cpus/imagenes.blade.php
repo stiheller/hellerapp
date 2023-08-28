@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Cpu Imágenes')
+@section('title', 'Inv-Cpu/Imágenes')
 
 @section('content_header')
     <a class="btn btn-info float-right" href="{{ route('inventario.cpus.index') }}"><i class="fas fa-undo"></i> Volver al Índice</a>

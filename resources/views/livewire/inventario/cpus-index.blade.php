@@ -1,7 +1,7 @@
 <div>
-    <div class="card-header">
+    <div class="card-header" x-data="{open_busqueda: @entangle('open_busqueda')}">
         <div class="row">
-            <div class="col-6 col-sm-5 col-md-4 input-group input-group-sm items-center">
+            <div class="col-4 col-sm-3 col-md-2 input-group input-group-sm items-center">
                 <span>Mostrar</span>
                 <select wire:model="cant" class="mx-2 form-control">
                     {{-- <option value="3">3</option> --}}
@@ -10,15 +10,30 @@
                     <option value="50">50</option>
                     <option value="100">100</option>
                 </select>
-                <span>entradas</span>
+                {{-- <span>entradas</span> --}}
             </div>
-            <div class="col input-group input-group-sm flex items-center" style="width: full;">
+            <div class="col input-group input-group-sm flex items-center" style="width: full;" x-show="open_busqueda">
                 <input wire:model="search" type="text" class="form-control" placeholder="Buscar">
                 <div class="input-group-append mr-2">
                     <button type="submit" class="btn btn-default">
                         <i class="fas fa-search"></i>
                     </button>
                 </div>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2  input-group input-group-sm items-center">
+                {{-- <span>Mostrar</span> --}}
+                <select wire:model="filtro" class="mx-2 form-control">
+                    <option value="9">Todos</option>
+                    <option value="1">Activos</option>
+                    <option value="0">Baja</option>
+                    <option value="2">En Reparación</option>
+                    <option value="3">Desaparecido</option>
+                    <option value="4">Disponible</option>
+                    <option value="5">Activo-Mejorable</option>
+                    <option value="6">Activo-ParaBaja</option>
+                    {{-- <option value="100">100</option> --}}
+                </select>
+                {{-- <span>entradas</span> --}}
             </div>
         </div>
     </div>
@@ -228,7 +243,10 @@
                                         <small class="text-bold text-primary">Disponible</small>
                                         @break
                                     @case(5)
-                                        <small class="text-bold text-warning">Mejorable</small>
+                                        <small class="text-bold text-info">Act-Mejorable</small>
+                                        @break
+                                    @case(6)
+                                        <small class="text-bold text-danger">Act-ParaBaja</small>
                                         @break
                                     @default
                                         <small class="text-bold text-danger">Baja</small>
@@ -260,11 +278,20 @@
             </table>
 
         </div>
-        @if ($cpus->hasPages())
-            <div class="card-footer">
-                {{ $cpus->links() }}
-            </div>
-        @endif
+        <div class="card-footer">
+            @if ($cpus->hasPages())
+                <div class="row">
+                    <div class="col">
+                        {{ $cpus->links() }}
+                    </div>
+                    <div class="col-1">
+                        <label class="float-right" for="">{{$cpus->total()}} items</label>
+                    </div>
+                </div>
+            @else
+                <label class="float-right" for="">{{$cpus->total()}} items</label>
+            @endif
+        </div>
     @else
         <div class="card-body">
             <strong>No hay ningún registro</strong>

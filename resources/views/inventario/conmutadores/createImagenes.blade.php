@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Switch Imágenes / Create')
+@section('title', 'Inv-Switch/Imagenes-Subir')
 
 @section('content_header')
     <a class="btn btn-info float-right" href="{{ route('inventario.conmutadores.index') }}"><i class="fas fa-undo"></i> Volver al Índice</a>

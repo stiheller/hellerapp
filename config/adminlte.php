@@ -372,7 +372,7 @@ return [
                 [
                     'text' => 'Racks',
                     'route'  => 'inventario.racks.index',/*  'admin.racks.index', */
-                    'active' => ['admin/racks*'],
+                    'active' => ['inventario/racks*'],
                     'icon' => 'fab fa-fw fa-buffer',
                     'icon_color' => 'cyan',
                     'can' => 'inventario.admin',
@@ -435,7 +435,7 @@ return [
                     'icon_color' => 'red',
                     'icon' => 'fas fa-fw fa-eye',
                     'route'        => 'inventario.ips.index',/*  'admin.ips.index', */
-                    'active' => ['admin/ips*'],
+                    'active' => ['inventario/ips*'],
                     'can' => 'inventario.admin',
                 ],
 

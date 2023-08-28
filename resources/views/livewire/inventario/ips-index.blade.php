@@ -2,7 +2,7 @@
 
     <div class="card-header">
         <div class="row">
-            <div class="col-6 col-sm-5 col-md-4 input-group input-group-sm items-center">
+            <div class="col-4 col-sm-3 col-md-2 input-group input-group-sm items-center">
                 <span>Mostrar</span>
                 <select wire:model="cant" class="mx-2 form-control">
                     {{-- <option value="3">3</option> --}}
@@ -11,7 +11,7 @@
                     <option value="50">50</option>
                     <option value="100">100</option>
                 </select>
-                <span>entradas</span>
+                {{-- <span>entradas</span> --}}
             </div>
             <div class="col input-group input-group-sm flex items-center" style="width: full;">
                 <input wire:model="search" type="text" class="form-control" placeholder="Buscar">
@@ -126,11 +126,20 @@
                 </tbody>
             </table>
         </div>
-        @if ($ips->hasPages())
-            <div class="card-footer">
-                {{$ips->links()}}
-            </div>
-        @endif
+        <div class="card-footer">
+            @if ($ips->hasPages())
+                <div class="row">
+                    <div class="col">
+                        {{ $ips->links() }}
+                    </div>
+                    <div class="col-1">
+                        <label class="float-right" for="">{{$ips->total()}} Registros</label>
+                    </div>
+                </div>
+            @else
+                <label class="float-right" for="">{{$ips->total()}} Registros</label>
+            @endif
+        </div>
     @else
         <div class="card-body">
             <strong>No hay ningún registro</strong>

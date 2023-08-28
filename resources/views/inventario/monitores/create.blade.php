@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Inventario Monitor / Create')
+@section('title', 'Inv-Monitor/Crear')
 
 @section('content_header')
     <a class="btn btn-info float-right" href="{{ route('inventario.monitores.index') }}">Volver al Índice</a>

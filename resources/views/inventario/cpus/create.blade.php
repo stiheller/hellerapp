@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Inventario CPU / Create')
+@section('title', 'Inventario-CPU/Crear')
 
 @section('content_header')
     <a class="btn btn-info float-right" href="{{ route('inventario.cpus.index') }}">Volver al Índice</a>

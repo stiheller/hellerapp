@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Monitor Imágenes')
+@section('title', 'Inv-Monitor/Imágenes')
 
 @section('content_header')
     <a class="btn btn-info float-right" href="{{ route('inventario.monitores.index') }}"><i class="fas fa-undo"></i> Volver al Índice</a>
