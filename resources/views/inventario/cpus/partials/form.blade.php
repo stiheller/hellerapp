@@ -59,15 +59,30 @@
             {!! Form::text('patrimonial', null, ['class' => 'form-control', 'placeholder' => '-']) !!}
         </div>
         <h5 class="text-bold">Disco</h5>
-        <div class="form-group">
-            {!! Form::label('disco_tec', 'Tecnología:') !!}
-            {!! Form::text('disco_tec', 'ssd', ['class' => 'form-control', 'placeholder' => 'SSD']) !!}
-        </div>
+
+        @isset ($cpu->disco_tec)
+            <div class="form-group">
+                {!! Form::label('disco_tec', 'Tecnología:') !!}
+                {!! Form::text('disco_tec', null, ['class' => 'form-control', 'placeholder' => 'SSD']) !!}
+            </div>
+        @else
+            <div class="form-group">
+                {!! Form::label('disco_tec', 'Tecnología:') !!}
+                {!! Form::text('disco_tec', 'ssd', ['class' => 'form-control', 'placeholder' => 'SSD']) !!}
+            </div>
+        @endisset
         
-        <div class="form-group">
-            {!! Form::label('disco_cap', 'Capacidad (GB):') !!}
-            {!! Form::number('disco_cap', 240, ['class' => 'form-control', 'placeholder' => 'Cantidad en GB (ej: 240)']) !!}
-        </div>
+        @isset ($cpu->disco_cap)
+            <div class="form-group">
+                {!! Form::label('disco_cap', 'Capacidad (GB):') !!}
+                {!! Form::number('disco_cap', null, ['class' => 'form-control', 'placeholder' => 'Cantidad en GB (ej: 240)']) !!}
+            </div>
+        @else
+            <div class="form-group">
+                {!! Form::label('disco_cap', 'Capacidad (GB):') !!}
+                {!! Form::number('disco_cap', 240, ['class' => 'form-control', 'placeholder' => 'Cantidad en GB (ej: 240)']) !!}
+            </div>
+        @endisset
     </div>
     
 </div>

@@ -39,6 +39,7 @@ class CpusIndex extends Component
                         ->where('macaddress', 'LIKE', "%" . $this->search . "%")
                         ->orWhere('inv_puestos.nombre', 'LIKE', "%" . $this->search . "%")
                         ->orWhere('inv_cpus.sistema_operativo', 'LIKE', "%" . $this->search . "%")
+                        ->orWhere('inv_cpus.procesador', 'LIKE', "%" . $this->search . "%")
                         ->orderby($this->sort, $this->direction)
                         ->paginate($this->cant);
             $this->open_busqueda = true;

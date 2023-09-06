@@ -7,14 +7,23 @@
             <span class="text-danger">{{$message}}</span>
         @enderror
     </div>
-    
-    <div class="col-12 col-md-4 form-group">
-        {!! Form::label('tamanio', 'Tamaño') !!}
-        {!! Form::text('tamanio', '19 Pulgadas', ['class' => 'form-control', 'placeholder' => 'Tamaño']) !!}
-        @error('tamanio')
-            <span class="text-danger">{{$message}}</span>
-        @enderror
-    </div>
+    @isset ($monitore->tamanio)
+        <div class="col-12 col-md-4 form-group">
+            {!! Form::label('tamanio', 'Tamaño') !!}
+            {!! Form::text('tamanio', null, ['class' => 'form-control', 'placeholder' => 'Tamaño']) !!}
+            @error('tamanio')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
+        </div>
+    @else
+        <div class="col-12 col-md-4 form-group">
+            {!! Form::label('tamanio', 'Tamaño') !!}
+            {!! Form::text('tamanio', '19 Pulgadas', ['class' => 'form-control', 'placeholder' => 'Tamaño']) !!}
+            @error('tamanio')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
+        </div>
+    @endisset
     
     <div class="col-12 col-md-4 form-group">
         {!! Form::label('modelo', 'Modelo:') !!}

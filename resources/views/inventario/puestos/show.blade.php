@@ -410,7 +410,7 @@
 @stop
 
 @section('css')
-    <style>
+    {{-- <style>
         .image-wrapper{
             position: relative;
             padding-bottom: 56.25%;
@@ -421,7 +421,7 @@
             width: 100%;
             height: 100%;
         }
-    </style>
+    </style> --}}
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
