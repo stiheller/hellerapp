@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use App\Models\Insumos\Insumo;
+
 
 class HomeController extends Controller
 {
@@ -22,7 +24,18 @@ class HomeController extends Controller
         $totalRoles = Role::count();
         $totalPermisos = Permission::count();
         $ip =  $request->ip();
-
+        //indicadores insumos
+        /*$stockCero = DB::table('stk_insumos')->where('stock', '=', '0')->count();
+        $stockUp = DB::table('stk_insumos')->where('stock', '>', '0')->count();
+        $ptoCritico = DB::table('stk_insumos')->whereRaw('stock < ptocritico')
+                                            ->groupBy('id') 
+                                            ->having(DB::raw('count(stock)'), '>', 0)
+                                            ->count();
+        $bloqueados  = DB::table('stk_insumos')->where('activo', '=', '0')->count();      */                              
+        $stockCero=0;
+        $stockUp = 0;
+        $ptoCritico =0;
+        $bloqueados=0;
         //usuarios en linea
         $query = "SELECT U.name,U.image, S.ip_address, S.last_activity
                   FROM sessions S
@@ -36,7 +49,8 @@ class HomeController extends Controller
         }else{
             if($user->activo == 1){
 
-                return view ('dash.index', compact('user','totalUsuarios','totalRoles','totalPermisos', 'enlinea', 'ip'));
+                return view ('dash.index', compact('user','totalUsuarios','totalRoles','totalPermisos', 
+                             'enlinea', 'ip', 'stockCero', 'ptoCritico', 'stockUp', 'bloqueados'));
             }else{
                 return view ('dash.usuariobloqueado', compact('user'));
             }

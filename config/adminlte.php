@@ -484,6 +484,30 @@ return [
 
         ],
         [
+            'text'    => 'Insumos',
+            'icon'    => 'fas fa-box fa-fw',
+            'label'       => 2,
+            'label_color' => 'success',
+            'active'    => ['insumos/*'],
+            'submenu' => [
+                
+                [
+                    'text' => 'Grupos',
+                    'route'  => 'insumos.grupos.index',
+                    'icon' => 'fas fa-boxes fa-fw',
+                    'can' => 'insumos.grupos.index' 
+                ],
+                [
+                    'text' => 'Insumos',
+                    'route'  => 'insumos.insumos.index',
+                    'icon' => 'fas fa-list fa-fw'
+                ]
+            
+
+            ]
+        ],
+
+        [
             'text'    => 'Reportes',
             'icon'    => 'fas fa-chart-bar fa-fw',
             'label'       => 2,

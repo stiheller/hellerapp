@@ -3,7 +3,7 @@ $(document).ready(function() {
 
     setTimeout(function() {
         $('#alert-session').fadeOut('fast');
-    }, 2000); // <-- time in milliseconds
+    }, 3000); // <-- time in milliseconds
 
 });
 
