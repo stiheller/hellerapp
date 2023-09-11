@@ -45,13 +45,15 @@
     {!! Form::date('fecha_limpieza', \Carbon\Carbon::now()) !!}
 </div>
 
-<div class="form-group">
-    {!! Form::label('sector_id', 'Sector') !!}
-    {!! Form::select('sector_id', $sectores, null, ['class' => 'form-control', 'placeholder' => 'Sin Asignar']) !!}
+<h5>Ubicación</h5>
+<div class="row">
+    <p class="font-weight-bold ml-3">Recordar... Rack o Sector, <span class="text-bold text-danger">No Ambos</span>. La opción de Sector, es para poder contemplar aquellos Switchs que no están en un Rack, y si en un sector ubicable</p>
+    <div class="col-6 form-group" x-show="open_rack">
+        {!! Form::label('rack_id', 'Rack') !!}
+        {!! Form::select('rack_id', $racks, null, ['class' => 'form-control', 'placeholder' => 'Sin Asignar']) !!}
+    </div>
+    <div class="col-6 form-group" x-show="open_sector">
+        {!! Form::label('sector_id', 'Sector') !!}
+        {!! Form::select('sector_id', $sectores, null, ['class' => 'form-control', 'placeholder' => 'Sin Asignar']) !!}
+    </div>
 </div>
-
-<div class="form-group">
-    {!! Form::label('rack_id', 'Rack') !!}
-    {!! Form::select('rack_id', $racks, null, ['class' => 'form-control', 'placeholder' => 'Sin Asignar']) !!}
-</div>
-
