@@ -1,12 +1,16 @@
-
-Copiar
-    app\Models\Personal
-    resources\views\personal
-    public\boostrap
+BD
+	stk_categorias
+	stk_insumos
+Carpetas
+    app\Models\Insumos
+	resources\views\insumos
+	app\Http\Controllers\Insumos
+    
 Archivos
-    .env
-    config\database.php
-    app\Http\Controllers\Personal\PersonalController.php
-    resources\views\homeintranet\index.blade.php
-    routes\web.php
-    public\js\onlynumber.js
+    app\Http\Controllers\Admin\HomeController.php
+	resources\views\homeintranet\index.blade.php
+	resources\views\dash\widget\widget_insumos.blade.php
+	routes\insumos.php
+	public\js\close_message_session.js
+	
+    

@@ -19,6 +19,10 @@
 </div>
 {{-- row --}}
 <div class="row">
+    @include('dash.widget.widget_insumos')
+</div>
+{{-- row --}}
+<div class="row">
 
     <div class="col-md-4">
         @include('dash.widget.widget_usuariosEnLinea')
@@ -50,6 +54,4 @@
 
     </div>
 </div>
-<div class="row">
 
-</div>

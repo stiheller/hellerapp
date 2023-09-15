@@ -78,7 +78,7 @@
     <!-- seguimiento -->
     <input type="hidden" value="{{csrf_token()}}" name="_token" id="token">
      <!-- ./seguimiento -->
-    <div class="ribbon">
+   <div class="ribbon">
         <a href="#">DESARROLLO</a>
     </div>
 
@@ -180,8 +180,8 @@
             </div>
         </nav>
 
-        <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
-            <div class="row py-5">
+        <div class="container-fluid bg-primary py-2 bg-header" style="margin-bottom: 90px;">
+            <div class="row py-2">
                 <div class="col-12 pt-lg-5 mt-lg-5 text-center">
                     <h1 class="display-4 text-white animated zoomIn m-0"><i class="fa fa-home fa-fw"></i>Intranet</h1>
                 </div>
@@ -211,12 +211,41 @@
         </div>
     </div>
     <!-- Full Screen Search End -->
+        <!-- alertas -->
+        @if (count($alertas) > 0)
+            <div class="container-fluid facts pt-lg-0">
+                <div class="container py-5 pt-lg-0">
+                    <div class="row gx-0">
+                        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                            <h5 class="fw-bold text-primary text-uppercase">Notificaciones Importantes</h5>
+                            <!--<h1 class="mb-0">Professional Stuffs Ready to Help Your Business</h1>-->
+                        </div>
 
+                        <div class="alert alert-danger" role="alert">
+                            @foreach ($alertas as $item)
+                            <p><strong>Atención !!!</strong> El día <strong>{{  \Carbon\Carbon::parse($item->dia)->format('d/m/Y')}} </strong> a las <strong> {{ $item->hora}} </strong>  {{ $item->alerta}}</strong></p>
+                                @if (!$loop->last)
+                                    <hr>
+                                @endif
+                            @endforeach
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+        <!-- ./alertas -->
+        <br>
         <!-- Facts Start -->
 
         <div class="container-fluid facts pt-lg-0">
             <div class="container py-5 pt-lg-0">
+                <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                            <h5 class="fw-bold text-primary text-uppercase">CLAVES WIFI</h5>
+                            <!--<h1 class="mb-0">Professional Stuffs Ready to Help Your Business</h1>-->
+                </div>
                 <div class="row gx-0">
+                    
                     <div class="col-lg-6 wow zoomIn" data-wow-delay="0.1s">
                         <div class="bg-primary shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
                             <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
@@ -244,27 +273,8 @@
             </div>
         </div>
         <!-- Facts Start -->
-        <
-        <!-- alertas -->
-        @if (count($alertas) > 0)
-            <div class="container-fluid facts pt-lg-5">
-                <div class="container py-5 pt-lg-0">
-                    <div class="row gx-0">
-                        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-                            <h5 class="fw-bold text-primary text-uppercase">Notificaciones Importantes</h5>
-                            <!--<h1 class="mb-0">Professional Stuffs Ready to Help Your Business</h1>-->
-                        </div>
+        
 
-                        <div class="alert alert-danger" role="alert">
-                            @foreach ($alertas as $item)
-                            <p><strong>Atención !!!</strong> El día <strong>{{  \Carbon\Carbon::parse($item->dia)->format('d/m/Y')}} </strong> a las <strong> {{ $item->hora}} </strong> se realizará <strong> {{ $item->alerta}}</strong></p>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endif
-        <!-- ./alertas -->
       <!-- Team Start -->
       <div class="container-fluid wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
@@ -347,7 +357,7 @@
                         </div>
                         <div class="text-center py-3">
                             <h4 class="text-primary">GDE</h4>
-                            <p class="text-lowercase m-0"><strong> Gestión Documental Electrónica</strong></p>
+                            <p class="text-lowercase m-0">Gestión Documental Electrónica</p>
                         </div>
                     </div>
                 </div>
@@ -380,7 +390,7 @@
                         </div>
                         <div class="text-center py-3">
                             <h4 class="text-primary">INTERNOS</h4>
-                            <p class="text-lowercase m-0"><strong>Internos de la institución</strong></p>
+                            <p class="text-lowercase m-0">Internos de la institución</p>
                         </div>
                     </div>
                 </div>
@@ -396,7 +406,7 @@
                         </div>
                         <div class="text-center py-3">
                             <h4 class="text-primary">CENTREX</h4>
-                            <p class="text-lowercase m-0"><strong>Centrex asignados</strong></p>
+                            <p class="text-lowercase m-0">Centrex asignados</p>
                         </div>
                     </div>
                 </div>
@@ -412,7 +422,7 @@
                         </div>
                         <div class="text-center py-3">
                             <h4 class="text-primary">ONE LOGIN</h4>
-                            <p class="text-lowercase m-0"><strong>One Login</strong></p>
+                            <p class="text-lowercase m-0">One Login</p>
                         </div>
                     </div>
                 </div>
@@ -428,8 +438,25 @@
                             </div>
                         </div>
                         <div class="text-center py-3">
-                            <h4 class="text-primary">PEDIDO COMINDA</h4>
-                            <p class="text-lowercase m-0"><strong>Pac. Internado</strong></p>
+                            <h4 class="text-primary">Pedido Comida</h4>
+                            <p class="text-lowercase m-0">Pac. Internado</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- solicitud Trasaldo Progamado -->
+                <div class="col-lg-2 wow slideInUp" data-wow-delay="0.9s">
+                    <div class="team-item bg-light rounded overflow-hidden">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="homeintranet/img/ambulancia.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded seguimientoclick" data-id="29" href="https://docs.google.com/forms/d/e/1FAIpQLScolQUrW6fKyvxqCCagRKo8ErReYdXBGVsgcYStdhAy5W84ew/viewform?usp=sf_link" target="_blank"><i class="fa fa-arrow-right"></i></a>
+
+                            </div>
+                        </div>
+                        <div class="text-center py-3">
+                            <h5 class="text-primary">Sol. Traslado Programado</h5>
+                            <p class="text-lowercase m-0">Solicitud traslado</p>
                         </div>
                     </div>
                 </div>
