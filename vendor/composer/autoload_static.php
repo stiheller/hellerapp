@@ -42,6 +42,7 @@ class ComposerStaticInitc35c066ba903a0ad5701737fc1e78f47
         '377b22b161c09ed6e5152de788ca020a' => __DIR__ . '/..' . '/spatie/laravel-permission/src/helpers.php',
         '0b47d6d4a00ca9112ba3953b49e7c9a4' => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src/helper.php',
         '7249814ebb982a121e884e80c27694e3' => __DIR__ . '/../..' . '/app/helpers/helperLogs.php',
+        'ed5983a266633d172c6bce1e756d8c9f' => __DIR__ . '/../..' . '/app/helpers/helperInsumos.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -110,6 +111,7 @@ class ComposerStaticInitc35c066ba903a0ad5701737fc1e78f47
             'Psr\\Http\\Client\\' => 16,
             'Psr\\EventDispatcher\\' => 20,
             'Psr\\Container\\' => 14,
+            'Psr\\Clock\\' => 10,
             'PragmaRX\\Google2FA\\' => 19,
             'PhpParser\\' => 10,
             'PhpOption\\' => 10,
@@ -388,6 +390,10 @@ class ComposerStaticInitc35c066ba903a0ad5701737fc1e78f47
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'Psr\\Clock\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/clock/src',
         ),
         'PragmaRX\\Google2FA\\' => 
         array (
@@ -704,6 +710,10 @@ class ComposerStaticInitc35c066ba903a0ad5701737fc1e78f47
         'App\\Models\\Homeintranet\\SeguimientoClick' => __DIR__ . '/../..' . '/app/Models/Homeintranet/SeguimientoClick.php',
         'App\\Models\\Insumos\\Grupo' => __DIR__ . '/../..' . '/app/Models/Insumos/Grupo.php',
         'App\\Models\\Insumos\\Insumo' => __DIR__ . '/../..' . '/app/Models/Insumos/Insumo.php',
+        'App\\Models\\Insumos\\StkOperacionDetalle' => __DIR__ . '/../..' . '/app/Models/Insumos/StkOperacionDetalle.php',
+        'App\\Models\\Insumos\\StkOperacionEstado' => __DIR__ . '/../..' . '/app/Models/Insumos/StkOperacionEstado.php',
+        'App\\Models\\Insumos\\StkOperacionRotulo' => __DIR__ . '/../..' . '/app/Models/Insumos/StkOperacionRotulo.php',
+        'App\\Models\\Insumos\\StkOperacionTipo' => __DIR__ . '/../..' . '/app/Models/Insumos/StkOperacionTipo.php',
         'App\\Models\\Intranet\\Usuario' => __DIR__ . '/../..' . '/app/Models/Intranet/Usuario.php',
         'App\\Models\\Inventario\\Conexion' => __DIR__ . '/../..' . '/app/Models/Inventario/Conexion.php',
         'App\\Models\\Inventario\\Conmutador' => __DIR__ . '/../..' . '/app/Models/Inventario/Conmutador.php',
@@ -3177,6 +3187,7 @@ class ComposerStaticInitc35c066ba903a0ad5701737fc1e78f47
         'JeroenNoten\\LaravelAdminLte\\View\\Components\\Widget\\SmallBox' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/View/Components/Widget/SmallBox.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
         'Laravel\\Fortify\\Actions\\AttemptToAuthenticate' => __DIR__ . '/..' . '/laravel/fortify/src/Actions/AttemptToAuthenticate.php',
+        'Laravel\\Fortify\\Actions\\CanonicalizeUsername' => __DIR__ . '/..' . '/laravel/fortify/src/Actions/CanonicalizeUsername.php',
         'Laravel\\Fortify\\Actions\\CompletePasswordReset' => __DIR__ . '/..' . '/laravel/fortify/src/Actions/CompletePasswordReset.php',
         'Laravel\\Fortify\\Actions\\ConfirmPassword' => __DIR__ . '/..' . '/laravel/fortify/src/Actions/ConfirmPassword.php',
         'Laravel\\Fortify\\Actions\\ConfirmTwoFactorAuthentication' => __DIR__ . '/..' . '/laravel/fortify/src/Actions/ConfirmTwoFactorAuthentication.php',
@@ -3188,6 +3199,7 @@ class ComposerStaticInitc35c066ba903a0ad5701737fc1e78f47
         'Laravel\\Fortify\\Actions\\RedirectIfTwoFactorAuthenticatable' => __DIR__ . '/..' . '/laravel/fortify/src/Actions/RedirectIfTwoFactorAuthenticatable.php',
         'Laravel\\Fortify\\Contracts\\ConfirmPasswordViewResponse' => __DIR__ . '/..' . '/laravel/fortify/src/Contracts/ConfirmPasswordViewResponse.php',
         'Laravel\\Fortify\\Contracts\\CreatesNewUsers' => __DIR__ . '/..' . '/laravel/fortify/src/Contracts/CreatesNewUsers.php',
+        'Laravel\\Fortify\\Contracts\\EmailVerificationNotificationSentResponse' => __DIR__ . '/..' . '/laravel/fortify/src/Contracts/EmailVerificationNotificationSentResponse.php',
         'Laravel\\Fortify\\Contracts\\FailedPasswordConfirmationResponse' => __DIR__ . '/..' . '/laravel/fortify/src/Contracts/FailedPasswordConfirmationResponse.php',
         'Laravel\\Fortify\\Contracts\\FailedPasswordResetLinkRequestResponse' => __DIR__ . '/..' . '/laravel/fortify/src/Contracts/FailedPasswordResetLinkRequestResponse.php',
         'Laravel\\Fortify\\Contracts\\FailedPasswordResetResponse' => __DIR__ . '/..' . '/laravel/fortify/src/Contracts/FailedPasswordResetResponse.php',
@@ -3247,6 +3259,7 @@ class ComposerStaticInitc35c066ba903a0ad5701737fc1e78f47
         'Laravel\\Fortify\\Http\\Requests\\LoginRequest' => __DIR__ . '/..' . '/laravel/fortify/src/Http/Requests/LoginRequest.php',
         'Laravel\\Fortify\\Http\\Requests\\TwoFactorLoginRequest' => __DIR__ . '/..' . '/laravel/fortify/src/Http/Requests/TwoFactorLoginRequest.php',
         'Laravel\\Fortify\\Http\\Requests\\VerifyEmailRequest' => __DIR__ . '/..' . '/laravel/fortify/src/Http/Requests/VerifyEmailRequest.php',
+        'Laravel\\Fortify\\Http\\Responses\\EmailVerificationNotificationSentResponse' => __DIR__ . '/..' . '/laravel/fortify/src/Http/Responses/EmailVerificationNotificationSentResponse.php',
         'Laravel\\Fortify\\Http\\Responses\\FailedPasswordConfirmationResponse' => __DIR__ . '/..' . '/laravel/fortify/src/Http/Responses/FailedPasswordConfirmationResponse.php',
         'Laravel\\Fortify\\Http\\Responses\\FailedPasswordResetLinkRequestResponse' => __DIR__ . '/..' . '/laravel/fortify/src/Http/Responses/FailedPasswordResetLinkRequestResponse.php',
         'Laravel\\Fortify\\Http\\Responses\\FailedPasswordResetResponse' => __DIR__ . '/..' . '/laravel/fortify/src/Http/Responses/FailedPasswordResetResponse.php',
@@ -3736,6 +3749,7 @@ class ComposerStaticInitc35c066ba903a0ad5701737fc1e78f47
         'League\\Flysystem\\Util\\MimeType' => __DIR__ . '/..' . '/league/flysystem/src/Util/MimeType.php',
         'League\\Flysystem\\Util\\StreamHasher' => __DIR__ . '/..' . '/league/flysystem/src/Util/StreamHasher.php',
         'League\\MimeTypeDetection\\EmptyExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/EmptyExtensionToMimeTypeMap.php',
+        'League\\MimeTypeDetection\\ExtensionLookup' => __DIR__ . '/..' . '/league/mime-type-detection/src/ExtensionLookup.php',
         'League\\MimeTypeDetection\\ExtensionMimeTypeDetector' => __DIR__ . '/..' . '/league/mime-type-detection/src/ExtensionMimeTypeDetector.php',
         'League\\MimeTypeDetection\\ExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/ExtensionToMimeTypeMap.php',
         'League\\MimeTypeDetection\\FinfoMimeTypeDetector' => __DIR__ . '/..' . '/league/mime-type-detection/src/FinfoMimeTypeDetector.php',
@@ -4108,6 +4122,7 @@ class ComposerStaticInitc35c066ba903a0ad5701737fc1e78f47
         'Nette\\Utils\\IHtmlString' => __DIR__ . '/..' . '/nette/utils/src/compatibility.php',
         'Nette\\Utils\\Image' => __DIR__ . '/..' . '/nette/utils/src/Utils/Image.php',
         'Nette\\Utils\\ImageException' => __DIR__ . '/..' . '/nette/utils/src/Utils/exceptions.php',
+        'Nette\\Utils\\ImageType' => __DIR__ . '/..' . '/nette/utils/src/Utils/ImageType.php',
         'Nette\\Utils\\Json' => __DIR__ . '/..' . '/nette/utils/src/Utils/Json.php',
         'Nette\\Utils\\JsonException' => __DIR__ . '/..' . '/nette/utils/src/Utils/exceptions.php',
         'Nette\\Utils\\ObjectHelpers' => __DIR__ . '/..' . '/nette/utils/src/Utils/ObjectHelpers.php',
@@ -4212,6 +4227,7 @@ class ComposerStaticInitc35c066ba903a0ad5701737fc1e78f47
         'PHPUnit\\Framework\\Constraint\\LogicalXor' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Constraint/Operator/LogicalXor.php',
         'PHPUnit\\Framework\\Constraint\\ObjectEquals' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Constraint/Object/ObjectEquals.php',
         'PHPUnit\\Framework\\Constraint\\ObjectHasAttribute' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Constraint/Object/ObjectHasAttribute.php',
+        'PHPUnit\\Framework\\Constraint\\ObjectHasProperty' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Constraint/Object/ObjectHasProperty.php',
         'PHPUnit\\Framework\\Constraint\\Operator' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Constraint/Operator/Operator.php',
         'PHPUnit\\Framework\\Constraint\\RegularExpression' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Constraint/String/RegularExpression.php',
         'PHPUnit\\Framework\\Constraint\\SameSize' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Constraint/Cardinality/SameSize.php',
@@ -4860,6 +4876,7 @@ class ComposerStaticInitc35c066ba903a0ad5701737fc1e78f47
         'PragmaRX\\Google2FA\\Support\\Base32' => __DIR__ . '/..' . '/pragmarx/google2fa/src/Support/Base32.php',
         'PragmaRX\\Google2FA\\Support\\Constants' => __DIR__ . '/..' . '/pragmarx/google2fa/src/Support/Constants.php',
         'PragmaRX\\Google2FA\\Support\\QRCode' => __DIR__ . '/..' . '/pragmarx/google2fa/src/Support/QRCode.php',
+        'Psr\\Clock\\ClockInterface' => __DIR__ . '/..' . '/psr/clock/src/ClockInterface.php',
         'Psr\\Container\\ContainerExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerExceptionInterface.php',
         'Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
         'Psr\\Container\\NotFoundExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/NotFoundExceptionInterface.php',

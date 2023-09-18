@@ -41,4 +41,5 @@ return array(
     '377b22b161c09ed6e5152de788ca020a' => $vendorDir . '/spatie/laravel-permission/src/helpers.php',
     '0b47d6d4a00ca9112ba3953b49e7c9a4' => $vendorDir . '/yajra/laravel-datatables-oracle/src/helper.php',
     '7249814ebb982a121e884e80c27694e3' => $baseDir . '/app/helpers/helperLogs.php',
+    'ed5983a266633d172c6bce1e756d8c9f' => $baseDir . '/app/helpers/helperInsumos.php',
 );

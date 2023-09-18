@@ -1,3 +1,4 @@
 pingrequire('./bootstrap');
 
 require('alpinejs');
+

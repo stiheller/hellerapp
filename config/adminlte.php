@@ -428,9 +428,9 @@ return [
             ],
         ],
         [
-            'text'    => 'Insumos',
-            'icon'    => 'fas fa-box fa-fw',
-            'label'       => 5,
+            'text'    => 'Depositos',
+            'icon'    => 'fas fa-warehouse fa-fw',
+            'label'       => 6,
             'label_color' => 'success',
             'active'    => ['insumos/*'],
             'submenu' => [
@@ -447,9 +447,14 @@ return [
                     'icon' => 'fas fa-list fa-fw'
                 ],
                 [
+                    'text' => 'Inventario',
+                    'route'  => 'inngresoDC',
+                    'icon' => 'fas fa-shapes fa-fw'
+                ],
+                [
                     'text' => 'Recepcion del DC',
-                    'url'  => '#',
-                    'icon' => 'fas fa-warehouse fa-fw'
+                    'route'  => 'inngresoDC',
+                    'icon' => 'fas fa-truck fa-fw'
                 ],
                 [
                     'text' => 'Pedido al Deposito',
